@@ -1,14 +1,19 @@
-# Your Project Name
+# AI Diet Coach Agent
 
-A starter template for the AI Engineering Buildcamp capstone. Replace this README with a description of your own project.
+A personalized AI diet coach that interviews you, builds a weekly meal plan, and adapts it when life gets in the way.
 
 ## The Problem
 
-Describe the problem your project solves and who has it. One or two sentences.
+People trying to lose weight struggle to stay consistent — generic meal plans don't account for a busy schedule, local restaurant options, or dietary restrictions, so they get abandoned fast.
 
 ## What It Does
 
-Describe what the AI system does and a typical interaction. What does the user provide? What does the system return?
+The agent interviews the user to collect their current weight, target weight, deadline, dietary restrictions, daily schedule, and location. It then generates a personalized weekly meal plan: recipes for days they have time to cook, and nearby restaurant suggestions for busy days. When plans change — a late meeting, a trip, a craving — the agent re-plans automatically.
+
+Typical interaction:
+1. The user answers a short set of questions (weight, goal, timeline, restrictions, schedule, city).
+2. The agent produces a 7-day meal plan with recipes and calorie estimates for cook-at-home days, and ranked restaurant suggestions (filtered by dietary needs) for busy days.
+3. If the user reports a change ("I can't cook Wednesday"), the agent revises just that day and updates the plan.
 
 ## Setup
 
