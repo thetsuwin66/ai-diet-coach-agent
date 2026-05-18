@@ -1,0 +1,19 @@
+{
+  "trace_id": "e554c712-b6e0-4833-97a5-7fa86f6fe9eb",
+  "session_id": "33e4a03b-6013-46ab-bccf-fafc2c5a70a3",
+  "timestamp": "2026-05-18T02:01:43.351991+00:00",
+  "question": "I want to lose weight, what should I eat for dinner?",
+  "tool_calls": [
+    {
+      "name": "search_recipes",
+      "arguments": {
+        "query": "low calorie dinner"
+      }
+    }
+  ],
+  "answer": "Here are some healthy dinner options to consider that can support your weight loss goals:\n\n### 1. Salmon Noodle Wraps\n- **Category:** Seafood\n- **Cooking Time:** 22 minutes\n- **Key Ingredients:** Rice noodles, Salmon, Spring onions, Lime, Coriander\n- **Why it fits:** This dish is packed with protein from salmon and is low in calories, making it a nutritious and filling choice.\n\n### 2. Honey Teriyaki Salmon\n- **Category:** Seafood\n- **Cooking Time:** 20 minutes\n- **Key Ingredients:** Salmon, Olive oil, Soy sauce, Sake, Sesame seeds\n- **Why it fits:** Salmon is a lean protein rich in omega-3 fatty acids, and this dish is flavorful yet low in calories.\n\n### 3. Fettuccine Alfredo (Quick Version)\n- **Category:** Pasta\n- **Cooking Time:** 4 minutes\n- **Key Ingredients:** Clotted cream, Parmesan cheese, Fettuccine\n- **Why it fits:** Although higher in calories, this quick pasta option can satisfy your cravings with smaller portions.\n\nIf you need more details or recipes, feel free to ask!",
+  "input_tokens": 2655,
+  "output_tokens": 262,
+  "duration_seconds": 7.97,
+  "feedback": null
+}
