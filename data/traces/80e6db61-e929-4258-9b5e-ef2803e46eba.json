@@ -1,0 +1,19 @@
+{
+  "trace_id": "80e6db61-e929-4258-9b5e-ef2803e46eba",
+  "session_id": "92ae1633-9ae1-4300-a076-f3277c46bd11",
+  "timestamp": "2026-05-18T01:57:04.700148+00:00",
+  "question": "I want a high-protein dinner to help me lose weight.",
+  "tool_calls": [
+    {
+      "name": "search_recipes",
+      "arguments": {
+        "query": "high-protein dinner"
+      }
+    }
+  ],
+  "answer": "Here are some high-protein dinner options to support your weight-loss goals:\n\n1. **Beef and Broccoli Stir-Fry**\n   - **Category:** Beef\n   - **Cooking Time:** 14 minutes\n   - **Key Ingredients:** Sirloin steak, broccoli, garlic, soy sauce\n   - **Why It Fits:** This dish is high in protein from the sirloin steak and low in carbs, making it great for weight loss.\n\n2. **Salmon Noodle Wraps**\n   - **Category:** Seafood\n   - **Cooking Time:** 22 minutes\n   - **Key Ingredients:** Salmon, rice noodles, spring onions, coriander\n   - **Why It Fits:** Rich in omega-3 fatty acids, this salmon dish also provides good protein while keeping calories in check.\n\n3. **Stir-Fried Chicken with Chillies & Basil**\n   - **Category:** Chicken\n   - **Cooking Time:** 23 minutes\n   - **Key Ingredients:** Chicken, garlic, chillies, basil\n   - **Why It Fits:** Lean chicken is an excellent source of protein, and the flavors from the chillies and basil make it delicious and exciting.\n\n4. **Tofu, Greens & Cashew Stir-Fry**\n   - **Category:** Vegetarian\n   - **Cooking Time:** 9 minutes\n   - **Key Ingredients:** Tofu, broccoli, cashew nuts, pak choi\n   - **Why It Fits:** A great plant-based protein option, this dish is both nutritious and quick to prepare.\n\nFeel free to ask if you'd like the full recipes for any of these dishes!",
+  "input_tokens": 2725,
+  "output_tokens": 350,
+  "duration_seconds": 16.4,
+  "feedback": 1
+}

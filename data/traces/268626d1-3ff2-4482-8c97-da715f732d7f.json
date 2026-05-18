@@ -1,0 +1,31 @@
+{
+  "trace_id": "268626d1-3ff2-4482-8c97-da715f732d7f",
+  "session_id": "4bc20425-4286-48b8-8548-99fbc3bcae7f",
+  "timestamp": "2026-05-18T01:58:01.327940+00:00",
+  "question": "What seafood recipes do you have that are quick?",
+  "tool_calls": [
+    {
+      "name": "filter_by_category",
+      "arguments": {
+        "category": "Seafood"
+      }
+    },
+    {
+      "name": "filter_by_max_cook_time",
+      "arguments": {
+        "max_minutes": 30
+      }
+    },
+    {
+      "name": "filter_by_max_cook_time",
+      "arguments": {
+        "max_minutes": 15
+      }
+    }
+  ],
+  "answer": "Here are some quick seafood recipes you can try:\n\n1. **Cajun Spiced Fish Tacos**\n   - **Category:** Seafood\n   - **Cooking Time:** 10 minutes\n   - **Key Ingredients:** White fish fillets, tortillas, avocado\n   - **Why it fits your goal:** These tacos are flavorful and made with lean fish, making them a quick and healthy option.\n\n2. **Clam, Chorizo & White Bean Stew**\n   - **Category:** Seafood\n   - **Cooking Time:** 20 minutes\n   - **Key Ingredients:** Clams, chorizo, white beans\n   - **Why it fits your goal:** This hearty stew combines lean protein from clams and beans, providing a satisfying and nutritious meal.\n\n3. **Kung Po Prawns**\n   - **Category:** Seafood\n   - **Cooking Time:** 14 minutes\n   - **Key Ingredients:** Prawns, peanuts, garlic\n   - **Why it fits your goal:** This stir-fry dish is quick to prepare and packed with protein, making it ideal for a light yet filling meal.\n\n4. **Chili Prawn Linguine**\n   - **Category:** Seafood\n   - **Cooking Time:** 6 minutes\n   - **Key Ingredients:** King prawns, linguine, cherry tomatoes\n   - **Why it fits your goal:** This dish is quick to prepare and boasts a good balance of carbs and lean protein, perfect for a light meal.\n\nIf you want the full details on any of these recipes, just let me know!",
+  "input_tokens": 15868,
+  "output_tokens": 396,
+  "duration_seconds": 10.49,
+  "feedback": null
+}

@@ -1,0 +1,19 @@
+{
+  "trace_id": "2c7173a4-cc81-406e-a39f-a50c0257ba72",
+  "session_id": "7123021f-44ff-4e73-85fc-7d3b25e437b0",
+  "timestamp": "2026-05-18T01:58:12.221722+00:00",
+  "question": "Give me the full recipe for prawn stir-fry.",
+  "tool_calls": [
+    {
+      "name": "get_recipe_details",
+      "arguments": {
+        "name": "prawn stir-fry"
+      }
+    }
+  ],
+  "answer": "Here's the full recipe for **Prawn Stir-Fry**:\n\n### Prawn Stir-Fry\n- **Category:** Seafood\n- **Cuisine:** Thai\n- **Cooking Time:** 4 minutes\n\n#### Ingredients:\n- 200g Raw tiger prawns\n- 1 Chopped green chilli\n- 3 Cloves crushed garlic\n- 1 bunch coriander\n- 1 tablespoon caster sugar\n- Juice of 1 lime\n- 3 tablespoons fish sauce\n- 2 tablespoons groundnut oil\n- 3cm piece ginger\n- 8 slices spring onions\n- 1 sliced red pepper\n- 85g water chestnuts\n- 100g bean sprouts\n- 1 tablespoon soy sauce\n- To serve: Rice noodles and lime\n\n#### Instructions:\n1. **Marinate the Prawns:** In a bowl, mix the prawns with chopped chilli, garlic, coriander stalks, and caster sugar using a spice grinder or food processor. Add half of the lime juice and fish sauce, pour over the prawns, and let marinate.\n   \n2. **Stir-fry the Vegetables:** Heat 1 tbsp of oil in a wok. Add ginger and spring onions; fry for 1 minute. Add red pepper and fry for another minute until softened. Toss in water chestnuts and bean sprouts, cooking until the bean sprouts wilt. Add soy sauce and a grind of black pepper, then transfer to a serving dish.\n\n3. **Cook the Prawns:** In the same wok, heat remaining oil and add prawns (drained from marinade). Toss for 1-2 minutes until they turn pink, then add the marinade and stir quickly. Pour over the vegetable mixture, snip over coriander leaves, and sprinkle with lime juice. Serve over rice noodles with extra lime for squeezing.\n\nEnjoy your quick and flavorful prawn stir-fry!",
+  "input_tokens": 1630,
+  "output_tokens": 405,
+  "duration_seconds": 10.89,
+  "feedback": 1
+}

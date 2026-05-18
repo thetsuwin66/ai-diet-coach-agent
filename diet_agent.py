@@ -21,6 +21,8 @@ class ToolCall:
 class AgentResult:
     answer: str
     tool_calls: list = field(default_factory=list)
+    input_tokens: int = 0
+    output_tokens: int = 0
 
 
 def _load_documents():
@@ -225,6 +227,8 @@ def run_agent(user_question: str, model: str = "gpt-4o-mini") -> AgentResult:
 
     all_tool_calls: list[ToolCall] = []
     final_answer = None
+    total_input_tokens = 0
+    total_output_tokens = 0
 
     while True:
         response = openai_client.responses.create(
@@ -232,6 +236,10 @@ def run_agent(user_question: str, model: str = "gpt-4o-mini") -> AgentResult:
             input=message_history,
             tools=TOOLS,
         )
+
+        if response.usage:
+            total_input_tokens += response.usage.input_tokens
+            total_output_tokens += response.usage.output_tokens
 
         message_history.extend(response.output)
         has_tool_calls = False
@@ -248,4 +256,9 @@ def run_agent(user_question: str, model: str = "gpt-4o-mini") -> AgentResult:
         if not has_tool_calls:
             break
 
-    return AgentResult(answer=final_answer or "", tool_calls=all_tool_calls)
+    return AgentResult(
+        answer=final_answer or "",
+        tool_calls=all_tool_calls,
+        input_tokens=total_input_tokens,
+        output_tokens=total_output_tokens,
+    )

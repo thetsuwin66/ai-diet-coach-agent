@@ -1,0 +1,19 @@
+{
+  "trace_id": "b436d03a-367e-4aab-9f8a-8dc943b0fe78",
+  "session_id": "97943a49-ade3-4852-a4a0-672c6d60ab5f",
+  "timestamp": "2026-05-18T01:57:39.331121+00:00",
+  "question": "How do I make a beef stir-fry? Give me full instructions.",
+  "tool_calls": [
+    {
+      "name": "get_recipe_details",
+      "arguments": {
+        "name": "beef stir-fry"
+      }
+    }
+  ],
+  "answer": "Here's a simple recipe for **Thai Beef Stir-Fry**:\n\n### Ingredients\n- 2 tbsp Vegetable Oil\n- 400g Beef (sliced)\n- 1 sliced Red Chilli\n- 2 tbsp Oyster Sauce\n- Handful of Basil Leaves\n\n### Instructions\n1. **Heat the Wok:** Preheat a wok or large frying pan until it's smoking hot.\n2. **Add Oil & Beef:** Pour in the vegetable oil and swirl it around the pan. Add the beef strips and sliced red chilli.\n3. **Cook the Beef:** Stir continuously until the beef is lightly browned, about 3 minutes.\n4. **Add Sauce:** Pour over the oyster sauce and continue cooking until everything is heated through and the sauce coats the meat.\n5. **Finish with Basil:** Stir in the basil leaves and serve hot with plain rice.\n\n### Preparation Time\n- **Total Cooking Time:** About 3 minutes\n\nThis dish is quick to make and packed with flavor from the chilli and basil! Enjoy your cooking!",
+  "input_tokens": 1403,
+  "output_tokens": 230,
+  "duration_seconds": 8.08,
+  "feedback": 1
+}

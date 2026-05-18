@@ -1,0 +1,12 @@
+{
+  "trace_id": "02de224f-f5bc-40f0-85df-9788db268ee2",
+  "session_id": "d94f0980-030d-4188-b4c2-308878567c90",
+  "timestamp": "2026-05-18T01:57:40.967537+00:00",
+  "question": "Can you book me a table at a nearby restaurant?",
+  "tool_calls": [],
+  "answer": "I can't assist with booking tables, but I can help with meal recommendations or cooking tips if you're looking for something specific!",
+  "input_tokens": 607,
+  "output_tokens": 26,
+  "duration_seconds": 1.63,
+  "feedback": -1
+}
