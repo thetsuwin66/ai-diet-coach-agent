@@ -1,0 +1,31 @@
+question,label,failure_category,notes
+I want a high-protein dinner. What do you recommend?,good,(none - good response),Called search_recipes correctly; gave multiple named recipes with cooking times and rationale.
+What are some good meals for weight loss?,bad,incomplete,Said no weight-loss-specific recipes exist then gave vague tips - should have searched and presented relevant low-cal options.
+Can you suggest a healthy chicken dish?,good,(none - good response),Correctly used filter_by_category for chicken; listed multiple options with times.
+I'm trying to lose weight. What should I eat for dinner?,good,(none - good response),Used search_recipes; presented low-calorie options with coaching rationale.
+What seafood dishes do you have?,good,(none - good response),Correctly filtered by Seafood category; listed dishes with details.
+Show me some vegetarian options,good,(none - good response),Used filter_by_category=Vegetarian; good variety of suggestions.
+I want to eat healthy tonight. What do you suggest?,good,(none - good response),search_recipes called; response included cooking times and fitness framing.
+What are some low-calorie dinner options?,bad,hallucination,Fettuccine Alfredo is one of the highest-calorie pasta dishes - presenting it as low-calorie is factually wrong.
+Can you recommend a beef dish for muscle building?,good,(none - good response),Used filter_by_category=Beef; correctly framed protein-rich beef dishes for muscle building.
+I want something filling but not too heavy,good,(none - good response),Used search_recipes; recommendations included light proteins like prawns.
+I only have 15 minutes to cook. What can I make?,good,(none - good response),Correctly called filter_by_max_cook_time; all suggested recipes within time budget.
+Quick meal ideas for busy weeknights?,good,(none - good response),Used filter_by_max_cook_time with a reasonable default; listed fast options.
+I need a recipe I can make in under 20 minutes,good,(none - good response),filter_by_max_cook_time called correctly; results all under 20 min.
+What can I cook in half an hour or less?,good,(none - good response),Used filter_by_max_cook_time(30); appropriate results returned.
+Something fast for lunch - 10 minutes max,good,(none - good response),filter_by_max_cook_time(10) called; short-prep options listed.
+How do I make a beef stir-fry? Give me the full recipe.,good,(none - good response),Called get_recipe_details; full ingredients and steps provided.
+What are the ingredients for chicken tikka masala?,bad,hallucination,Could not find the dish in the DB but then invented a generic recipe from training knowledge instead of being honest about DB limitations.
+Give me the full cooking steps for salmon with garlic,bad,hallucination,Could not find exact dish but suggested a generic recipe from memory rather than looking for closest DB match.
+How do I cook a vegetarian pasta? Step-by-step please.,bad,incomplete,Couldn't find vegetarian pasta so pivoted to a completely different dish (Aubergine) without giving pasta steps.
+What's the recipe for making lamb chops?,good,(none - good response),get_recipe_details found Chilli Ginger Lamb Chops; full recipe with steps provided.
+gimme something with chicken that won't make me fat,good,(none - good response),Handled informal phrasing; correctly filtered by chicken; highlighted lighter options.
+healthy stuff for dinner?,good,(none - good response),Vague query handled well; used search_recipes; returned genuinely healthy items.
+need food ideas - trying to slim down,good,(none - good response),search_recipes used; results framed around calorie-conscious options.
+any quick eats that are good for you?,good,(none - good response),Used filter_by_max_cook_time correctly; framed as healthy quick options.
+what should i eat if im trying to get lean,bad,incomplete,Recommended Aussie Burgers as the top option for getting lean - a burger is not an appropriate lean diet suggestion.
+I don't have much time tonight maybe like 25 mins,good,(none - good response),Correctly inferred ~25 min limit and called filter_by_max_cook_time; results appropriate.
+something with fish maybe?,good,(none - good response),search_recipes for fish; returned genuinely fish-based recipes.
+low cal options please,bad,hallucination,"Fettuccine Alfredo listed as low-calorie option - this is a high-fat, high-calorie dish."
+tell me how to cook that beef thing,bad,wrong_scope,No prior context for 'that beef thing' - agent guessed Beef and Broccoli without clarifying which recipe; should have asked.
+what's a good recipe - doesn't have to be anything specific,good,(none - good response),Appropriate fallback behavior; returned a single well-described recipe.

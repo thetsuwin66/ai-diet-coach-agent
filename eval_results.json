@@ -1,0 +1,1007 @@
+[
+  {
+    "id": 1,
+    "question": "I want a high-protein dinner. What do you recommend?",
+    "category": "meal_recommendation",
+    "type": "happy_path",
+    "answer": "Here are some high-protein dinner recommendations:\n\n1. **Beef and Broccoli Stir-Fry**\n   - **Category**: Beef\n   - **Cooking Time**: 14 minutes\n   - **Key Ingredients**: Sirloin steak, broccoli, soy sauce, oyster sauce, garlic\n   - **Why it fits**: Packed with protein from the sirloin and rich in nutrients from broccoli, this stir-fry is a quick and healthy dinner option.\n\n2. **Salmon Noodle Wraps**\n   - **Category**: Seafood\n   - **Cooking Time**: 22 minutes\n   - **Key Ingredients**: Salmon, rice noodles, spring onions, lime, coriander\n   - **Why it fits**: This dish features salmon, an excellent source of protein and omega-3 fatty acids, wrapped with flavorful ingredients.\n\n3. **Stir-Fried Chicken with Chillies & Basil**\n   - **Category**: Chicken\n   - **Cooking Time**: 23 minutes\n   - **Key Ingredients**: Chicken, garlic, shallots, red chili, basil\n   - **Why it fits**: A tasty way to enjoy lean protein from chicken, complemented by aromatic spices and fresh herbs.\n\n4. **Tofu, Greens & Cashew Stir-Fry**\n   - **Category**: Vegetarian\n   - **Cooking Time**: 9 minutes\n   - **Key Ingredients**: Tofu, broccoli, pak choi, cashew nuts, hoisin sauce\n   - **Why it fits**: A great vegetarian option that provides protein from tofu and healthy fats from cashews, with a variety of vegetables.\n\nThese options are delicious, quick to prepare, and high in protein to support your dietary goals!",
+    "tool_calls": [
+      {
+        "name": "search_recipes",
+        "arguments": {
+          "query": "high protein dinner"
+        }
+      }
+    ],
+    "input_tokens": 2724,
+    "output_tokens": 377,
+    "duration_seconds": 10.35,
+    "error": null
+  },
+  {
+    "id": 2,
+    "question": "What are some good meals for weight loss?",
+    "category": "meal_recommendation",
+    "type": "happy_path",
+    "answer": "It looks like there are no specific recipes labeled for weight loss in the database. However, here are some general tips for meals that can support your weight loss goals:\n\n1. **Lean Proteins**: Focus on chicken breast, turkey, fish, or plant-based proteins like lentils and beans. They help keep you full longer.\n   \n2. **Vegetables**: Incorporate a variety of colorful vegetables in your meals. They're low in calories and high in nutrients.\n\n3. **Whole Grains**: Choose whole grains like quinoa, brown rice, and oats, which provide fiber and can keep you satisfied.\n\n4. **Healthy Fats**: Include sources of healthy fats, such as avocados, nuts, and olive oil, in moderation to help manage cravings and provide satiety.\n\n5. **Portion Control**: Keep an eye on portion sizes, and try to eat smaller, balanced meals throughout the day.\n\nWould you like help finding recipes based on specific ingredients or preferences?",
+    "tool_calls": [
+      {
+        "name": "search_recipes",
+        "arguments": {
+          "query": "weight loss"
+        }
+      }
+    ],
+    "input_tokens": 1237,
+    "output_tokens": 219,
+    "duration_seconds": 7.95,
+    "error": null
+  },
+  {
+    "id": 3,
+    "question": "Can you suggest a healthy chicken dish?",
+    "category": "meal_recommendation",
+    "type": "happy_path",
+    "answer": "Here are a few healthy chicken dish suggestions:\n\n1. **15-Minute Chicken & Halloumi Burgers**\n   - **Category**: Chicken\n   - **Cooking Time**: 36 minutes\n   - **Key Ingredients**: Chicken breasts, halloumi cheese, hot sauce, buns, cabbage.\n   - **Why It Fits**: This dish is quick, rich in protein, and features lean chicken and grilled halloumi, making it a tasty yet healthy choice.\n\n2. **Brown Stew Chicken**\n   - **Category**: Chicken\n   - **Cooking Time**: 30 minutes\n   - **Key Ingredients**: Whole chicken, coconut milk, tomatoes, onions, carrots.\n   - **Why It Fits**: A flavorful one-pot meal that combines chicken with vegetables, making it balanced and nutritious.\n\n3. **Chicken Alfredo Primavera**\n   - **Category**: Chicken\n   - **Cooking Time**: 31 minutes\n   - **Key Ingredients**: Chicken breasts, mixed vegetables, spinach, bowtie pasta, Parmesan cheese.\n   - **Why It Fits**: It includes a variety of vegetables, offering fiber and nutrients while still being a comforting meal.\n\n4. **Chicken Fried Rice**\n   - **Category**: Chicken\n   - **Cooking Time**: 78 minutes\n   - **Key Ingredients**: Chicken thighs, eggs, jasmine rice, mixed vegetables, soy sauce.\n   - **Why It Fits**: This dish utilizes leftover rice, making it economical and adding plenty of veggies for a healthy twist.\n\nIf any of these catch your eye, let me know if you\u2019d like the full recipe!",
+    "tool_calls": [
+      {
+        "name": "filter_by_category",
+        "arguments": {
+          "category": "Chicken"
+        }
+      }
+    ],
+    "input_tokens": 5716,
+    "output_tokens": 355,
+    "duration_seconds": 9.15,
+    "error": null
+  },
+  {
+    "id": 4,
+    "question": "I'm trying to lose weight. What should I eat for dinner?",
+    "category": "meal_recommendation",
+    "type": "happy_path",
+    "answer": "Here are some healthy dinner options that can support your weight-loss goals:\n\n1. **Crispy Eggplant**\n   - **Category:** Vegetarian\n   - **Cooking Time:** 62 minutes\n   - **Key Ingredients:** Eggplants, breadcrumbs, eggs, sesame seeds\n   - **Why It Fits:** Offers a satisfying crunch with fewer calories, focusing on vegetables.\n\n2. **Purple Sprouting Broccoli Tempura with Nuoc Cham**\n   - **Category:** Miscellaneous\n   - **Cooking Time:** 3 minutes\n   - **Key Ingredients:** Purple sprouting broccoli, corn flour, soda water\n   - **Why It Fits:** Quick to prepare and emphasizes nutrients and flavors with low calories.\n\n3. **Prawn & Noodle Salad with Crispy Shallots**\n   - **Category:** Seafood\n   - **Cooking Time:** 3 minutes\n   - **Key Ingredients:** Rice noodles, prawns, cucumber, lime juice\n   - **Why It Fits:** A light, nutrient-dense dish that combines lean protein and fresh vegetables.\n\n4. **Salt & Pepper Squid**\n   - **Category:** Seafood\n   - **Cooking Time:** 2 minutes\n   - **Key Ingredients:** Squid, corn flour, peppers\n   - **Why It Fits:** This quick dish is high in protein and can be low in calories, especially if enjoyed in moderation.\n\nFeel free to let me know if you'd like the full recipe for any of these dishes!",
+    "tool_calls": [
+      {
+        "name": "search_recipes",
+        "arguments": {
+          "query": "healthy dinner for weight loss"
+        }
+      }
+    ],
+    "input_tokens": 2770,
+    "output_tokens": 322,
+    "duration_seconds": 8.96,
+    "error": null
+  },
+  {
+    "id": 5,
+    "question": "What seafood dishes do you have?",
+    "category": "meal_recommendation",
+    "type": "happy_path",
+    "answer": "Here are some seafood dishes that you might enjoy:\n\n1. **Arroz con gambas y calamar**\n   - **Category**: Seafood\n   - **Cooking Time**: 32 minutes\n   - **Key Ingredients**: Raw king prawns, squid, paella rice, white wine, seafood stock.\n   - **Reason**: This dish is rich in flavor and provides healthy protein from seafood.\n\n2. **Baked salmon with fennel & tomatoes**\n   - **Category**: Seafood\n   - **Cooking Time**: 35 minutes\n   - **Key Ingredients**: Salmon, fennel, cherry tomatoes, parsley, lemon.\n   - **Reason**: A light and healthy dish, perfect for a nutritious meal packed with omega-3 fatty acids.\n\n3. **Bang bang prawn salad**\n   - **Category**: Seafood\n   - **Cooking Time**: 35 minutes\n   - **Key Ingredients**: Prawns, rice noodles, peanut butter, coconut milk, bean sprouts.\n   - **Reason**: This salad offers a great balance of protein and healthy fats while being refreshing.\n\n4. **Cajun spiced fish tacos**\n   - **Category**: Seafood\n   - **Cooking Time**: 10 minutes\n   - **Key Ingredients**: White fish, tortillas, avocado, salsa, spring onions.\n   - **Reason**: Quick to prepare and full of flavor, making it a fun and healthy meal option.\n\n5. **Clam, chorizo & white bean stew**\n   - **Category**: Seafood\n   - **Cooking Time**: 20 minutes\n   - **Key Ingredients**: Clams, chorizo, butter beans, tomatoes, vegetable stock.\n   - **Reason**: A hearty stew that combines seafood with protein-rich beans for a filling dish.\n\nIf you're interested in details for any specific recipe, just let me know!",
+    "tool_calls": [
+      {
+        "name": "filter_by_category",
+        "arguments": {
+          "category": "Seafood"
+        }
+      }
+    ],
+    "input_tokens": 5092,
+    "output_tokens": 413,
+    "duration_seconds": 15.92,
+    "error": null
+  },
+  {
+    "id": 6,
+    "question": "Show me some vegetarian options",
+    "category": "meal_recommendation",
+    "type": "happy_path",
+    "answer": "Here are some delicious vegetarian options for you:\n\n1. **Air Fryer Patatas Bravas**\n   - **Category:** Vegetarian\n   - **Cooking Time:** 86 minutes\n   - **Key Ingredients:** Potatoes, Olive Oil, Onion, Garlic, Paprika, Tinned Tomatoes, Basil Leaves\n   - **Reason:** A crispy and flavorful dish that combines potatoes with a rich tomato sauce, perfect for indulgence without excess calories.\n\n2. **Algerian Flafla (Bell Pepper Salad)**\n   - **Category:** Vegetarian\n   - **Cooking Time:** 50 minutes\n   - **Key Ingredients:** Green Peppers, Olive Oil, Red Onions, Garlic, Plum Tomatoes\n   - **Reason:** A fresh, roasted bell pepper salad that is both light and nutritious, making it a great low-calorie option.\n\n3. **Aubergine & Hummus Grills**\n   - **Category:** Vegetarian\n   - **Cooking Time:** 18 minutes\n   - **Key Ingredients:** Aubergine, Vegetable Oil, Bread, Hummus, Walnuts, Cherry Tomatoes\n   - **Reason:** Grilled eggplant topped with hummus provides healthy fats and proteins in a satisfying dish with minimal calories.\n\n4. **Aubergine Couscous Salad**\n   - **Category:** Vegetarian\n   - **Cooking Time:** 25 minutes\n   - **Key Ingredients:** Aubergine, Couscous, Vegetable Stock, Cherry Tomatoes, Goat's Cheese, Lemon\n   - **Reason:** This salad is filling yet light, balancing grains and vegetables with the richness of goat cheese.\n\n5. **Avocado Dip with New Potatoes**\n   - **Category:** Vegetarian\n   - **Cooking Time:** 36 minutes\n   - **Key Ingredients:** Avocado, Natural Yoghurt, Baby New Potatoes, Lime, Tortillas\n   - **Reason:** A creamy avocado dip pairs well with roasted potatoes, making for a delightful snack or light meal with healthy fats.\n\n6. **Baingan Bharta**\n   - **Category:** Vegetarian\n   - **Cooking Time:** 7 minutes\n   - **Key Ingredients:** Aubergine, Onion, Tomatoes, Garlic, Green Chilli\n   - **Reason:** A smoky, flavorful dish that's quick to prepare and low in calories, perfect for a warm meal.\n\n7. **Beetroot & Red Cabbage Sauerkraut**\n   - **Category:** Vegetarian\n   - **Cooking Time:** 5 minutes (plus fermentation)\n   - **Key Ingredients:** Beetroot, Red Cabbage, Onion, Caraway Seed, Sea Salt\n   - **Reason:** A fermented dish that's rich in probiotics and nutrients, excellent for digestive health and low in calories.\n\n8. **Beetroot Latkes**\n   - **Category:** Vegetarian\n   - **Cooking Time:** 15 minutes\n   - **Key Ingredients:** Beetroot, Greek Yogurt, Rocket, Cherry Tomatoes, Egg\n   - **Reason:** These crispy latkes are a unique way to enjoy beets, combining hearty vegetables with protein.\n\n9. **Chinese Tomato Egg Stir Fry**\n   - **Category:** Vegetarian\n   - **Cooking Time:** 8 minutes\n   - **Key Ingredients:** Plum Tomatoes, Eggs, Vegetable Oil, Jasmine Rice\n   - **Reason:** A quick stir-fry that offers a comforting and satisfying meal with fresh ingredients.\n\n10. **Egg Drop Soup**\n    - **Category:** Vegetarian\n    - **Cooking Time:** 35 minutes\n    - **Key Ingredients:** Chicken Stock, Peas, Mushrooms, Spring Onions\n    - **Reason:** A light and nourishing soup, it's low-calorie and hydrating, ideal for a warm, soothing meal.\n\nLet me know if you want the full recipe for any of these options or need further assistance!",
+    "tool_calls": [
+      {
+        "name": "filter_by_category",
+        "arguments": {
+          "category": "Vegetarian"
+        }
+      }
+    ],
+    "input_tokens": 4611,
+    "output_tokens": 805,
+    "duration_seconds": 15.19,
+    "error": null
+  },
+  {
+    "id": 7,
+    "question": "I want to eat healthy tonight. What do you suggest?",
+    "category": "meal_recommendation",
+    "type": "happy_path",
+    "answer": "Here are some healthy dinner options for you tonight:\n\n### 1. Salmon Noodle Wraps\n- **Category:** Seafood\n- **Cooking Time:** 22 minutes\n- **Key Ingredients:** Rice Noodles, Salmon, Spring Onions, Chilli, Lime\n- **Why it fits:** This dish is packed with omega-3 fatty acids from salmon and is low in carbohydrates due to the rice noodles, making it a nutritious choice for a healthy dinner.\n\n### 2. Home-made Mandazi (Breakfast)\n- **Category:** Breakfast\n- **Cooking Time:** 19 minutes\n- **Key Ingredients:** Self-raising Flour, Eggs, Milk, Sugar\n- **Why it fits:** While traditionally a breakfast item, this recipe can be a healthier snack option if you're looking for something lighter. You can adjust the sugar content to make it even healthier.\n\nIf you need the full recipe for any of these dishes or want more suggestions, just let me know!",
+    "tool_calls": [
+      {
+        "name": "search_recipes",
+        "arguments": {
+          "query": "healthy dinner"
+        }
+      }
+    ],
+    "input_tokens": 1908,
+    "output_tokens": 215,
+    "duration_seconds": 5.93,
+    "error": null
+  },
+  {
+    "id": 8,
+    "question": "What are some low-calorie dinner options?",
+    "category": "meal_recommendation",
+    "type": "happy_path",
+    "answer": "Here are some delicious low-calorie dinner options for you:\n\n1. **Salmon Noodle Wraps**\n   - **Category:** Seafood\n   - **Cooking Time:** 22 minutes\n   - **Key Ingredients:** Rice Noodles, Spring Onions, Salmon, Petit Pois\n   - **Why It Fits:** This dish is light and packed with omega-3 fatty acids from salmon, making it a healthy low-calorie choice.\n\n2. **Fettucine Alfredo**\n   - **Category:** Pasta\n   - **Cooking Time:** 4 minutes\n   - **Key Ingredients:** Clotted Cream, Butter, Fettuccine, Parmesan Cheese\n   - **Why It Fits:** While creamy, this recipe allows for a quick preparation, making it a satisfying yet manageable calorie option when portioned correctly.\n\n3. **Jamaican Cornmeal Porridge**\n   - **Category:** Breakfast (also great for dinner!)\n   - **Cooking Time:** 26 minutes\n   - **Key Ingredients:** Coconut Milk, Yellow Cornmeal, Ground Spices\n   - **Why It Fits:** This porridge is creamy and comforting, with a moderate calorie count, perfect for a light dinner.\n\n4. **Honey Teriyaki Salmon**\n   - **Category:** Seafood\n   - **Cooking Time:** 20 minutes\n   - **Key Ingredients:** Salmon, Soy Sauce, Olive Oil\n   - **Why It Fits:** This dish is both flavorful and quick, making it a perfect low-calorie protein option for dinner.\n\nThese recipes are not just low in calories but also rich in flavors to keep your meals enjoyable while maintaining your weight-loss goals!",
+    "tool_calls": [
+      {
+        "name": "search_recipes",
+        "arguments": {
+          "query": "low-calorie dinner"
+        }
+      }
+    ],
+    "input_tokens": 2648,
+    "output_tokens": 357,
+    "duration_seconds": 9.31,
+    "error": null
+  },
+  {
+    "id": 9,
+    "question": "Can you recommend a beef dish for muscle building?",
+    "category": "meal_recommendation",
+    "type": "happy_path",
+    "answer": "Here are two beef dishes that are great for muscle building:\n\n### 1. Beef and Broccoli Stir-Fry\n- **Category:** Beef\n- **Cooking Time:** 14 minutes\n- **Key Ingredients:** Sirloin steak, broccoli, soy sauce, oyster sauce, garlic\n- **Why It Fits Your Goal:** This dish is high in protein thanks to the sirloin steak and is quick to prepare, making it a nutritious option for muscle building.\n\n### 2. Algerian Kefta (Meatballs)\n- **Category:** Beef\n- **Cooking Time:** 20 minutes\n- **Key Ingredients:** Ground beef, garlic, onion, tomatoes, parsley\n- **Why It Fits Your Goal:** These meatballs are protein-rich and can be paired with a light salad or veggies to complete a balanced meal.\n\nLet me know if you would like to explore the full recipes or any other options!",
+    "tool_calls": [
+      {
+        "name": "filter_by_category",
+        "arguments": {
+          "category": "Beef"
+        }
+      }
+    ],
+    "input_tokens": 5265,
+    "output_tokens": 204,
+    "duration_seconds": 6.17,
+    "error": null
+  },
+  {
+    "id": 10,
+    "question": "I want something filling but not too heavy",
+    "category": "meal_recommendation",
+    "type": "happy_path",
+    "answer": "Here are some filling yet light meal options for you:\n\n1. **Vietnamese Prawn Spiralized Rolls**\n   - **Category:** Seafood\n   - **Cooking Time:** 35 minutes\n   - **Key Ingredients:** King Prawns, Rice Paper Sheets, Mint, Coriander, Carrots, Courgettes\n   - **Why It Fits:** These rolls are fresh, light, and filled with healthy veggies, making them a filling option without being too heavy.\n\n2. **Fettuccine Alfredo**\n   - **Category:** Pasta\n   - **Cooking Time:** 20 minutes\n   - **Key Ingredients:** Fettuccine, Heavy Cream, Butter, Parmesan\n   - **Why It Fits:** While creamy, it's a quick dish that satisfies without feeling overly heavy, especially if enjoyed in moderation.\n\n3. **Chicken Alfredo Primavera**\n   - **Category:** Chicken\n   - **Cooking Time:** 31 minutes\n   - **Key Ingredients:** Chicken, Bowtie Pasta, Mixed Vegetables, Parmesan\n   - **Why It Fits:** Packed with protein and veggies, this dish is hearty yet not too heavy, providing a balanced meal.\n\n4. **Cream Cheese Tart**\n   - **Category:** Starter\n   - **Cooking Time:** 25 minutes\n   - **Key Ingredients:** Cream Cheese, Eggs, Plum Tomatoes, Basil\n   - **Why It Fits:** This tart has a light filling and is elevated by the fresh tomatoes, making it a fulfilling option without being heavy.\n\nThese options should satisfy your hunger while keeping things light and manageable! Let me know if you'd like any recipe details.",
+    "tool_calls": [
+      {
+        "name": "search_recipes",
+        "arguments": {
+          "query": "filling but not too heavy"
+        }
+      }
+    ],
+    "input_tokens": 3459,
+    "output_tokens": 353,
+    "duration_seconds": 8.11,
+    "error": null
+  },
+  {
+    "id": 11,
+    "question": "I only have 15 minutes to cook. What can I make?",
+    "category": "time_constrained",
+    "type": "happy_path",
+    "answer": "Here are some quick meal options that you can make in 15 minutes or less:\n\n1. **Aussie Burgers**\n   - **Category:** Beef\n   - **Cooking Time:** 6 minutes\n   - **Key Ingredients:** Lean Minced Steak, Cooked Beetroot, Naan Bread, Rocket, Soured Cream\n   - **Why it fits:** These burgers are quick to prepare and provide a fulfilling meal without a lengthy cooking time.\n\n2. **Beef and Broccoli Stir-Fry**\n   - **Category:** Beef\n   - **Cooking Time:** 14 minutes\n   - **Key Ingredients:** Sirloin steak, Broccoli, Soy Sauce, Garlic, Oyster Sauce\n   - **Why it fits:** This stir-fry is fast and packed with protein and veggies for a nutritious meal.\n\n3. **Chilli Prawn Linguine**\n   - **Category:** Pasta\n   - **Cooking Time:** 6 minutes\n   - **Key Ingredients:** Linguine Pasta, King Prawns, Sugar Snap Peas, Garlic, Red Chilli\n   - **Why it fits:** A quick and flavorful dish that combines seafood and pasta, perfect for a quick dinner.\n\n4. **Fettucine Alfredo**\n   - **Category:** Pasta\n   - **Cooking Time:** 4 minutes\n   - **Key Ingredients:** Clotted Cream, Butter, Parmesan Cheese, Fettuccine\n   - **Why it fits:** A creamy pasta dish that can be whipped up in no time, satisfying and rich.\n\n5. **Spaghetti alla Carbonara**\n   - **Category:** Pasta\n   - **Cooking Time:** 15 minutes\n   - **Key Ingredients:** Spaghetti, Egg Yolks, Bacon, Pecorino\n   - **Why it fits:** Classic Italian dish that's quick to prepare, using minimal ingredients for maximum flavor.\n\nLet me know if you want details on any specific recipe!",
+    "tool_calls": [
+      {
+        "name": "filter_by_max_cook_time",
+        "arguments": {
+          "max_minutes": 15
+        }
+      }
+    ],
+    "input_tokens": 4575,
+    "output_tokens": 415,
+    "duration_seconds": 6.98,
+    "error": null
+  },
+  {
+    "id": 12,
+    "question": "Quick meal ideas for busy weeknights?",
+    "category": "time_constrained",
+    "type": "happy_path",
+    "answer": "Here are some quick meal ideas for your busy weeknights, all taking under 20 minutes:\n\n1. **Algerian Kefta (Meatballs)**\n   - **Category:** Beef\n   - **Cooking Time:** 20 minutes\n   - **Key Ingredients:** Ground Beef, Garlic, Onion, Tomatoes\n   - **Why It Fits:** Flavorful meatballs in a tomato sauce, perfect for a filling dinner in just 20 minutes.\n\n2. **Aussie Burgers**\n   - **Category:** Beef\n   - **Cooking Time:** 6 minutes\n   - **Key Ingredients:** Lean Minced Steak, Beetroot, Naan Bread\n   - **Why It Fits:** Quick to prepare and cook, these burgers are a fun and healthy twist on a classic.\n\n3. **Beef and Broccoli Stir-Fry**\n   - **Category:** Beef\n   - **Cooking Time:** 14 minutes\n   - **Key Ingredients:** Sirloin Steak, Broccoli, Garlic, Soy Sauce\n   - **Why It Fits:** A quick, nutritious option packed with protein and veggies that will keep you satisfied.\n\n4. **Chilli Ginger Lamb Chops**\n   - **Category:** Lamb\n   - **Cooking Time:** 3 minutes\n   - **Key Ingredients:** Lamb Chops, Garlic, Ginger, Chili Powder\n   - **Why It Fits:** Fast and flavorful, these chops are ready in a flash and have a spicy kick.\n\n5. **Chilli Prawn Linguine**\n   - **Category:** Pasta\n   - **Cooking Time:** 6 minutes\n   - **Key Ingredients:** Linguine Pasta, King Prawns, Sugar Snap Peas\n   - **Why It Fits:** Quick cooking with delicious seafood and pasta, making for a sophisticated yet speedy meal.\n\nFeel free to let me know if you would like detailed recipes for any of these dishes!",
+    "tool_calls": [
+      {
+        "name": "filter_by_max_cook_time",
+        "arguments": {
+          "max_minutes": 20
+        }
+      }
+    ],
+    "input_tokens": 4244,
+    "output_tokens": 411,
+    "duration_seconds": 12.93,
+    "error": null
+  },
+  {
+    "id": 13,
+    "question": "I need a recipe I can make in under 20 minutes",
+    "category": "time_constrained",
+    "type": "happy_path",
+    "answer": "Here are some quick recipes you can make in under 20 minutes:\n\n1. **Algerian Kefta (Meatballs)**\n   - **Category**: Beef\n   - **Cooking Time**: 20 minutes\n   - **Key Ingredients**: Ground Beef, Garlic, Onion, Tomatoes, Parsley\n   - **Why It Fits**: A hearty, flavorful dish that can be served with a nutritious tomato sauce.\n\n2. **Aussie Burgers**\n   - **Category**: Beef\n   - **Cooking Time**: 6 minutes\n   - **Key Ingredients**: Lean Minced Steak, Beetroot, Naan Bread, Rocket\n   - **Why It Fits**: These quick burgers are delicious and can be customized with healthy toppings.\n\n3. **Beef and Broccoli Stir-Fry**\n   - **Category**: Beef\n   - **Cooking Time**: 14 minutes\n   - **Key Ingredients**: Sirloin steak, Broccoli, Soy Sauce, Oyster Sauce\n   - **Why It Fits**: A quick, nutritious stir-fry that's packed with protein and fiber.\n\n4. **Chilli Ginger Lamb Chops**\n   - **Category**: Lamb\n   - **Cooking Time**: 3 minutes\n   - **Key Ingredients**: Lamb Loin Chops, Garlic, Ginger, Lemon Juice\n   - **Why It Fits**: These chops are packed with flavor and can be prepared in no time on the grill.\n\n5. **Chilli Prawn Linguine**\n   - **Category**: Pasta\n   - **Cooking Time**: 6 minutes\n   - **Key Ingredients**: Linguine Pasta, King Prawns, Olive Oil, Garlic\n   - **Why It Fits**: A light and quick pasta dish that's full of flavor and healthy ingredients.\n\nLet me know if you would like the full recipe for any of these dishes!",
+    "tool_calls": [
+      {
+        "name": "filter_by_max_cook_time",
+        "arguments": {
+          "max_minutes": 20
+        }
+      }
+    ],
+    "input_tokens": 4250,
+    "output_tokens": 417,
+    "duration_seconds": 7.93,
+    "error": null
+  },
+  {
+    "id": 14,
+    "question": "What can I cook in half an hour or less?",
+    "category": "time_constrained",
+    "type": "happy_path",
+    "answer": "Here are some delicious meals you can cook in half an hour or less:\n\n1. **Algerian Kefta (Meatballs)**\n   - **Category:** Beef\n   - **Cooking Time:** 20 minutes\n   - **Key Ingredients:** Ground Beef, Crushed Garlic, Onion, Tomato\n   - **Why It Fits:** Quick to prepare and full of flavor, these meatballs are a great option for a hearty meal.\n\n2. **Aussie Burgers**\n   - **Category:** Beef\n   - **Cooking Time:** 6 minutes\n   - **Key Ingredients:** Lean Minced Steak, Cooked Beetroot, Naan Bread\n   - **Why It Fits:** A quick and tasty burger that\u2019s both satisfying and easy to make.\n\n3. **Beef and Broccoli Stir-Fry**\n   - **Category:** Beef\n   - **Cooking Time:** 14 minutes\n   - **Key Ingredients:** Sirloin Steak, Broccoli, Garlic\n   - **Why It Fits:** A nutrient-rich, quick stir-fry that provides protein and veggies in a flavorful sauce.\n\n4. **Brown Stew Chicken**\n   - **Category:** Chicken\n   - **Cooking Time:** 30 minutes\n   - **Key Ingredients:** Whole Chicken, Coconut Milk, Tomato\n   - **Why It Fits:** A savory and rich stew that allows for a full meal in a short time.\n\n5. **\u00c6bleskiver**\n   - **Category:** Dessert\n   - **Cooking Time:** 30 minutes\n   - **Key Ingredients:** Flour, Eggs, Buttermilk\n   - **Why It Fits:** A fun and delicious dessert to enjoy, perfect for a sweet ending to your meal.\n\n6. **Chilli Ginger Lamb Chops**\n   - **Category:** Lamb\n   - **Cooking Time:** 3 minutes\n   - **Key Ingredients:** Lamb Loin Chops, Garlic, Ginger\n   - **Why It Fits:** Marinated and grilled quickly, these chops are juicy and have a kick of flavor.\n\n7. **Hot Cumin Lamb Wrap with Crunchy Slaw & Spicy Mayo**\n   - **Category:** Lamb\n   - **Cooking Time:** 4 minutes\n   - **Key Ingredients:** Lamb Leg, Olive Oil, Pita Bread\n   - **Why It Fits:** These wraps are quick to make and packed with flavor, excellent for a satisfying meal.\n\nYou can choose any of these options depending on your mood and ingredient availability! Let me know if you need detailed recipes for any of them.",
+    "tool_calls": [
+      {
+        "name": "filter_by_max_cook_time",
+        "arguments": {
+          "max_minutes": 30
+        }
+      }
+    ],
+    "input_tokens": 4143,
+    "output_tokens": 544,
+    "duration_seconds": 15.23,
+    "error": null
+  },
+  {
+    "id": 15,
+    "question": "Something fast for lunch - 10 minutes max",
+    "category": "time_constrained",
+    "type": "happy_path",
+    "answer": "Here are some quick lunch options that you can prepare in 10 minutes or less:\n\n1. **Chilli Ginger Lamb Chops**\n   - **Category:** Lamb\n   - **Cooking Time:** 3 minutes\n   - **Key Ingredients:** 4 Cloves Crushed Garlic, 1 tblsp Ginger, 8 Lamb Loin Chops\n   - This dish is super quick to prepare and offers a flavorful kick to your lunch.\n\n2. **Hot Cumin Lamb Wrap with Crunchy Slaw & Spicy Mayo**\n   - **Category:** Lamb\n   - **Cooking Time:** 4 minutes\n   - **Key Ingredients:** 4 small Lamb Leg, 2 tsp Olive Oil, 400g White Cabbage\n   - A delicious wrap that's easy to make and combines protein with fresh veggies for a balanced meal.\n\n3. **Fettuccine Alfredo**\n   - **Category:** Pasta\n   - **Cooking Time:** 4 minutes\n   - **Key Ingredients:** 227g Clotted Cream, 100g Parmesan Cheese, 250g Fettuccine\n   - A creamy and satisfying pasta, perfect for a quick and indulgent lunch.\n\n4. **Pilchard Puttanesca**\n   - **Category:** Pasta\n   - **Cooking Time:** 5 minutes\n   - **Key Ingredients:** 300g Spaghetti, 2 cloves minced Garlic, 425g Pilchards\n   - This is a unique and hearty pasta dish that's both quick and packed with flavor.\n\n5. **Bubble & Squeak**\n   - **Category:** Pork\n   - **Cooking Time:** 6 minutes\n   - **Key Ingredients:** 4 Bacon, 20 Brussels Sprouts, 400g Potatoes\n   - A comforting mix that's not only fast to make but also utilizes leftover ingredients effectively.\n\nChoose any of these options for a speedy and satisfying lunch!",
+    "tool_calls": [
+      {
+        "name": "filter_by_max_cook_time",
+        "arguments": {
+          "max_minutes": 10
+        }
+      }
+    ],
+    "input_tokens": 4018,
+    "output_tokens": 412,
+    "duration_seconds": 8.86,
+    "error": null
+  },
+  {
+    "id": 16,
+    "question": "How do I make a beef stir-fry? Give me the full recipe.",
+    "category": "full_recipe",
+    "type": "happy_path",
+    "answer": "Here's the full recipe for **Thai Beef Stir-Fry**:\n\n### Thai Beef Stir-Fry\n\n- **Category**: Beef\n- **Cooking Time**: 3 minutes\n\n#### Key Ingredients:\n- 2 tbsp Vegetable Oil\n- 400g Beef, sliced\n- 1 sliced Red Chilli\n- 2 tbsp Oyster Sauce\n- Handful of Basil Leaves\n\n#### Instructions:\n1. Heat a wok or large frying pan until smoking hot. Pour in the oil and swirl around the pan.\n2. Add the beef strips and sliced chilli. Cook, stirring constantly, until the meat is lightly browned (about 3 minutes).\n3. Pour over the oyster sauce and cook until heated through, ensuring the sauce coats the meat.\n4. Stir in the basil leaves and serve with plain rice.\n\nThis stir-fry is quick to prepare and packed with flavor, making it a great option for a delicious meal in no time! Enjoy!",
+    "tool_calls": [
+      {
+        "name": "get_recipe_details",
+        "arguments": {
+          "name": "beef stir-fry"
+        }
+      }
+    ],
+    "input_tokens": 1405,
+    "output_tokens": 214,
+    "duration_seconds": 4.88,
+    "error": null
+  },
+  {
+    "id": 17,
+    "question": "What are the ingredients for chicken tikka masala?",
+    "category": "full_recipe",
+    "type": "happy_path",
+    "answer": "It looks like I couldn't find a recipe for chicken tikka masala. However, a typical recipe usually includes chicken, yogurt, garlic, ginger, cumin, coriander, turmeric, garam masala, tomatoes, cream, and onions. \n\nIf you're looking for a healthier alternative or something different, feel free to ask!",
+    "tool_calls": [
+      {
+        "name": "get_recipe_details",
+        "arguments": {
+          "name": "chicken tikka masala"
+        }
+      }
+    ],
+    "input_tokens": 1261,
+    "output_tokens": 88,
+    "duration_seconds": 5.62,
+    "error": null
+  },
+  {
+    "id": 18,
+    "question": "Give me the full cooking steps for salmon with garlic",
+    "category": "full_recipe",
+    "type": "happy_path",
+    "answer": "It looks like I couldn't find a recipe specifically for \"salmon with garlic.\" Would you like to search for other salmon recipes or perhaps a different dish?",
+    "tool_calls": [
+      {
+        "name": "get_recipe_details",
+        "arguments": {
+          "name": "salmon with garlic"
+        }
+      }
+    ],
+    "input_tokens": 1255,
+    "output_tokens": 52,
+    "duration_seconds": 2.77,
+    "error": null
+  },
+  {
+    "id": 19,
+    "question": "How do I cook a vegetarian pasta? Step-by-step please.",
+    "category": "full_recipe",
+    "type": "happy_path",
+    "answer": "It looks like I couldn't find a specific vegetarian pasta recipe, but I have a great vegetarian dish you might enjoy! Here\u2019s the recipe for **Aubergine couscous salad**:\n\n### Aubergine Couscous Salad\n\n**Cooking Time:** 25 minutes\n\n**Key Ingredients:**\n- 1 sliced Aubergine\n- 3 tablespoons Olive Oil\n- 140g Couscous\n- 225g Vegetable Stock\n- 200g Cherry Tomatoes\n- Handful of Mint\n- 100g Goats Cheese\n- Juice of 1/2 Lemon\n\n### Step-by-Step Instructions:\n\n1. **Grill the Aubergine:**\n   - Preheat the grill to high.\n   - Put the sliced aubergine on a baking sheet, brush with oil, and season.\n   - Grill for about 15 minutes, turning and brushing with more oil halfway, until browned and softened.\n\n2. **Prepare the Couscous:**\n   - In a large bowl, add the couscous and pour over the vegetable stock.\n   - Cover and leave for 10 minutes.\n\n3. **Combine Ingredients:**\n   - Mix the grilled aubergine, chopped cherry tomatoes, mint, goat cheese, and remaining olive oil into the bowl with couscous.\n   - Fluff the couscous with a fork, gently mixing everything together.\n\n4. **Finish with Lemon Juice:**\n   - Squeeze the juice of half a lemon over the salad and toss gently to combine.\n\n5. **Serve:**\n   - Plate the salad and enjoy as a refreshing main or side dish!\n\nThis recipe is light, healthy, and packed with flavor, making it a great choice for a vegetarian meal. Enjoy!",
+    "tool_calls": [
+      {
+        "name": "get_recipe_details",
+        "arguments": {
+          "name": "vegetarian pasta"
+        }
+      },
+      {
+        "name": "filter_by_category",
+        "arguments": {
+          "category": "Vegetarian"
+        }
+      }
+    ],
+    "input_tokens": 5318,
+    "output_tokens": 392,
+    "duration_seconds": 9.86,
+    "error": null
+  },
+  {
+    "id": 20,
+    "question": "What's the recipe for making lamb chops?",
+    "category": "full_recipe",
+    "type": "happy_path",
+    "answer": "Here's a delicious recipe for **Chilli Ginger Lamb Chops**:\n\n- **Category:** Lamb\n- **Cooking Time:** 3 minutes\n- **Key Ingredients:** \n  - 4 Cloves Crushed Garlic\n  - 1 tbsp Ginger\n  - 1 tbsp Lemon Juice\n  - 1 tbsp Olive Oil\n  - \u00bd tsp Chili Powder\n  - 1 tsp Cumin\n  - 8 Lamb Loin Chops\n\n### Instructions:\n1. Put the garlic, ginger, lemon juice, oil, spices, and seasoning in a bowl. Blitz with a hand blender until smooth, then coat the lamb chops on both sides. Marinate in the fridge for a couple of hours or overnight.\n2. Heat a barbecue until hot. Barbecue the chops over the coals for 3 minutes on each side until cooked but still pink and juicy in the center.\n\nThis recipe is quick to prepare and rich in flavor, making it a great choice for a special occasion or a weekend meal! Enjoy!",
+    "tool_calls": [
+      {
+        "name": "get_recipe_details",
+        "arguments": {
+          "name": "lamb chops"
+        }
+      }
+    ],
+    "input_tokens": 1422,
+    "output_tokens": 229,
+    "duration_seconds": 10.92,
+    "error": null
+  },
+  {
+    "id": 21,
+    "question": "gimme something with chicken that won't make me fat",
+    "category": "meal_recommendation",
+    "type": "varied_phrasing",
+    "answer": "Here are some healthy chicken options that'll fit your goal:\n\n### 1. 15-Minute Chicken & Halloumi Burgers\n- **Category**: Chicken\n- **Cooking Time**: 36 minutes\n- **Key Ingredients**: Chicken Breasts, Halloumi, Hotsauce, Cabbage\n- **Why It Fits**: Quick to make and packed with flavor, this burger can be lightened by controlling the amount of cheese and sauce.\n\n### 2. Ayam Percik\n- **Category**: Chicken\n- **Cooking Time**: 70 minutes\n- **Key Ingredients**: Chicken Thighs, Ginger, Garlic, Coconut Milk\n- **Why It Fits**: This dish is aromatic and flavorful, using lean chicken and spices that add taste without extra calories.\n\n### 3. Chicken & Mushroom Hotpot\n- **Category**: Chicken\n- **Cooking Time**: 42 minutes\n- **Key Ingredients**: Chicken, Mushrooms, Potatoes\n- **Why It Fits**: A wholesome meal with plenty of vegetables, making it filling without being high in calories.\n\n### 4. Chicken Congee\n- **Category**: Chicken, Chinese\n- **Cooking Time**: 80 minutes\n- **Key Ingredients**: Chicken, Rice, Ginger, Coriander\n- **Why It Fits**: Light and soothing, congee is low in calories but packed with nutrients.\n\n### 5. Brown Stew Chicken\n- **Category**: Chicken\n- **Cooking Time**: 30 minutes\n- **Key Ingredients**: Whole Chicken, Tomato, Onions, Coconut Milk\n- **Why It Fits**: A flavorful yet lower-calorie option if prepared with skinless chicken and less coconut milk.\n\nIf you want the full details on any of these recipes, just let me know!",
+    "tool_calls": [
+      {
+        "name": "filter_by_category",
+        "arguments": {
+          "category": "Chicken"
+        }
+      }
+    ],
+    "input_tokens": 5720,
+    "output_tokens": 399,
+    "duration_seconds": 9.93,
+    "error": null
+  },
+  {
+    "id": 22,
+    "question": "healthy stuff for dinner?",
+    "category": "meal_recommendation",
+    "type": "varied_phrasing",
+    "answer": "Here are some healthy dinner options for you:\n\n### 1. Salmon Noodle Wraps\n- **Category:** Seafood\n- **Cooking Time:** 22 minutes\n- **Key Ingredients:** Rice Noodles, Salmon, Spring Onions, Petit Pois, Lime\n- **Why It Fits:** These wraps are a great source of omega-3 fatty acids from salmon and are light and flavorful, perfect for a healthy dinner.\n\n### 2. Home-made Mandazi\n- **Category:** Breakfast (can be a light dinner option)\n- **Cooking Time:** 19 minutes\n- **Key Ingredients:** Self-raising Flour, Eggs, Sugar, Milk\n- **Why It Fits:** While this is traditionally a breakfast dish, you can enjoy them as a lighter dinner option, especially if you adjust the sugar for a healthier twist.\n\nChoose the one that piques your interest, and let me know if you need more details on a specific recipe!",
+    "tool_calls": [
+      {
+        "name": "search_recipes",
+        "arguments": {
+          "query": "healthy dinner"
+        }
+      }
+    ],
+    "input_tokens": 1894,
+    "output_tokens": 210,
+    "duration_seconds": 4.52,
+    "error": null
+  },
+  {
+    "id": 23,
+    "question": "need food ideas - trying to slim down",
+    "category": "meal_recommendation",
+    "type": "varied_phrasing",
+    "answer": "Here are some low-calorie meal ideas to help you slim down:\n\n1. **Honey Teriyaki Salmon**\n   - **Category:** Seafood\n   - **Cooking Time:** 20 minutes\n   - **Key Ingredients:** Salmon, olive oil, soy sauce, sake, sesame seeds.\n   - **Why It Fits:** This dish is rich in omega-3 fatty acids and is a light yet satisfying option, perfect for weight loss.\n\n2. **Jamaican Cornmeal Porridge**\n   - **Category:** Breakfast\n   - **Cooking Time:** 26 minutes\n   - **Key Ingredients:** Coconut milk, fine yellow cornmeal, vanilla extract, spices.\n   - **Why It Fits:** A sweet yet nutritious breakfast option that keeps you full without being heavy on calories.\n\n3. **Chicken Congee**\n   - **Category:** Chicken\n   - **Cooking Time:** 80 minutes\n   - **Key Ingredients:** Chicken, rice, ginger, spring onions, coriander.\n   - **Why It Fits:** This comforting and warming dish is low in calories and provides a great source of protein while being very filling.\n\n4. **Katsu Chicken Curry**\n   - **Category:** Chicken\n   - **Cooking Time:** 125 minutes\n   - **Key Ingredients:** Chicken breast, curry sauce, rice, onions, garlic.\n   - **Why It Fits:** While a bit higher in calories, you can control portions and opt for brown rice to make it more weight-loss friendly.\n\n5. **Fettucine Alfredo**\n   - **Category:** Pasta\n   - **Cooking Time:** 4 minutes\n   - **Key Ingredients:** Clotted cream, butter, parmesan cheese, fettuccine.\n   - **Why It Fits:** This dish is indulgent but can be made with whole grain pasta for a healthier twist to satisfy cravings without overindulging.\n\nThese recipes provide a good mix of flavors and nutrients while keeping calorie counts manageable. Enjoy your meals!",
+    "tool_calls": [
+      {
+        "name": "search_recipes",
+        "arguments": {
+          "query": "low calorie meals"
+        }
+      }
+    ],
+    "input_tokens": 2724,
+    "output_tokens": 422,
+    "duration_seconds": 12.1,
+    "error": null
+  },
+  {
+    "id": 24,
+    "question": "any quick eats that are good for you?",
+    "category": "time_constrained",
+    "type": "varied_phrasing",
+    "answer": "Here are some quick and healthy meal options that you can try:\n\n1. **Aussie Burgers**\n   - **Category**: Beef\n   - **Cooking Time**: 6 minutes\n   - **Key Ingredients**: Lean minced steak, cooked beetroot, naan bread, rocket, soured cream.\n   - **Why It Fits**: This meal is quick, packed with flavor, and offers lean protein which is great for staying healthy.\n\n2. **Beef and Broccoli Stir-Fry**\n   - **Category**: Beef\n   - **Cooking Time**: 14 minutes\n   - **Key Ingredients**: Sirloin steak, broccoli, soy sauce, oyster sauce, garlic.\n   - **Why It Fits**: It's a nutritious dish rich in protein and vitamins, cooked quickly for a healthy dinner option.\n\n3. **Chilli Ginger Lamb Chops**\n   - **Category**: Lamb\n   - **Cooking Time**: 3 minutes\n   - **Key Ingredients**: Lamb loin chops, garlic, ginger, olive oil, spices.\n   - **Why It Fits**: These chops are bursting with flavor and can be grilled in minutes, offering lean meat.\n\n4. **Chilli Prawn Linguine**\n   - **Category**: Pasta\n   - **Cooking Time**: 6 minutes\n   - **Key Ingredients**: Linguine pasta, king prawns, sugar snap peas, garlic, red chili.\n   - **Why It Fits**: This dish combines whole grains and seafood, making it a nutritious, quick-to-prepare meal.\n\n5. **Hot Cumin Lamb Wrap with Crunchy Slaw & Spicy Mayo**\n   - **Category**: Lamb\n   - **Cooking Time**: 4 minutes\n   - **Key Ingredients**: Lamb leg, pita bread, carrots, white cabbage, spicy mayo.\n   - **Why It Fits**: It\u2019s a quick, flavorsome wrap loaded with fiber and lean protein.\n\nThese meals not only fit the bill for quick preparation but also offer healthy ingredients to support your wellness goals!",
+    "tool_calls": [
+      {
+        "name": "filter_by_max_cook_time",
+        "arguments": {
+          "max_minutes": 20
+        }
+      }
+    ],
+    "input_tokens": 4244,
+    "output_tokens": 449,
+    "duration_seconds": 12.49,
+    "error": null
+  },
+  {
+    "id": 25,
+    "question": "what should i eat if im trying to get lean",
+    "category": "meal_recommendation",
+    "type": "varied_phrasing",
+    "answer": "Here are some lean recipe options that can help you on your journey to getting lean:\n\n1. **Aussie Burgers**\n   - **Category:** Beef\n   - **Cooking Time:** 6 minutes\n   - **Key Ingredients:** Lean minced steak, cooked beetroot, rocket, naan bread\n   - **Why It Fits:** This recipe uses lean minced beef, which is lower in calories compared to fattier cuts and offers a satisfying burger experience without excessive fat.\n\n2. **Fettucine Alfredo**\n   - **Category:** Pasta\n   - **Cooking Time:** 4 minutes\n   - **Key Ingredients:** Clotted cream, butter, Parmesan cheese, fettuccine\n   - **Why It Fits:** While pasta dishes can be calorie-dense, this recipe is on the quicker side and can be portioned to control calorie intake.\n\n3. **Jamaican Cornmeal Porridge**\n   - **Category:** Breakfast\n   - **Cooking Time:** 26 minutes\n   - **Key Ingredients:** Coconut milk, fine yellow cornmeal, spices\n   - **Why It Fits:** This dish offers a filling, healthy start to your day with a good balance of carbs and fats \u2014 just be mindful of portion sizes to keep calories in check.\n\n4. **Katsu Chicken Curry**\n   - **Category:** Chicken\n   - **Cooking Time:** 45 minutes\n   - **Key Ingredients:** Chicken breast, curry powder, garlic, onions\n   - **Why It Fits:** Made with lean chicken breast, this dish provides protein while still being flavorful. Opt for a smaller portion of the sauce to save calories.\n\n5. **Honey Teriyaki Salmon**\n   - **Category:** Seafood\n   - **Cooking Time:** 20 minutes\n   - **Key Ingredients:** Salmon, soy sauce, sesame seeds, sake\n   - **Why It Fits:** Salmon is rich in healthy omega-3 fatty acids, and this dish has a light glaze that keeps it flavorful without high calories.\n\nConsider your portion sizes and cooking methods (grilling or baking versus frying) to further keep calories in check. Enjoy your meals!",
+    "tool_calls": [
+      {
+        "name": "search_recipes",
+        "arguments": {
+          "query": "lean recipes low calorie"
+        }
+      }
+    ],
+    "input_tokens": 2699,
+    "output_tokens": 456,
+    "duration_seconds": 10.33,
+    "error": null
+  },
+  {
+    "id": 26,
+    "question": "I don't have much time tonight maybe like 25 mins",
+    "category": "time_constrained",
+    "type": "varied_phrasing",
+    "answer": "Here are some quick meal options you can whip up in 25 minutes or less:\n\n1. **Algerian Kefta (Meatballs)**\n   - **Category:** Beef\n   - **Cooking Time:** 20 minutes\n   - **Key Ingredients:** Ground Beef, Crushed Garlic, Onion, Plum Tomatoes\n   - **Why it fits:** These flavorful meatballs are quick to make and provide a satisfying meal bursting with protein.\n\n2. **Beef and Broccoli Stir-Fry**\n   - **Category:** Beef\n   - **Cooking Time:** 14 minutes\n   - **Key Ingredients:** Sirloin steak, Broccoli, Soy Sauce, Oyster Sauce\n   - **Why it fits:** A healthy, protein-packed dish that cooks quickly and is perfect for a busy night.\n\n3. **Aussie Burgers**\n   - **Category:** Beef\n   - **Cooking Time:** 6 minutes\n   - **Key Ingredients:** Lean Minced Steak, Beetroot, Naan Bread\n   - **Why it fits:** These lean beef burgers are quick to prepare and provide a fun, hearty meal with a twist.\n\n4. **Hot Cumin Lamb Wrap with Crunchy Slaw & Spicy Mayo**\n   - **Category:** Lamb\n   - **Cooking Time:** 4 minutes\n   - **Key Ingredients:** Lamb Leg, Olive Oil, Cumin, Pita Bread\n   - **Why it fits:** These wraps are quick to make, flavorful, and can be enjoyed on the go!\n\n5. **Callaloo Jamaican Style**\n   - **Category:** Miscellaneous\n   - **Cooking Time:** 18 minutes\n   - **Key Ingredients:** Kale, Bacon, Garlic, Onion, Red Pepper\n   - **Why it fits:** This colorful dish is nutritious, quick to prepare, and packed with vegetables.\n\nLet me know if you want a detailed recipe for any of these!",
+    "tool_calls": [
+      {
+        "name": "filter_by_max_cook_time",
+        "arguments": {
+          "max_minutes": 25
+        }
+      }
+    ],
+    "input_tokens": 4164,
+    "output_tokens": 413,
+    "duration_seconds": 9.93,
+    "error": null
+  },
+  {
+    "id": 27,
+    "question": "something with fish maybe?",
+    "category": "meal_recommendation",
+    "type": "varied_phrasing",
+    "answer": "Here are some delicious fish recipes you might enjoy:\n\n1. **Thai-style Fish Broth with Greens**\n   - **Category:** Seafood\n   - **Cooking Time:** 10 minutes\n   - **Key Ingredients:** Brown rice noodle, chicken stock, Thai red curry paste, white fish, raw king prawns, pak choi.\n   - **Why it fits your goal:** This light and aromatic broth is low in calories but packed with flavor, perfect for a healthy meal.\n\n2. **Escovitch Fish**\n   - **Category:** Seafood\n   - **Cooking Time:** 10 minutes\n   - **Key Ingredients:** Red snapper, vegetable oil, garlic, thyme, malt vinegar, scotch bonnet.\n   - **Why it fits your goal:** The vibrant flavors and healthy ingredients make this dish both satisfying and enjoyable without too many calories.\n\n3. **Cajun Spiced Fish Tacos**\n   - **Category:** Seafood\n   - **Cooking Time:** 10 minutes\n   - **Key Ingredients:** White fish fillets, cajun spices, flour tortillas, avocado, lettuce, salsa.\n   - **Why it fits your goal:** These tacos are a fun way to enjoy fish, and the spices keep them flavorful while being relatively low-calorie.\n\n4. **Thai-style Steamed Fish**\n   - **Category:** Seafood\n   - **Cooking Time:** 15 minutes\n   - **Key Ingredients:** Trout, ginger, garlic, red chili, lime, pak choi, soy sauce.\n   - **Why it fits your goal:** Steaming helps retain the nutrients in the fish, making it a healthy cooking method that minimizes added fats.\n\n5. **Tom Yum (Hot & Sour) Soup with Prawns**\n   - **Category:** Seafood\n   - **Cooking Time:** 2 minutes\n   - **Key Ingredients:** Chicken stock, lemongrass, galangal, king prawns, lime juice, fish sauce.\n   - **Why it fits your goal:** This spicy and tangy soup is both satisfying and low in calories, making it a great light meal option.\n\nLet me know if you'd like the full recipe for any of these dishes!",
+    "tool_calls": [
+      {
+        "name": "search_recipes",
+        "arguments": {
+          "query": "fish"
+        }
+      }
+    ],
+    "input_tokens": 2593,
+    "output_tokens": 462,
+    "duration_seconds": 14.93,
+    "error": null
+  },
+  {
+    "id": 28,
+    "question": "low cal options please",
+    "category": "meal_recommendation",
+    "type": "varied_phrasing",
+    "answer": "Here are some low-calorie recipe options for you:\n\n1. **Fettucine Alfredo**\n   - **Category:** Pasta\n   - **Cooking Time:** 4 minutes\n   - **Key Ingredients:** Clotted Cream, Butter, Parmesan Cheese, Fettuccine\n   - **Why It Fits:** A quick dish that, while creamy, can be portion controlled for fewer calories.\n\n2. **Jamaican Cornmeal Porridge**\n   - **Category:** Breakfast\n   - **Cooking Time:** 26 minutes\n   - **Key Ingredients:** Coconut Milk, Fine Yellow Cornmeal, Vanilla Extract\n   - **Why It Fits:** A warm, satisfying breakfast that offers a unique flavor and can be made lower in calories by adjusting the sweetened condensed milk.\n\n3. **Honey Teriyaki Salmon**\n   - **Category:** Seafood\n   - **Cooking Time:** 20 minutes\n   - **Key Ingredients:** Salmon, Olive Oil, Soy Sauce\n   - **Why It Fits:** Rich in omega-3 fatty acids, it's a healthy and flavorful dish that can help maintain a balanced diet.\n\n4. **Chicken Congee**\n   - **Category:** Chicken\n   - **Cooking Time:** 80 minutes\n   - **Key Ingredients:** Chicken, Rice, Ginger\n   - **Why It Fits:** A comforting, filling dish that provides a protein boost while being low in calories.\n\nIf you're looking for lower-calorie options, consider portion control and substituting higher-calorie ingredients with lighter alternatives. Let me know if you need more information or specific recipes!",
+    "tool_calls": [
+      {
+        "name": "search_recipes",
+        "arguments": {
+          "query": "low calorie"
+        }
+      }
+    ],
+    "input_tokens": 2715,
+    "output_tokens": 340,
+    "duration_seconds": 11.57,
+    "error": null
+  },
+  {
+    "id": 29,
+    "question": "tell me how to cook that beef thing",
+    "category": "full_recipe",
+    "type": "varied_phrasing",
+    "answer": "Here's how to cook **Beef and Broccoli Stir-Fry**:\n\n- **Category**: Beef\n- **Cooking Time**: 14 minutes\n- **Key Ingredients**: Sirloin steak, broccoli, soy sauce, oyster sauce, garlic.\n\n### Instructions:\n1. **Marinate the Beef**:\n   - Mix 1 tsp soy sauce, 1 tsp dry sherry, 1/2 tsp cornstarch, and 1/8 tsp black pepper. Add sliced beef, stir to coat, and let it stand for 10 minutes.\n   \n2. **Prepare the Sauce**:\n   - Combine 2 tbsp oyster sauce, 1 tsp dry sherry, 1 tsp soy sauce, and 1/4 cup chicken stock in a small bowl.\n\n3. **Blanch the Broccoli**:\n   - Boil water, add broccoli, and cook for about 2 minutes until crisp-tender. Drain.\n\n4. **Stir-Fry the Beef**:\n   - Heat a pan or wok over high heat. Add high heat cooking oil. Add the beef in a single layer, fry undisturbed for 1 minute, flip, add minced garlic, and fry until no longer pink.\n\n5. **Combine and Serve**:\n   - Pour in the sauce and a cornstarch slurry (1 tsp cornstarch dissolved in 1 tbsp water). Stir until the sauce thickens (about 30 seconds), then add broccoli.\n   - Serve hot, ideally with steamed rice or on its own.\n\nThis dish is quick to make and balances protein with vegetables, making it a great option for a healthy meal! Enjoy your cooking!",
+    "tool_calls": [
+      {
+        "name": "get_recipe_details",
+        "arguments": {
+          "name": "beef"
+        }
+      }
+    ],
+    "input_tokens": 1730,
+    "output_tokens": 358,
+    "duration_seconds": 7.67,
+    "error": null
+  },
+  {
+    "id": 30,
+    "question": "what's a good recipe - doesn't have to be anything specific",
+    "category": "meal_recommendation",
+    "type": "varied_phrasing",
+    "answer": "Here's a great recipe you might enjoy:\n\n### Home-made Mandazi\n- **Category:** Breakfast\n- **Cooking Time:** 19 minutes\n- **Key Ingredients:** 750g Self-raising Flour, 6 tablespoons Sugar, 2 Eggs, 1 cup Milk\n- **Why it fits your goal:** This recipe is simple and can easily be adjusted for healthier options, such as using coconut milk or adding spices like cinnamon, promoting variety while keeping it tasty.\n\nIf you're looking for a healthy twist, consider reducing the sugar or adding in some whole grain flour!",
+    "tool_calls": [
+      {
+        "name": "search_recipes",
+        "arguments": {
+          "query": "healthy meal"
+        }
+      }
+    ],
+    "input_tokens": 1638,
+    "output_tokens": 134,
+    "duration_seconds": 4.21,
+    "error": null
+  },
+  {
+    "id": 31,
+    "question": "I have chicken thighs and 30 minutes - what can I make?",
+    "category": "meal_recommendation",
+    "type": "edge_case",
+    "answer": "Here are a couple of chicken recipes you can whip up in 30 minutes:\n\n1. **Brown Stew Chicken**\n   - **Category:** Chicken\n   - **Cooking Time:** 30 minutes\n   - **Key Ingredients:** Whole chicken, tomatoes, onions, garlic, thyme, coconut milk\n   - **Why it fits your goal:** A flavorful dish that combines lean protein with aromatic spices, making it satisfying while maintaining healthy choices.\n\nUnfortunately, it seems that specific recipes for chicken thighs were not found in the database. Nonetheless, you can use the brown stew chicken recipe as inspiration and adapt it by using your chicken thighs instead of a whole chicken. \n\nWould you like details on this recipe or need help with something else?",
+    "tool_calls": [
+      {
+        "name": "filter_by_max_cook_time",
+        "arguments": {
+          "max_minutes": 30
+        }
+      }
+    ],
+    "input_tokens": 4149,
+    "output_tokens": 169,
+    "duration_seconds": 5.61,
+    "error": null
+  },
+  {
+    "id": 32,
+    "question": "Can I make something vegetarian that still has a lot of protein?",
+    "category": "meal_recommendation",
+    "type": "edge_case",
+    "answer": "Here are some high-protein vegetarian recipes that you can enjoy:\n\n1. **Aubergine & Hummus Grills**\n   - **Category**: Vegetarian\n   - **Cooking Time**: 18 minutes\n   - **Key Ingredients**: Aubergine, Hummus, Walnuts, Cherry Tomatoes\n   - **Explanation**: A wholesome dish that combines protein-rich hummus and walnuts for a great protein boost.\n\n2. **Chinese Tomato Egg Stir Fry**\n   - **Category**: Vegetarian (Chinese)\n   - **Cooking Time**: 8 minutes\n   - **Key Ingredients**: Eggs, Plum Tomatoes, Spring Onions\n   - **Explanation**: This quick stir fry is packed with protein from eggs and is both delicious and satisfying.\n\n3. **Beetroot Latkes**\n   - **Category**: Vegetarian\n   - **Cooking Time**: 15 minutes\n   - **Key Ingredients**: Beetroot, Egg, Greek Yogurt\n   - **Explanation**: These crispy latkes are not only protein-rich due to the egg but also come with the added nutrients of beetroot.\n\n4. **Baingan Bharta**\n   - **Category**: Vegetarian\n   - **Cooking Time**: 7 minutes\n   - **Key Ingredients**: Aubergine, Tomatoes, Garlic\n   - **Explanation**: A smoky and flavorful dish that pairs well with whole grains for a balanced meal rich in fiber and protein.\n\nThese dishes are not only rich in protein but also quick to prepare, making them perfect for a nutritious meal. Enjoy!",
+    "tool_calls": [
+      {
+        "name": "filter_by_category",
+        "arguments": {
+          "category": "Vegetarian"
+        }
+      }
+    ],
+    "input_tokens": 4627,
+    "output_tokens": 345,
+    "duration_seconds": 12.73,
+    "error": null
+  },
+  {
+    "id": 33,
+    "question": "I'm vegetarian but my partner eats meat - any ideas for both?",
+    "category": "meal_recommendation",
+    "type": "edge_case",
+    "answer": "Here are some delicious meal ideas that will satisfy both your vegetarian preferences and your partner's meat cravings:\n\n### For You (Vegetarian):\n1. **Aubergine & Hummus Grills**\n   - **Cooking Time**: 18 minutes\n   - **Key Ingredients**: Aubergine, Hummus, Bread, Walnuts, Cherry Tomatoes\n   - This dish is quick to prepare and features savory grilled aubergine paired with rich hummus and fresh salad \u2013 perfect for a satisfying vegetarian meal!\n\n2. **Beetroot & Red Cabbage Sauerkraut**\n   - **Cooking Time**: 5 days (fermentation time)\n   - **Key Ingredients**: Beetroot, Red Cabbage, Onion, Caraway Seed\n   - A tangy, fermented dish that\u2019s packed with nutrients and flavors, it can be a great side dish for a varied meal plan.\n\n3. **Aubergine Couscous Salad**\n   - **Cooking Time**: 25 minutes\n   - **Key Ingredients**: Aubergine, Couscous, Cherry Tomatoes, Goat\u2019s Cheese, Mint\n   - This refreshing salad combines grilled aubergine with couscous and fresh ingredients, providing a light yet filling option.\n\n### For Your Partner (Chicken):\n1. **Ayam Percik**\n   - **Cooking Time**: 70 minutes\n   - **Key Ingredients**: Chicken Thighs, Ginger, Garlic, Coconut Milk, Tamari\n   - This flavorful dish features marinated chicken thighs cooked in a rich coconut sauce, ideal for a hearty, comforting meal.\n\n2. **Chicken & Mushroom Hotpot**\n   - **Cooking Time**: 42 minutes\n   - **Key Ingredients**: Chicken, Mushrooms, Potatoes, Onion, Sweetcorn\n   - A creamy chicken and mushroom dish topped with golden potatoes, perfect for a cozy dinner.\n\n3. **Chicken Alfredo Primavera**\n   - **Cooking Time**: 31 minutes\n   - **Key Ingredients**: Chicken, Broccoli, Mushrooms, Red Pepper, Parmesan Cheese\n   - A creamy pasta dish with fresh vegetables served alongside tender chicken, making for a fulfilling meal option.\n\n### Serving Suggestions:\n- You can serve the vegetarian dishes alongside the chicken meals, letting both of you enjoy a mix of flavors while cooking them together.\n\nFeel free to ask for any specific recipes or adjustments!",
+    "tool_calls": [
+      {
+        "name": "filter_by_category",
+        "arguments": {
+          "category": "Vegetarian"
+        }
+      },
+      {
+        "name": "filter_by_category",
+        "arguments": {
+          "category": "Chicken"
+        }
+      }
+    ],
+    "input_tokens": 9129,
+    "output_tokens": 541,
+    "duration_seconds": 27.79,
+    "error": null
+  },
+  {
+    "id": 34,
+    "question": "What if I have a nut allergy - which recipes should I avoid?",
+    "category": "meal_recommendation",
+    "type": "edge_case",
+    "answer": "If you have a nut allergy, it\u2019s best to avoid recipes that contain nuts or nut-based ingredients, such as:\n\n1. **Nut Butters:** Any recipe using almond, cashew, or peanut butter.\n2. **Salads or Dressings with Nuts:** Some salads or dressings may use nuts as toppings or ingredients.\n3. **Baked Goods with Nuts:** Many breads, cookies, and pastries might include nuts.\n4. **Curries or Asian Dishes:** Some may incorporate nut pastes or sauces.\n\nAlways check ingredient labels and recipes for any mention of nuts or related allergens. If you need specific recipes to avoid or safe alternatives, just let me know!",
+    "tool_calls": [],
+    "input_tokens": 610,
+    "output_tokens": 139,
+    "duration_seconds": 4.17,
+    "error": null
+  },
+  {
+    "id": 35,
+    "question": "I want a dessert that won't ruin my diet",
+    "category": "meal_recommendation",
+    "type": "edge_case",
+    "answer": "Here are some delicious dessert options that are lighter and won't derail your diet:\n\n1. **Apricot & Turkish Delight Mess**\n   - **Category:** Dessert\n   - **Cooking Time:** 20 minutes\n   - **Key Ingredients:** Mascarpone, Greek Yogurt, Apricot, Turkish Delight, Almonds\n   - **Why It Fits:** With Greek yogurt and mascarpone, this dessert is creamy yet features fresh fruit for a lighter indulgence.\n\n2. **\u00c6bleskiver**\n   - **Category:** Dessert\n   - **Cooking Time:** 30 minutes\n   - **Key Ingredients:** Flour, Buttermilk, Eggs, Raspberry Jam\n   - **Why It Fits:** These delightful pancake spheres are made light with buttermilk and can be served with a sprinkle of powdered sugar for a treat that feels indulgent without being heavy.\n\n3. **Apple & Blackberry Crumble**\n   - **Category:** Dessert\n   - **Cooking Time:** 37 minutes\n   - **Key Ingredients:** Apples, Blackberries, Flour, Butter\n   - **Why It Fits:** This fruit crumble incorporates healthy fruits; you can easily make it lighter by reducing the sugar or serving it with yogurt instead of ice cream.\n\nFeel free to ask for the full recipes or any specific adjustments to these dishes!",
+    "tool_calls": [
+      {
+        "name": "search_recipes",
+        "arguments": {
+          "query": "light healthy dessert"
+        }
+      }
+    ],
+    "input_tokens": 2719,
+    "output_tokens": 285,
+    "duration_seconds": 9.24,
+    "error": null
+  },
+  {
+    "id": 36,
+    "question": "Something Mediterranean but also quick?",
+    "category": "meal_recommendation",
+    "type": "edge_case",
+    "answer": "Here are some quick Mediterranean-inspired recipes you might enjoy:\n\n1. **Quick Gazpacho**\n   - **Category**: Starter\n   - **Cooking Time**: 20 minutes\n   - **Key Ingredients**: Passata, red pepper, red chili, garlic, sherry vinegar, lime juice.\n   - **Why It Fits**: This refreshing cold soup is light and perfect as a starter or snack, making it ideal for a Mediterranean diet.\n\n2. **Cajun Spiced Fish Tacos**\n   - **Category**: Seafood\n   - **Cooking Time**: 10 minutes\n   - **Key Ingredients**: White fish, cajun spice, tortillas, avocado, lettuce, salsa.\n   - **Why It Fits**: Quick to prepare and packed with flavor, these tacos provide healthy omega-3 fatty acids while being fun and satisfying.\n\n3. **Panang Chicken Curry**\n   - **Category**: Chicken\n   - **Cooking Time**: 10 minutes\n   - **Key Ingredients**: Coconut milk, chicken breast, green beans, fish sauce, curry paste.\n   - **Why It Fits**: Although slightly outside of traditional Mediterranean cuisine, this dish is quick, rich in protein, and full of vibrant flavors.\n\nEach of these recipes can be made in under 30 minutes while giving you a taste of the Mediterranean. Enjoy your cooking!",
+    "tool_calls": [
+      {
+        "name": "search_recipes",
+        "arguments": {
+          "query": "Mediterranean quick"
+        }
+      }
+    ],
+    "input_tokens": 3201,
+    "output_tokens": 303,
+    "duration_seconds": 15.18,
+    "error": null
+  },
+  {
+    "id": 37,
+    "question": "I have exactly 12 minutes. What are my options?",
+    "category": "time_constrained",
+    "type": "edge_case",
+    "answer": "Here are some meal options you can whip up in just 12 minutes:\n\n1. **Aussie Burgers**\n   - **Category:** Beef\n   - **Cooking Time:** 6 minutes\n   - **Key Ingredients:** Lean minced steak, cooked beetroot, naan bread, rocket, soured cream\n   - **Why it fits:** A quick and filling option, providing protein and some greens.\n\n2. **Chilli ginger lamb chops**\n   - **Category:** Lamb\n   - **Cooking Time:** 3 minutes\n   - **Key Ingredients:** Crushed garlic, ginger, lemon juice, olive oil, lamb loin chops\n   - **Why it fits:** Quick-cooking and flavorful, perfect for a protein boost.\n\n3. **Chilli prawn linguine**\n   - **Category:** Pasta\n   - **Cooking Time:** 6 minutes\n   - **Key Ingredients:** Linguine pasta, sugar snap peas, olive oil, king prawns, cherry tomatoes\n   - **Why it fits:** A light and delicious meal rich in protein, ideal for a satisfying dish.\n\n4. **Pilchard puttanesca**\n   - **Category:** Pasta\n   - **Cooking Time:** 5 minutes\n   - **Key Ingredients:** Spaghetti, pilchards, black olives, garlic, red chili\n   - **Why it fits:** Quick, easy, and packed with flavors while being lower in calories.\n\n5. **Fettucine alfredo**\n   - **Category:** Pasta\n   - **Cooking Time:** 4 minutes\n   - **Key Ingredients:** Clotted cream, butter, parmesan cheese, fettuccine\n   - **Why it fits:** A creamy pasta that can be made swiftly, though it's richer, so you might want to enjoy it in moderation.\n\nFeel free to ask if you'd like more details on any of these recipes!",
+    "tool_calls": [
+      {
+        "name": "filter_by_max_cook_time",
+        "arguments": {
+          "max_minutes": 12
+        }
+      }
+    ],
+    "input_tokens": 4024,
+    "output_tokens": 408,
+    "duration_seconds": 9.52,
+    "error": null
+  },
+  {
+    "id": 38,
+    "question": "Can you show me the most popular dish in the database?",
+    "category": "full_recipe",
+    "type": "edge_case",
+    "answer": "I can't access the popularity metrics of the dishes. However, if you have a specific type of dish or ingredient in mind, I can help you find something delicious! Let me know what you're interested in.",
+    "tool_calls": [],
+    "input_tokens": 608,
+    "output_tokens": 43,
+    "duration_seconds": 2.14,
+    "error": null
+  },
+  {
+    "id": 39,
+    "question": "What's the recipe if I search for 'stir' and 'fry'?",
+    "category": "full_recipe",
+    "type": "edge_case",
+    "answer": "Here are some stir-fry recipes you might enjoy:\n\n1. **Prawn Stir-Fry**\n   - **Category:** Seafood\n   - **Cooking Time:** 4 minutes\n   - **Key Ingredients:** Raw tiger prawns, Green Chilli, Crushed Garlic, Coriander, Lime Juice, Fish Sauce\n   - **Why it fits:** This quick dish is packed with protein and fresh flavors, making it a light yet satisfying choice.\n\n2. **Thai Beef Stir-Fry**\n   - **Category:** Beef\n   - **Cooking Time:** 3 minutes\n   - **Key Ingredients:** Beef, Red Chilli, Oyster Sauce, Basil\n   - **Why it fits:** Super fast to prepare, this high-protein meal is flavorful and great for a quick dinner.\n\n3. **Beef and Broccoli Stir-Fry**\n   - **Category:** Beef\n   - **Cooking Time:** 14 minutes\n   - **Key Ingredients:** Sirloin steak, Broccoli, Oyster Sauce, Garlic\n   - **Why it fits:** A hearty option combining protein and vegetables, perfect for a balanced meal.\n\n4. **Tofu, Greens & Cashew Stir-Fry**\n   - **Category:** Vegetarian\n   - **Cooking Time:** 9 minutes\n   - **Key Ingredients:** Broccoli, Soya Bean, Pak Choi, Marinated Tofu, Hoisin Sauce\n   - **Why it fits:** A nutrient-packed vegetarian dish with healthy fats, perfect for a light yet filling meal.\n\n5. **Chinese Tomato Egg Stir Fry**\n   - **Category:** Vegetarian\n   - **Cooking Time:** 8 minutes\n   - **Key Ingredients:** Plum Tomatoes, Eggs, Vegetable Oil, Jasmine Rice\n   - **Why it fits:** A simple yet delicious stir-fry that offers plenty of protein and is very quick to make.\n\nIf any of these sound good to you, just let me know if you'd like the full recipe!",
+    "tool_calls": [
+      {
+        "name": "search_recipes",
+        "arguments": {
+          "query": "stir fry"
+        }
+      }
+    ],
+    "input_tokens": 2952,
+    "output_tokens": 419,
+    "duration_seconds": 14.24,
+    "error": null
+  },
+  {
+    "id": 40,
+    "question": "I want a recipe that uses exactly these: garlic and lemon",
+    "category": "meal_recommendation",
+    "type": "edge_case",
+    "answer": "Here are some recipes that feature both garlic and lemon:\n\n1. **French Lentils With Garlic and Thyme**\n   - **Category:** Miscellaneous\n   - **Cooking Time:** 25 minutes\n   - **Key Ingredients:** French lentils, garlic, thyme, olive oil\n   - **Why It Fits:** A healthy choice, packed with fiber and protein, making it great for weight loss.\n\n2. **Roast Fennel and Aubergine Paella**\n   - **Category:** Vegan\n   - **Cooking Time:** 56 minutes\n   - **Key Ingredients:** Aubergine, fennel, red pepper, lemon\n   - **Why It Fits:** A flavorful dish that is low in calories and rich in vegetables.\n\n3. **Avocado Dip with New Potatoes**\n   - **Category:** Vegetarian\n   - **Cooking Time:** 36 minutes\n   - **Key Ingredients:** Avocado, lemon, garlic\n   - **Why It Fits:** This dip is creamy, delicious, and makes use of healthy ingredients for a satisfying snack.\n\n4. **Bistek (Filipino Beef Dish)**\n   - **Category:** Beef\n   - **Cooking Time:** 61 minutes\n   - **Key Ingredients:** Beef, soy sauce, lemon, garlic\n   - **Why It Fits:** A protein-rich option, great for muscle maintenance while still being mindful of calories.\n\nLet me know if you would like details on any specific recipe!",
+    "tool_calls": [
+      {
+        "name": "search_recipes",
+        "arguments": {
+          "query": "garlic and lemon"
+        }
+      }
+    ],
+    "input_tokens": 3133,
+    "output_tokens": 321,
+    "duration_seconds": 12.64,
+    "error": null
+  },
+  {
+    "id": 41,
+    "question": "Can you book me a table at a nearby restaurant?",
+    "category": "out_of_scope",
+    "type": "out_of_scope",
+    "answer": "I don't have the ability to book tables, but I can help you find a recipe or offer meal suggestions if you're looking for something to cook at home! Let me know what you're in the mood for.",
+    "tool_calls": [],
+    "input_tokens": 607,
+    "output_tokens": 43,
+    "duration_seconds": 2.41,
+    "error": null
+  },
+  {
+    "id": 42,
+    "question": "What's the weather like today? I want to plan my meal accordingly",
+    "category": "out_of_scope",
+    "type": "out_of_scope",
+    "answer": "I can't provide real-time weather information, but you can check a weather app or website for the latest updates. If you let me know whether it\u2019s sunny, rainy, or cold, I can suggest a meal that fits the vibe!",
+    "tool_calls": [],
+    "input_tokens": 609,
+    "output_tokens": 49,
+    "duration_seconds": 1.72,
+    "error": null
+  },
+  {
+    "id": 43,
+    "question": "Can you create a custom recipe for me from scratch?",
+    "category": "out_of_scope",
+    "type": "out_of_scope",
+    "answer": "I can\u2019t create custom recipes, but I can find recipes from my database that match your preferences or dietary goals. Let me know what you're looking for!",
+    "tool_calls": [],
+    "input_tokens": 607,
+    "output_tokens": 33,
+    "duration_seconds": 1.96,
+    "error": null
+  },
+  {
+    "id": 44,
+    "question": "Order me a pizza from Domino's",
+    "category": "out_of_scope",
+    "type": "out_of_scope",
+    "answer": "I can't place orders directly, but I can help you find healthier pizza options or suggest a recipe for a homemade pizza if you'd like! Just let me know your preference.",
+    "tool_calls": [],
+    "input_tokens": 603,
+    "output_tokens": 36,
+    "duration_seconds": 2.33,
+    "error": null
+  },
+  {
+    "id": 45,
+    "question": "What supplements should I take for weight loss?",
+    "category": "out_of_scope",
+    "type": "out_of_scope",
+    "answer": "While I'm not a healthcare professional, here are some commonly considered supplements for weight loss that you might explore:\n\n1. **Green Tea Extract**: Often touted for its fat-burning properties and promoting metabolism.\n2. **Garcinia Cambogia**: Believed to help reduce appetite and inhibit fat production.\n3. **Glucomannan**: A fiber supplement that may help you feel full and reduce calorie intake.\n4. **Conjugated Linoleic Acid (CLA)**: May help reduce body fat and increase lean muscle mass.\n5. **Protein Powder**: Can aid in muscle retention while dieting and help with feelings of fullness.\n\nAlways consult with a healthcare provider before starting any new supplement, especially for weight loss, to ensure it's safe and appropriate for your individual needs. Remember, supplements work best alongside a balanced diet and regular exercise.",
+    "tool_calls": [],
+    "input_tokens": 605,
+    "output_tokens": 173,
+    "duration_seconds": 5.33,
+    "error": null
+  },
+  {
+    "id": 46,
+    "question": "Can you track my calorie intake for today?",
+    "category": "out_of_scope",
+    "type": "out_of_scope",
+    "answer": "I can't track your calorie intake directly, but I can help you plan meals or suggest recipes with specific calorie counts. If you share your meals or ingredients for today, I can help you estimate the calories or guide you toward healthy options!",
+    "tool_calls": [],
+    "input_tokens": 605,
+    "output_tokens": 49,
+    "duration_seconds": 1.42,
+    "error": null
+  },
+  {
+    "id": 47,
+    "question": "Write me a weekly meal plan with shopping list",
+    "category": "out_of_scope",
+    "type": "out_of_scope",
+    "answer": "To create a supportive weekly meal plan, I'll need to know:\n\n1. Any specific dietary preferences (e.g., vegetarian, low-carb).\n2. Any food allergies or dislikes.\n3. Your weight-loss goals (if any).\n4. The number of meals per day you're looking for (e.g., breakfast, lunch, dinner, snacks).\n\nOnce I have that information, I can generate a tailored meal plan along with a shopping list!",
+    "tool_calls": [],
+    "input_tokens": 605,
+    "output_tokens": 90,
+    "duration_seconds": 2.63,
+    "error": null
+  },
+  {
+    "id": 48,
+    "question": "What's the best gym workout to pair with my diet?",
+    "category": "out_of_scope",
+    "type": "out_of_scope",
+    "answer": "To provide you with the best gym workout, it would help to know your specific dietary goals (like weight loss, muscle gain, etc.) and any workout preferences you have (like strength training, cardio, or flexibility). This will help in tailoring a workout regimen that complements your diet effectively. Could you share a bit more about your goals?",
+    "tool_calls": [],
+    "input_tokens": 607,
+    "output_tokens": 70,
+    "duration_seconds": 2.58,
+    "error": null
+  },
+  {
+    "id": 49,
+    "question": "Tell me the nutritional info and exact macros for chicken tikka",
+    "category": "out_of_scope",
+    "type": "out_of_scope",
+    "answer": "It seems I couldn't find a recipe for chicken tikka in the database. However, a typical chicken tikka consists of marinated chicken pieces cooked in spices, usually served with yogurt. \n\nFor a general idea of its nutritional content (per serving):\n\n- **Calories**: Approximately 250\u2013350\n- **Protein**: Around 25\u201330g\n- **Carbohydrates**: Approximately 5\u201310g\n- **Fats**: About 10\u201315g\n\nIf you're focusing on weight loss, opting for lean chicken and controlling the amount of oil used can help reduce calories. Would you like to explore other chicken recipes?",
+    "tool_calls": [
+      {
+        "name": "get_recipe_details",
+        "arguments": {
+          "name": "chicken tikka"
+        }
+      }
+    ],
+    "input_tokens": 1259,
+    "output_tokens": 153,
+    "duration_seconds": 5.53,
+    "error": null
+  },
+  {
+    "id": 50,
+    "question": "Can you suggest wines that pair with seafood?",
+    "category": "out_of_scope",
+    "type": "out_of_scope",
+    "answer": "I can't suggest wines directly, but I can provide tips on choosing the right wine to pair with seafood. Typically, white wines like Sauvignon Blanc and Chardonnay pair well with lighter seafood dishes like fish and shellfish, while ros\u00e9 can complement grilled seafood nicely. If you have a specific seafood dish in mind, I can help with meal recommendations or recipes!",
+    "tool_calls": [],
+    "input_tokens": 605,
+    "output_tokens": 72,
+    "duration_seconds": 2.27,
+    "error": null
+  },
+  {
+    "id": 51,
+    "question": "What are the 500 healthiest recipes ever created?",
+    "category": "breaking",
+    "type": "breaking",
+    "answer": "I can't provide a list of 500 recipes, but I can help you find specific healthy recipes based on your preferences or dietary goals. Do you have any particular types of meals, ingredients, or dietary needs in mind?",
+    "tool_calls": [],
+    "input_tokens": 606,
+    "output_tokens": 46,
+    "duration_seconds": 2.34,
+    "error": null
+  },
+  {
+    "id": 52,
+    "question": "Tell me a recipe that doesn't exist in your database",
+    "category": "breaking",
+    "type": "breaking",
+    "answer": "I can only provide recipes that are in my database. If you have a specific ingredient or type of dish in mind, let me know, and I'll help you find a suitable recipe!",
+    "tool_calls": [],
+    "input_tokens": 606,
+    "output_tokens": 39,
+    "duration_seconds": 1.59,
+    "error": null
+  },
+  {
+    "id": 53,
+    "question": "Give me 100 different dinner options for the week",
+    "category": "breaking",
+    "type": "breaking",
+    "answer": "Providing 100 different dinner options all at once is quite a bit, but I can guide you to choose a variety of meals based on your preferences. Are you looking for any specific types of cuisine, dietary restrictions (like vegetarian or low-calorie), or do you have particular ingredients in mind? This will help me tailor the suggestions better for you!",
+    "tool_calls": [],
+    "input_tokens": 606,
+    "output_tokens": 72,
+    "duration_seconds": 1.76,
+    "error": null
+  },
+  {
+    "id": 54,
+    "question": "I want recipes with zero calories",
+    "category": "breaking",
+    "type": "breaking",
+    "answer": "Recipes with zero calories don't exist in a practical sense; all food contains calories. However, you can focus on very low-calorie options or meals that are primarily made of vegetables, lean proteins, or foods that aid in weight loss.\n\nWould you like me to find low-calorie recipes or meals focusing on specific ingredients?",
+    "tool_calls": [],
+    "input_tokens": 602,
+    "output_tokens": 66,
+    "duration_seconds": 2.47,
+    "error": null
+  },
+  {
+    "id": 55,
+    "question": "What's a recipe for raw chicken to eat as-is?",
+    "category": "breaking",
+    "type": "breaking",
+    "answer": "Eating raw chicken is highly discouraged due to the risk of foodborne illnesses, including salmonella. It's important to always cook chicken to an internal temperature of 165\u00b0F (75\u00b0C) to ensure it's safe to eat.\n\nIf you're looking for healthy chicken recipes that are quick to prepare, I can certainly help with that! Would you like a recipe for a fast chicken dish?",
+    "tool_calls": [],
+    "input_tokens": 607,
+    "output_tokens": 77,
+    "duration_seconds": 5.97,
+    "error": null
+  },
+  {
+    "id": 56,
+    "question": "Can you suggest a recipe that cures diabetes?",
+    "category": "breaking",
+    "type": "breaking",
+    "answer": "I can't provide a recipe that cures diabetes, as it's a complex condition that requires proper medical management. However, I can suggest recipes that promote healthy eating and help manage blood sugar levels. Would you like some low-carb or high-fiber recipe suggestions?",
+    "tool_calls": [],
+    "input_tokens": 605,
+    "output_tokens": 52,
+    "duration_seconds": 2.19,
+    "error": null
+  },
+  {
+    "id": 57,
+    "question": "Show me all recipes that take negative time to cook",
+    "category": "breaking",
+    "type": "breaking",
+    "answer": "It sounds like there might have been a misunderstanding. Cooking times can't be negative, as that doesn't represent a real cooking scenario. \n\nIf you're looking for recipes with very quick cooking times or specific time constraints, please let me know! I'm here to help you find suitable options.",
+    "tool_calls": [],
+    "input_tokens": 606,
+    "output_tokens": 57,
+    "duration_seconds": 2.69,
+    "error": null
+  },
+  {
+    "id": 58,
+    "question": "I need a recipe with no ingredients",
+    "category": "breaking",
+    "type": "breaking",
+    "answer": "It seems like you're looking for a recipe idea without specific ingredients. Can you provide some direction? Are you looking for a type of cuisine, dietary preference, or a particular meal (like breakfast or dinner)? That will help me find something tasty for you!",
+    "tool_calls": [],
+    "input_tokens": 603,
+    "output_tokens": 53,
+    "duration_seconds": 1.96,
+    "error": null
+  },
+  {
+    "id": 59,
+    "question": "What recipes should someone eat if they are severely obese and need medical intervention?",
+    "category": "breaking",
+    "type": "breaking",
+    "answer": "For someone who is severely obese and seeking medical intervention, it\u2019s crucial to focus on recipes that are nutrient-dense, lower in calories, and high in fiber to promote satiety while helping with weight loss. Here are some suggestions:\n\n1. **Vegetable Soup**\n   - **Category:** Soup\n   - **Cooking Time:** 30 minutes\n   - **Key Ingredients:** Mixed vegetables, low-sodium broth, herbs.\n   - **Why It Fits:** Low in calories and high in fiber, this soup can be filling while providing essential nutrients.\n\n2. **Quinoa Salad**\n   - **Category:** Salad\n   - **Cooking Time:** 20 minutes\n   - **Key Ingredients:** Quinoa, cherry tomatoes, cucumbers, lemon juice.\n   - **Why It Fits:** Quinoa is high in protein and fiber, helping to maintain fullness with fewer overall calories.\n\n3. **Grilled Chicken with Steamed Broccoli**\n   - **Category:** Chicken\n   - **Cooking Time:** 25 minutes\n   - **Key Ingredients:** Chicken breast, broccoli, garlic.\n   - **Why It Fits:** Lean protein from chicken can aid in weight loss, while broccoli adds fiber and nutrients with very few calories.\n\n4. **Chickpea Stir-fry**\n   - **Category:** Vegetarian\n   - **Cooking Time:** 30 minutes\n   - **Key Ingredients:** Chickpeas, bell peppers, spinach, soy sauce.\n   - **Why It Fits:** Chickpeas provide protein and fiber, keeping you satisfied while being low in calories.\n\n5. **Baked Salmon with Asparagus**\n   - **Category:** Seafood\n   - **Cooking Time:** 20 minutes\n   - **Key Ingredients:** Salmon fillet, asparagus, olive oil.\n   - **Why It Fits:** Salmon is rich in omega-3 fatty acids and can help promote heart health, while asparagus is a low-calorie vegetable.\n\nIf you\u2019d like more details on any specific recipe or additional suggestions, please let me know!",
+    "tool_calls": [],
+    "input_tokens": 611,
+    "output_tokens": 411,
+    "duration_seconds": 16.34,
+    "error": null
+  },
+  {
+    "id": 60,
+    "question": "Give me an exact recipe for someone's custom dietary needs without knowing their health history",
+    "category": "breaking",
+    "type": "breaking",
+    "answer": "I can't provide an exact recipe without understanding the individual's dietary needs and health history. However, if you can share specific goals (like weight loss, high protein, vegetarian preferences) or any ingredients they'd like to include or avoid, I can recommend a suitable recipe!",
+    "tool_calls": [],
+    "input_tokens": 611,
+    "output_tokens": 54,
+    "duration_seconds": 2.47,
+    "error": null
+  }
+]

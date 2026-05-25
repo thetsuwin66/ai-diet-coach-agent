@@ -1,0 +1,857 @@
+{
+  "v1": {
+    "results": [
+      {
+        "question": "I want a high-protein dinner. What do you recommend?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The response provides a set of high-protein dinner recommendations that directly addresses the user's request. The agent uses the `search_recipes` tool to find relevant recipes and presents four distinct options, each with appropriate details including cooking time and key ingredients. Additionally, the descriptions explain why each recipe is high in protein, aligning well with the user\u2019s dietary goals. Since all the recipes mentioned appear to reflect real dishes available in the database, there are no signs of hallucination or inappropriate recommendations. Overall, the response is comprehensive, clear, and aligned with the user's needs, making it a thorough and effective answer.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v1"
+      },
+      {
+        "question": "What are some good meals for weight loss?",
+        "human_label": "bad",
+        "judge_label": "bad",
+        "reasoning": "The response does not directly provide meal recipes from the database, as it states that there are no specific recipes labeled for weight loss. While the agent gives useful general tips that could aid in weight loss, it fails to use the tool effectively to find recipes or even mention any specific recipes from the database. The user specifically asked for meals, and the agent did not deliver any recipes, only general advice instead. Therefore, the response lacks the necessary connection to the specific request for meals, which constitutes a failure to fully address the user's question. This results in the overall evaluation being BAD since it neglected the core request for recipes and did not utilize available tools appropriately.",
+        "failure_category": "incomplete",
+        "match": true,
+        "version": "v1"
+      },
+      {
+        "question": "Can you suggest a healthy chicken dish?",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "The agent provided a list of chicken dishes categorized as healthy, but there are significant issues with some of the recommendations. While it used the appropriate tool to filter by category, the choice of 'Chicken Alfredo Primavera', which is often rich in cream and cheese, does not align with the user's request for a \"healthy\" dish. Additionally, 'Chicken Fried Rice' typically takes longer than necessary for a simple dish, and while making use of leftover rice is practical, it may not meet the user's health criteria. Therefore, the suggestions lack accuracy regarding what qualifies as healthy in a dietary context and include a dish that could be considered not healthy.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v1"
+      },
+      {
+        "question": "I'm trying to lose weight. What should I eat for dinner?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The agent's response provides a list of healthy dinner options that align with the user's goal of losing weight, which directly addresses the user's question. The recipes listed are appropriate for weight loss and are relevant to the search query made by the agent. Furthermore, the agent includes cooking times and key ingredients for each recipe, adding valuable information for the user. The agent appropriately uses the tool to search for recipes, and there is no evidence of hallucination or inappropriate recommendations in the response. Overall, the answer is complete and informative, encouraging further engagement by offering full recipes if desired. Therefore, this response is classified as GOOD.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v1"
+      },
+      {
+        "question": "What seafood dishes do you have?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "1. The user's question asked for seafood dishes, which the agent answered directly by providing a list of seafood dishes. \n2. The agent used the correct tool, `filter_by_category({",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v1"
+      },
+      {
+        "question": "Show me some vegetarian options",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "The agent's response is well-structured and directly addresses the user's request for vegetarian options. It makes an appropriate tool call to filter recipes by the vegetarian category, ensuring that the recipes provided are accurate and sourced from the database. Each recipe is detailed with cooking time and key ingredients, which adds value to the response. The reasons provided are relevant and supportive of the dish's appeal.\n\nHowever, the inclusion of \"Egg Drop Soup\" as a vegetarian option raises some concerns. Traditional egg drop soup typically uses chicken stock, which is not vegetarian. This is an inappropriate recommendation and detracts from the overall quality of the response. This omission means that the response has an incorrect recommendation, which makes it misleading.\n\nSince the response contains one recipe that contradicts the vegetarian requirement, the overall evaluation of the answer will be classified as BAD.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v1"
+      },
+      {
+        "question": "I want to eat healthy tonight. What do you suggest?",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "In the provided response, the agent effectively utilized a tool to search for healthy dinner options. The recipe for 'Salmon Noodle Wraps' aligns with the user's request for a healthy meal, providing cooking time and key ingredients, thus presenting a complete and relevant answer. However, the inclusion of 'Home-made Mandazi' is inappropriate since it is categorized as a breakfast item, and recommending it as a dinner option is not suitable, potentially leading to confusion about what constitutes a healthy dinner. Overall, while the tool was used correctly, the answer included an inappropriate recipe which detracted from the overall quality. Therefore, the response is categorized as BAD due to the presence of a clearly mismatched recipe that does not align with the request for a healthy dinner.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v1"
+      },
+      {
+        "question": "What are some low-calorie dinner options?",
+        "human_label": "bad",
+        "judge_label": "bad",
+        "reasoning": "The agent's response has several issues that make it a BAD response. First, while it provides a list of recipes that appear to match the user's request for low-calorie dinner options, the inclusion of \"Fettuccine Alfredo\" is inappropriate for a low-calorie goal. Fettuccine Alfredo is typically high in calories due to ingredients like butter and cream, which contradicts the low-calorie requirement. Additionally, the agent does not indicate whether the recipes were fetched from the database or invented, raising concerns over the recipes' authenticity. No explicit mention was made regarding checks for the validity of recipes against available databases. Therefore, this response is incomplete since it includes a recipe that is clearly unsuitable for the user's request. Overall, the response lacks compliance with the criteria for accuracy and relevance, leading to a designation of \"BAD.\"",
+        "failure_category": "hallucination",
+        "match": true,
+        "version": "v1"
+      },
+      {
+        "question": "Can you recommend a beef dish for muscle building?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The agent effectively addressed the user's request for beef dishes suited for muscle building by using the appropriate tool to filter recipes by category. The response included two relevant recipes from the database, and it provided cooking times and key ingredients for each dish, which aligns with the user's inquiry. Additionally, the reasoning given for why each dish supports muscle building was appropriate and informative. Overall, the response is complete and directly meets the user's needs without inventing any data or offering unsuitable suggestions.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v1"
+      },
+      {
+        "question": "I want something filling but not too heavy",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "The response provided by the agent included a mix of appropriate and inappropriate meal recommendations. While the **Vietnamese Prawn Spiralized Rolls**, **Cream Cheese Tart**, and **Chicken Alfredo Primavera** are suitable choices that align with the user's desire for filling yet light meals, the inclusion of **Fettuccine Alfredo** is problematic. This dish, known for its rich and heavy ingredients like heavy cream and butter, contradicts the user's request for something that is filling but not too heavy. Additionally, the search for recipes based on the user's query was appropriately utilized. However, the response does not adequately adhere to the requirement to avoid heavy recipes. Furthermore, it fails to justify why all cited recipes are suitable given the user's criteria. Therefore, although some of the recommendations were appropriate, the inclusion of a clearly heavy option undermines the overall fulfillment of the user's request.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v1"
+      },
+      {
+        "question": "I only have 15 minutes to cook. What can I make?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The response from the agent effectively addresses the user's question about quick meal options that can be prepared in 15 minutes or less. The agent correctly uses the tool to filter recipes based on cooking time, which aligns with the user\u2019s requirements. Additionally, all the recipes presented are relevant, mentioning the cooking times and key ingredients, which adds value. However, one recipe\u2014Fettucine Alfredo\u2014could be considered inappropriate for those looking for healthier or lighter meal options, as it is typically rich and high in calories. Nonetheless, it meets the time criteria. Overall, since the agent has provided appropriate recipes and details, the response can be classified as GOOD despite the potential issue with dietary suitability for one recipe. \n\nFinal assessment: While some aspects might raise concerns for specific dietary goals, the overall functionality and service to the user's query is met adequately.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v1"
+      },
+      {
+        "question": "Quick meal ideas for busy weeknights?",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "The agent's response provides several meal ideas for busy weeknights, which directly addresses the user's request. The use of the filter_by_max_cook_time tool is appropriate since it ensures that all suggested recipes can be prepared quickly. The response includes the recipe names, categories, cooking times, and key ingredients for each meal, making the information complete and relevant. \n\nHowever, there is a potential issue with the \"Aussie Burgers\" recipe as it might not be a suitable choice for all audiences if the user aims for health-conscious meals, depending on the context of the diet. Additionally, all mentioned recipes must come from the database as stipulated. While the reasoning is valid and presents quick options, without knowing the contents of the database, we cannot verify if these recipes exist or if any recipe violates dietary expectations.\n\nGiven these considerations, while effective in format, there remains uncertainty regarding the appropriateness of some recipe suggestions. Therefore, the judgment leans toward BAD due to the unspecified database constraints and the potential inclusion of less suitable meal options. \n\nOverall, the need for precision around recipes from the database and dietary context rating makes this a BAD response.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v1"
+      },
+      {
+        "question": "I need a recipe I can make in under 20 minutes",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "The agent appropriately filters the recipes to meet the user's requirement for dishes that can be cooked in under 20 minutes, which is relevant. However, it claims that the cooking time for \"Algerian Kefta (Meatballs)\" is 20 minutes, but this is problematic because it should have only included recipes that could be made in strictly under 20 minutes according to the user's request.\n\nAdditionally, the response does not verify if the recipes mentioned actually exist in the database. Therefore, even if the selected recipes meet some criteria, we cannot confirm their authenticity to the database provided, representing a significant flaw in the response. The option for \"Algerian Kefta (Meatballs)\" pushes the total cooking time to 20 minutes which does not line up with the strict guidelines of the user prompt to be under 20 minutes. Furthermore, without an accurate tool call to validate each recipe's cooking time against the database, the response lacks the necessary accountability to ensure the accuracy of the final answer.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v1"
+      },
+      {
+        "question": "What can I cook in half an hour or less?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The response directly addresses the user's question about meals that can be cooked in half an hour or less. The agent correctly uses the tool `filter_by_max_cook_time({\"max_minutes\": 30})` to find recipes that fit this criteria. It provides a variety of options across different categories (beef, chicken, dessert, etc.), which showcases versatility and meets the user's request.\n\nThe cooking times and key ingredients for each recipe are also included, which adds value and clarity. The user is given a good choice of dishes, further enhancing the response. There are no signs of hallucination, and no inappropriate items are suggested. The agent concludes by offering additional assistance, which is polite and engaging. Thus, this is a comprehensive and appropriate response to the user's request.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v1"
+      },
+      {
+        "question": "Something fast for lunch - 10 minutes max",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "The agent's response lists several recipes that appear to be pulled from the database and adheres to the requirement of a cooking time of under 10 minutes. However, one of the suggested recipes, Fettuccine Alfredo, is inappropriate given that it typically contains high-calorie ingredients (cream and cheese) and is commonly not seen as a \"fast\" or healthy lunch option, especially when the user may be looking for something light or low-calorie. Additionally, there is no indication that the agent checked specifically for recipes adhering to a healthier or more appropriate profile for lunch. Thus, while it does provide valid recipes and calls the appropriate tool, it fails due to suggesting a clearly unsuitable option, making the response BAD.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v1"
+      },
+      {
+        "question": "How do I make a beef stir-fry? Give me the full recipe.",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The agent accurately provided a recipe for Thai Beef Stir-Fry, successfully calling the appropriate tool to retrieve the recipe details. The response includes key ingredients, cooking time, and step-by-step instructions, fully addressing the user's request for the complete recipe. There are no invented recipes or inappropriate recommendations. The details are directly useful and relevant, therefore the response meets all criteria for a GOOD evaluation.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v1"
+      },
+      {
+        "question": "What are the ingredients for chicken tikka masala?",
+        "human_label": "bad",
+        "judge_label": "bad",
+        "reasoning": "The agent attempted to find the ingredients for chicken tikka masala using the appropriate tool, get_recipe_details. However, it incorrectly stated that it couldn't find a recipe for chicken tikka masala, which suggests that it does not rely on the database for the ingredients provided in its response. The agent then proceeded to list typical ingredients without verifying their presence in the database, which constitutes a hallucination. Furthermore, since the user asked specifically for ingredients, the response is incomplete because it doesn't draw from the database as required. Therefore, the response does not fulfill the criteria for appropriateness and completeness.",
+        "failure_category": "hallucination",
+        "match": true,
+        "version": "v1"
+      },
+      {
+        "question": "Give me the full cooking steps for salmon with garlic",
+        "human_label": "bad",
+        "judge_label": "good",
+        "reasoning": "The agent's response is appropriate given that it attempted to fetch a recipe using the correct tool but was unable to find the requested recipe. Instead of inventing a recipe or providing incomplete information, the agent suggests searching for alternative options, which is a polite and constructive redirect. Therefore, the response is in line with the guidelines for a GOOD response, as it does not fabricate any recipe and acknowledges the lack of available data for the specific request.",
+        "failure_category": "hallucination",
+        "match": false,
+        "version": "v1"
+      },
+      {
+        "question": "How do I cook a vegetarian pasta? Step-by-step please.",
+        "human_label": "bad",
+        "judge_label": "bad",
+        "reasoning": "The agent's response was problematic because it did not fulfill the user's specific request for a vegetarian pasta recipe. Instead, it provided a completely different dish (Aubergine Couscous Salad) which the user did not ask for. While the dish is vegetarian, the failure to locate or provide any information on vegetarian pasta demonstrates a lack of relevant database use. Furthermore, the initial tool call to get the recipe for \"vegetarian pasta\" should ideally have resulted in a recipe specifically related to pasta; by ignoring this, the agent's response misleads the user and shows a misunderstanding of the request. Therefore, the response does not qualify as complete or appropriate, as the user was specifically looking for a step-by-step guide for vegetarian pasta.",
+        "failure_category": "incomplete",
+        "match": true,
+        "version": "v1"
+      },
+      {
+        "question": "What's the recipe for making lamb chops?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The response addresses the user's question by providing a specific recipe for lamb chops, and it uses the appropriate tool to retrieve the recipe details. The recipe includes cooking time and key ingredients, making it complete and relevant. The answer does not include any invented information or hallucinations. Therefore, it meets all the criteria for being classified as GOOD.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v1"
+      },
+      {
+        "question": "gimme something with chicken that won't make me fat",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "The agent's response is BAD for the following reasons:  \n1. The first recipe, \"15-Minute Chicken & Halloumi Burgers,\" has a cooking time of 36 minutes which contradicts its title indicating 15 minutes.  \n2. The agent suggests several recipes with cooking times that are irrelevant to the user's request for something quick (considering the user implied a low-calorie preference), demonstrating a lack of refinement in addressing health-conscious cooking.  \n3. The choice of the \"Ayam Percik\" with 70 minutes of cooking time might not align well with the implied preference for a quicker meal.  \n4. The suggestion of \"Brown Stew Chicken\" as a lower-calorie option may not be accurate given the ingredients and the possibility of high calorie count from coconut milk and cooking methods.  \n5. Although the recipes are listed under the chicken category, the agent does not provide sufficient contextual warnings about potential calorie issues, nor validates the actual calorie content, which is critical since the user's intent is to avoid gaining weight.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v1"
+      },
+      {
+        "question": "healthy stuff for dinner?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The agent's response includes two recipes from the database, addressing the user's request for healthy dinner options. Both recipes have specified cooking times and key ingredients, contributing to a comprehensive answer. Additionally, the first recipe fits well within a healthy dinner context, while the second recipe, despite being categorized as breakfast, is presented as a lighter dinner option, which is acceptable as long as it aligns with the user's request for healthy food. There are no invented recipes or nutritional data, and the agent offers to provide more details if needed, which enhances the engagement. Overall, the response is relevant and well-constructed, making it a good response.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v1"
+      },
+      {
+        "question": "need food ideas - trying to slim down",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "The agent's response includes several meal ideas intended for someone trying to slim down, which fits the user's request. However, it fails on several counts. Firstly, it mentions Fettuccine Alfredo, which is not suitable for someone trying to slim down, as it's quite rich and high in calories. Secondly, the Chicken Congee and Katsu Chicken Curry have decidedly long cooking times (80 and 125 minutes respectively), which may not fit what a user looking to slim down would desire. Moreover, several dishes such as the Katsu Chicken Curry are specified as having higher calories with no accompanying caveat or suggestion for modifications to keep them lighter, compromising the response's quality. Hence, while the agent used the search tool to gather recipes, the inclusion of inappropriate options for the dietary goal and lack of effective filtering or additional context makes the overall response inadequate. Thus, this response is categorized as BAD.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v1"
+      },
+      {
+        "question": "any quick eats that are good for you?",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "The agent's response does not adhere to guidelines as it includes a recipe titled \"Aussie Burgers,\" which is not typically considered a healthy option, especially for users seeking quick, healthy meals. It also fails to include any disclaimer about the appropriateness of certain recipes for health-focused goals. The agent has incorrectly provided recipes without confirming their validity against the database after the tool call. Thus, the recommendations might be misaligned with what constitutes a quick and healthy meal while also potentially presenting hallucinated or inappropriate meal choices. Overall, the answer is labeled BAD because it fails to maintain a focus on healthy eating in response to the user's inquiry and includes potentially inappropriate recipes.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v1"
+      },
+      {
+        "question": "what should i eat if im trying to get lean",
+        "human_label": "bad",
+        "judge_label": "bad",
+        "reasoning": "1. The user asked for lean recipes suitable for getting lean which is a valid query for a diet coach. \n2. The agent used the search_recipes tool to find recipes based on a query related to lean recipes, which is appropriate. \n3. However, the response includes a recipe for \"Fettucine Alfredo,\" which is typically high in calories due to its rich ingredients like clotted cream, butter, and Parmesan cheese. This does not align with the goal of getting lean, which typically involves lower-calorie, healthier options. \n4. All other recipes (Aussie Burgers, Jamaican Cornmeal Porridge, Katsu Chicken Curry, and Honey Teriyaki Salmon) fit the lean criteria better, but the inclusion of Fettuccine Alfredo undermines the quality of the advice. \n5. The agent did not mention specific calorie counts for portioning or give guidance on healthy cooking methods explicitly enough, which could aid the user more effectively in their goal. \nBased on the inclusion of an inappropriate recipe and the lack of complete guidance to help the user get lean, I conclude that the response is BAD. \n",
+        "failure_category": "incomplete",
+        "match": true,
+        "version": "v1"
+      },
+      {
+        "question": "I don't have much time tonight maybe like 25 mins",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The response directly addresses the user's question about quick meal options for a 25-minute cooking time. The agent made a relevant tool call using `filter_by_max_cook_time` to find recipes that fit the user's time constraint and provides five recipes, including cooking times and key ingredients. Each recipe falls within the 25-minute window, and it provides a variety of options. There are no invented recipes or inappropriate items listed, and the agent offers to provide detailed recipes upon request, maintaining user engagement. Overall, the response is complete and directly relevant to the user's needs, fulfilling all requirements for a 'GOOD' response.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v1"
+      },
+      {
+        "question": "something with fish maybe?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The agent's response is appropriate as it provides a list of fish recipes in response to the user's vague inquiry about something with fish. The tools were employed correctly by using `search_recipes` to find relevant recipes. Each recipe includes important details such as cooking time, key ingredients, and a brief explanation of why it fits the user's potential health goals. The recipes mentioned are not invented and align with the user's interest in fish. The structure is clear and inviting for further engagement by offering full recipes upon request. Overall, the response is comprehensive and meets all the necessary criteria for a good answer.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v1"
+      },
+      {
+        "question": "low cal options please",
+        "human_label": "bad",
+        "judge_label": "bad",
+        "reasoning": "The response contains several issues that violate the criteria for a good response from an AI diet coach. Firstly, the inclusion of **Fettucine Alfredo** is inappropriate for a low-calorie diet; it is a rich, creamy recipe typically high in calories, which directly contradicts the user's request for low-calorie options. This misaligned recommendation demonstrates a lack of careful consideration regarding dietary goals. \n\nSecondly, there's no verification that the other recipes provided (Jamaican Cornmeal Porridge, Honey Teriyaki Salmon, and Chicken Congee) were found using the search tool, as the agent simply lists them without confirming their association with the low-calorie query. The final answer lacks justified backing by the search results and seems to include some potentially non-compliant dishes. Additionally, while the agent provides cooking times and ingredient details, it should have ensured that all recipes listed correctly fit the low-calorie criteria without hallucinations or inaccuracies in their healthiness. \n\nOverall, the response is deemed BAD due to inappropriate recommendations and failure to ensure all listed recipes fit the low-calorie theme, risking the user's dietary needs.",
+        "failure_category": "hallucination",
+        "match": true,
+        "version": "v1"
+      },
+      {
+        "question": "tell me how to cook that beef thing",
+        "human_label": "bad",
+        "judge_label": "bad",
+        "reasoning": "The agent's response provided a specific recipe, **Beef and Broccoli Stir-Fry**, when the user vaguely asked about 'that beef thing.' However, it did not properly acknowledge or check the initial tool call, which was to use `get_recipe_details({",
+        "failure_category": "wrong_scope",
+        "match": true,
+        "version": "v1"
+      },
+      {
+        "question": "what's a good recipe - doesn't have to be anything specific",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "The response does provide a recipe, which is a positive aspect. However, it does not demonstrate evidence that the recipe for \"Home-made Mandazi\" is actually found in the given recipe database, which raises concerns about the authenticity of the information provided. Additionally, the explanation of how to adjust the recipe aligns with promoting a healthier option, but the core issue remains whether the recipe was verified through the database using the tool calls. Without confirming the recipe's presence in the database, the agent\u2019s answer cannot be deemed accurate and complete. Thus, I must label the response as BAD.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v1"
+      }
+    ],
+    "metrics": {
+      "accuracy": 0.6,
+      "precision": 0.389,
+      "recall": 0.875,
+      "f1": 0.538,
+      "tp": 7,
+      "tn": 11,
+      "fp": 11,
+      "fn": 1,
+      "total": 30
+    }
+  },
+  "v2": {
+    "results": [
+      {
+        "question": "I want a high-protein dinner. What do you recommend?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "1. The question about wanting a high-protein dinner is clearly answered with specific meal recommendations. \n2. The agent called the search_recipes tool to find appropriate recipes based on the user's request for high-protein options. \n3. There is no evidence of factual inventions regarding the recipes, macros, or nutritional data since the meals are derived from the recipe database search. \n4. The recommendations are suitable for a high-protein request, with each listed dish providing significant protein content. \n5. The cooking times and recipe names are specified and grounded in the response, making it clear where the information has been sourced from. \nOverall, the response adheres to all the requirements set forth, thus it is rated as GOOD.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v2"
+      },
+      {
+        "question": "What are some good meals for weight loss?",
+        "human_label": "bad",
+        "judge_label": "bad",
+        "reasoning": "The agent provided general advice for weight loss meals instead of specific recipes from the database. While the response includes valuable tips, it fails to use the recipe database as required by the guidelines since no tools were called once the search returned no specific results. Instead of leveraging the available tools to filter by relevant categories or ingredients, the agent suggested general dietary guidelines. This does not fulfill the requirement for using a tool to find recipes when the user specifically inquired about meals. Additionally, the agent didn't invent a recipe or provide inaccurate information based on fictitious recipe results, but it didn't effectively utilize the available resources to provide the user with what they requested either. Therefore, the response in its current form does not meet the criteria for a GOOD evaluation.",
+        "failure_category": "incomplete",
+        "match": true,
+        "version": "v2"
+      },
+      {
+        "question": "Can you suggest a healthy chicken dish?",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "1. The question is about healthy chicken dishes, and the agent provides a list of suggestions, thereby answering the user's query. \n2. The agent filtered recipes by the category \"Chicken,\" using the function filter_by_category, which is one of the required tool calls when suggesting recipes from the database. \n3. The agent does not exhibit factual inventions in terms of recipe names or nutritional information since it doesn't state any specific nutritional details but rather lists the recipes as they come from the database. \n4. However, one of the suggested dishes, \"Chicken Alfredo Primavera,\" does not fit the user's request for a healthy option as Alfredo sauces are often high in calories and fats, which may not suit a healthy diet. \n5. The cooking times for each dish are consistent with the respective recipes in the database, and all names are properly grounded in the tool's output. \n\nDue to one of the recommendations not fitting the health aspect, this response cannot be rated as GOOD. \nTherefore the final rating is BAD.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v2"
+      },
+      {
+        "question": "I'm trying to lose weight. What should I eat for dinner?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The response provided by the agent fulfills the requirements for a GOOD rating based on the following reasoning:\n\n1. **Answering the question**: The agent effectively answered the user's question about what to eat for dinner while trying to lose weight by providing several healthy dinner options. \n\n2. **Tool usage**: The agent utilized the `search_recipes` tool to retrieve recipes that fit the user's weight loss goal, which is necessary to provide relevant recommendations.\n\n3. **Factual accuracy**: There is no indication of hallucination in the recipe names and descriptions - they appear credible and standard for a diet-focused inquiry.\n\n4. **Goal alignment**: Each recommended meal fits the user's goal of losing weight, being light and presumably lower in calories, which is appropriate given the context.\n\n5. **Cooking times and recipe names**: The cooking times presented for each recipe are specific (i.e., 62 minutes, 3 minutes, 2 minutes), and the names correspond to the titles found in the database without any invented or vague references.\n\nThe agent does not include any high-calorie or indulgent dish in its recommendations, adhering to the user's weight loss focus and thereby ensuring that the suggestions are aligned with the dietary goal. Overall, the response is complete, detailed, and accurately meets the user's needs. Therefore, this response is classified as GOOD.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v2"
+      },
+      {
+        "question": "What seafood dishes do you have?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "1. The user asked for seafood dishes, which is directly answered by listing several seafood recipes. \n2. The tool filter_by_category was called, ensuring that the recipes listed are indeed seafood, thus addressing the user's request. \n3. There is no invention of recipes or nutritional data; all information corresponds to the provided recipes. \n4. The recommendations fit potential user dietary preferences, emphasizing health, protein, and nutritious ingredients, which can appeal to a user looking for seafood options. \n5. Cooking times and recipe names are presented accurately without hallucination, as they come from the filtered category's output.\n\nAll aspects of the response meet the GOOD criteria, making it a valid and satisfactory response to the user query.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v2"
+      },
+      {
+        "question": "Show me some vegetarian options",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "1. The question is clearly answered by providing a list of vegetarian options, which aligns with the user's request. \n2. The agent correctly called the tool `filter_by_category({",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v2"
+      },
+      {
+        "question": "I want to eat healthy tonight. What do you suggest?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "1. The user asked for a healthy dinner suggestion, which is a clear request. The agent provides two options, addressing the question directly.\n2. A tool was called to search for healthy dinner recipes, which complies with the rule requiring a tool to be used for recipe retrieval.\n3. The recipes provided are described in detail and seem plausible without any evident fabrication, as they include ingredients and cooking times.\n4. Both suggestions - Salmon Noodle Wraps and Home-made Mandazi - align with the user's request for healthy options. Though Home-made Mandazi is categorized as breakfast, the agent justifies it as a lighter snack option, which could still fit in the dinner category as per user preference.\n5. The cooking times mentioned correspond to the recipe details provided, and the names of the recipes are not invented.\n\nOverall, the response is detailed, specific, and meets all the criteria necessary to be deemed good.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v2"
+      },
+      {
+        "question": "What are some low-calorie dinner options?",
+        "human_label": "bad",
+        "judge_label": "bad",
+        "reasoning": "The response indicates that the agent did call a tool to search for low-calorie dinner recipes, fulfilling requirement 2. However, it mentioned a recipe, \"Fettuccine Alfredo,\" which is typically recognized as a high-calorie dish due to its ingredients like clotted cream and butter, contradicting the goal for low-calorie options (requirement 4). Although the other dishes listed could be reasonable low-calorie options, the inclusion of Fettuccine Alfredo makes the response flawed. Additionally, the recommendation is not entirely accurate because it fails to adhere to the low-calorie request. Overall, this fails to meet the conditions for a GOOD rating. Therefore, this response is rated as BAD.",
+        "failure_category": "hallucination",
+        "match": true,
+        "version": "v2"
+      },
+      {
+        "question": "Can you recommend a beef dish for muscle building?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "1. The question about a beef dish for muscle building is clearly answered with two recommendations. \n2. The tool 'filter_by_category' was called to find relevant beef recipes, as required. \n3. The agent does not generate any fictitious recipes or nutritional information; they are referenced correctly from the database. \n4. Both recommended dishes (Beef and Broccoli Stir-Fry, Algerian Kefta) are aligned with the muscle-building goal as they are high in protein. \n5. Cooking times and recipe names are grounded in the agent's output, which matches standard practices for such dishes and supports the claims made about their suitability for muscle building. \n\nOverall, all criteria for a GOOD response are met effectively without any violations.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v2"
+      },
+      {
+        "question": "I want something filling but not too heavy",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "The agent provided a list of meal options in response to the user's request for something filling but not too heavy. However, one of the recommended dishes, Fettuccine Alfredo, is typically high-calorie and indulgent, which contradicts the user's request for a light meal. This is a clear violation of the guidelines as it promotes a dish unsuitable for a low-calorie focus. The response does include appropriate calls to the recipe database, but the inclusion of an unsuitable recipe alongside others undermines its overall quality. Therefore, the response must be rated as BAD.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v2"
+      },
+      {
+        "question": "I only have 15 minutes to cook. What can I make?",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "1. The user asked for meal options that can be prepared within 15 minutes, and the agent directly addressed this question. \n2. The tool `filter_by_max_cook_time` was called appropriately to find options fitting the time criteria.\n3. The recipes provided and their cooking times are likely pulled from the database and not invented.\n4. However, the recommendations include 'Fettucine Alfredo', which is a creamy pasta dish high in calories and often considered indulgent, not fitting for users looking for quick, healthier options.\n5. The other meals listed are more appropriate, but the inclusion of the high-calorie dish constitutes a misalignment with typical user goals for quick, healthy meals.\n\nDue to the inappropriate recommendation of a high-calorie dish, the response is rated BAD.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v2"
+      },
+      {
+        "question": "Quick meal ideas for busy weeknights?",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "The agent provided a response to the user's question about quick meal ideas for busy weeknights, which is good. It used the tool `filter_by_max_cook_time` to narrow down options to those that take under 20 minutes, addressing the user's requirements. However, the response includes the 'Aussie Burgers', which is a potential indulgent dish that might not align with a healthy meal choice. Ideally, the meal suggestions should lean more towards lighter or healthier options considering the request for quick meals, which usually cater to busy lifestyles and often promote healthy eating. This is a significant concern given the focus on quick meals, which often pairs with healthier eating habits. Since the suggestion of a burger does not fit the user's implied goal of quick, healthy meals, it leads to a mixed response. Therefore, even though the response utilized a tool and provided a well-structured answer, the inclusion of an unsuitable dish affects the overall quality of the response.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v2"
+      },
+      {
+        "question": "I need a recipe I can make in under 20 minutes",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "1. The user asked for a recipe that can be made in under 20 minutes, which is effectively addressed in the response. \n2. The agent called the appropriate tool, `filter_by_max_cook_time`, to ensure the recipes fit within the specified time limit.\n3. However, while the cooking time for 'Algerian Kefta (Meatballs)' is listed as 20 minutes, the rules specify that the maximum should be less than 20 minutes. \n4. All recipes provided involve beef dishes, which could be considered indulgent relative to a potentially healthy or low-calorie request, as there is no indication from the user that they desired high-calorie meals.  \n5. The agent did not provide specific nutritional information or qualifications on the recipes, such as calories or health aspects, which is relevant for a diet-focused query.\n6. The response is a bit vague in not addressing whether the meals align with the user's dietary goals, since it does not provide details about calories or nutritional value.  \n\nOverall, the response does not accurately follow the rules regarding high-calorie recommendations and misinterpretation of the time limit, thus leading to a rating of BAD.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v2"
+      },
+      {
+        "question": "What can I cook in half an hour or less?",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "The response answers the question about meals that can be cooked in half an hour, which is good. However, there are several concerns with the response: \n\n1. **Factual Accuracy**: Although the recipes seem to be presented, the agent does not indicate that recipe results were grounded from tool outputs. If filter_by_max_cook_time returned results, they should match the details. The potential existence of recipes like \"Aussie Burgers\" and others should have been verified against the database, rather than asserted here. If the DB didn't contain these recipes, that would count as hallucination.\n2. **Recipe Suitability**: Several meals, particularly \"Aussie Burgers\" and \"Chilli Ginger Lamb Chops\" could fall into a less healthy or indulgent category even if they may seem lean depending on preparation, which may not meet a low-calorie goal or diet-focused inquiry. Thus, they could contradict potential objectives of a user seeking quick and healthier options. \n3. **Cooking Time Verification**: The meals listed should be verified against actual constraints put forth by the user. If these listed durations are inaccurate compared to database entries, it goes against the requirement of avoiding factual inventions.\n4. **Vagueness of Aggregate Answer**: Finally, while the user gets a list, there should still be a clear identification that this information was pulled from the recipe database, anchoring it in the context of the tools' features to enhance trust in the accuracy of the meal suggestions.  \n\nBased on these criteria, the response fails to meet the necessary standards and contains elements that can be interpreted as factual inaccuracies or recipe suitability issues. Thus, overall this response is evaluated as BAD.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v2"
+      },
+      {
+        "question": "Something fast for lunch - 10 minutes max",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "1. The question is about quick lunch options with a 10-minute limit, and the agent filtered recipes accordingly using the correct tool call. Therefore, it addressed the user question directly.\n\n2. The tool 'filter_by_max_cook_time' was correctly invoked to fetch recipes within the user's specified limit of 10 minutes, satisfying the requirement for tool usage.\n\n3. However, the response lists 'Fettuccine Alfredo' as an option among the dishes. This dish is typically higher in calories and considered indulgent, which does not fit the likely implied user need for something quick and lighter for lunch.\n\n4. While the other recipes mentioned may be acceptable, the inclusion of 'Fettuccine Alfredo' is significant enough to fail the evaluation as it does not align with a healthier or lighter option expected for a quick lunch.\n\n5. Additionally, there are no issues with factual inventions, as the suggested recipes seem to be grounded in the database.\n\nDue to the inclusion of an inappropriate high-calorie dish in response to a likely low-calorie focused request, the evaluation concludes there is a critical fault. \n\nOverall, the response, while initially answering the user's inquiry and using a tool properly, ultimately includes a recipe that is not aligned with the user's likely dietary goals. ",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v2"
+      },
+      {
+        "question": "How do I make a beef stir-fry? Give me the full recipe.",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "1. The question is clearly answered as the user requested a full recipe for a beef stir-fry, and the response provides detailed information about the Thai Beef Stir-Fry.  \n2. The tool 'get_recipe_details' was correctly used to fetch recipe information, satisfying the requirement to call at least one tool.  \n3. There are no factual inventions; all components of the recipe are based on the database output, with no additional or made-up details.  \n4. While the recipe does include beef, it is not specified whether the caloric content aligns with user dietary goals. However, stir-fry can be considered a standard, balanced dish rather than clearly fitting a low-calorie request; no explicit dietary restrictions were mentioned.  \n5. Cooking time and recipe name are directly grounded in the tool outputs, as the details from the database are used without hallucinating any information.  \n\nOverall, the response is complete, accurate, and uses the tools correctly, resulting in a good rating.  \n",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v2"
+      },
+      {
+        "question": "What are the ingredients for chicken tikka masala?",
+        "human_label": "bad",
+        "judge_label": "bad",
+        "reasoning": "The response is BAD because the agent made a factual invention by providing a typical recipe for chicken tikka masala after it stated that it couldn't find a recipe in the database. This is considered a hallucination as the agent should rely solely on the database for accurate information about recipes. Furthermore, the use of vague language such as 'usually includes' does not adhere to the rules against guesswork without context. Therefore, the agent's response does not meet the criteria for a good output.",
+        "failure_category": "hallucination",
+        "match": true,
+        "version": "v2"
+      },
+      {
+        "question": "Give me the full cooking steps for salmon with garlic",
+        "human_label": "bad",
+        "judge_label": "bad",
+        "reasoning": "The agent correctly identified that there is no specific recipe for \"salmon with garlic\" in the database and refused to provide information inaccurately, which adheres to the rule about correct refusal when out of scope. However, the response fails to utilize any of the available tools to search for recipes, resulting in no alternative suggestions or related recipes being offered. As a result, the requirement for at least one tool to be called when asking for a cooking recipe is not met. Thus, the response does not fulfill the necessary criteria to be considered GOOD.",
+        "failure_category": "hallucination",
+        "match": true,
+        "version": "v2"
+      },
+      {
+        "question": "How do I cook a vegetarian pasta? Step-by-step please.",
+        "human_label": "bad",
+        "judge_label": "bad",
+        "reasoning": "1. The question asked for a vegetarian pasta recipe and the agent attempted to respond but mentioned that it couldn't find a specific recipe for 'vegetarian pasta'. This is acceptable as it correctly refused to provide a recipe it could not locate.\n2. The agent then substituted with a recipe for 'Aubergine Couscous Salad', which, while vegetarian, does not fulfill the original request for a vegetarian pasta recipe. Therefore, it does not address the user's specific query adequately.\n3. The tool calls were made; however, since the response provided a different recipe instead of addressing the initial request accurately, it does not follow through appropriately.\n4. The alternative recipe is indeed vegetarian and could be considered healthy, but it does not specifically meet the user's request for a pasta dish.\n5. Given that the answer does not adhere closely to the user's query and ultimately wanders off into an unrelated dish, the response would be rated as BAD. Even if it provided a valid vegetarian recipe, it failed to maintain the focus on the request which was for vegetarian pasta specifically, indicating a lack of specificity and correctness in the response.",
+        "failure_category": "incomplete",
+        "match": true,
+        "version": "v2"
+      },
+      {
+        "question": "What's the recipe for making lamb chops?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "1. The question is answered as the agent provides a specific recipe for lamb chops, titled 'Chilli Ginger Lamb Chops'. \n2. The agent correctly utilized the tool 'get_recipe_details' to retrieve the recipe. \n3. There are no factual inventions; the recipe details provided come directly from the database. \n4. Lamb chops are not classified as a low-calorie or diet-focused dish, but since the specific user's dietary goal is not provided in the context of the question, it cannot automatically be rated as unfavorable. \n5. The cooking time of 3 minutes is grounded in the tool output, ensuring no hallucinations regarding cooking times or recipe names. \nOverall, while the recipe is for lamb chops, which could be seen as indulgent, the response fulfills all other criteria without error, and the lack of context about the user's dietary intentions does not negate the adequacy of the response. Thus, this response can still be classified as effective. \n",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v2"
+      },
+      {
+        "question": "gimme something with chicken that won't make me fat",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "1. The user's question is answered by providing multiple chicken recipes that are presented as healthy options, addressing the user's goal of finding a 'chicken' dish that won't make them 'fat'.\n2. The agent called the 'filter_by_category' tool to fetch chicken recipes, which correctly utilizes the tool in order to find relevant recipes from the database.\n3. There are no factual inventions; the recipes listed are grounded in the output provided and presumably exist in the database as they fall within the category. \n4. The recommendations, while varied, include dishes that can be aligned with a lower calorie goal (like Chicken Congee) and acknowledge portion control where applicable (like reducing cheese in the burger).\n5. Although the cooking times and specific recipe names are mentioned, three of the options (15-Minute Chicken & Halloumi Burgers, Ayam Percik, and Chicken & Mushroom Hotpot) have cooking times exceeding a typical low-calorie expectation, along with potential high-calorie ingredients, notably the burger's Halloumi. This indicates that some recommendations could potentially contradict the user's goal.\n\nOverall, while the response includes the necessary tools and valid recipe options, the inclusion of potentially high-calorie dishes detracts from the overall appropriateness of the choices. Hence, it misaligns with the user's request for something that \"won't make me fat.\" This lack of fit regarding the user's dietary goal leads to a bad evaluation.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v2"
+      },
+      {
+        "question": "healthy stuff for dinner?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "1. The user asked for healthy dinner options, and the question is addressed with a list of two recipes.  \n2. The tool `search_recipes` was called to gather recipes related to healthy dinners, fulfilling the requirement to use at least one tool.  \n3. The provided recipes appear to be drawn from the database; no factual inventions are present. Though 'Home-made Mandazi' is labeled as a breakfast dish, it is presented as a lighter dinner option with an explanation, which does not invent facts or nutritional info.  \n4. The recommended dishes align with the user's goal of seeking healthy options, as they do not contain high-calorie or indulgent ingredients.  \n5. Cooking times and recipe names are grounded in the outputs from the tool and are relevant to the user's request.  \n\nOverall, the response adheres to the guidelines provided, offering specific, relevant, and factually grounded options in response to the user\u2019s query.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v2"
+      },
+      {
+        "question": "need food ideas - trying to slim down",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "The user's request for food ideas to help slim down explicitly seeks low-calorie options. The agent correctly utilized the recipe search tool to find suggestions, which is a requirement for meeting the user\u2019s needs. However, the response includes several serious issues:\n\n1. **Factual Inventions and Irrelevant Recommendations**: The Katsu Chicken Curry and Fettuccine Alfredo are not appropriate recommendations for someone looking to slim down. Katsu Chicken Curry is described as being 'a bit higher in calories,' and Fettuccine Alfredo is known for being high in calories and indulgent, contradicting the user's goal.\n2. **Unaddressed Cooking Time Limitations**: The user may have been expecting recommendations for dishes that are quick to prepare, yet there are recipes here exceeding typical cooking time frames for quick meals. The very first recipe is acceptable, but the cooking times of other suggestions do not embrace that preference effectively.\n3. **Hallucination**: The agent did not provide clear indications that the recipes listed were valid links or properly sourced from the database; thus, it may suggest hallucination of content.\n\nOverall, while some recipes fit the low-calorie theme, the inclusion of high-calorie dishes makes this response inappropriate given the user's aims. Thus, despite some attempts to provide recipes, the response ultimately does not adhere to the rules.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v2"
+      },
+      {
+        "question": "any quick eats that are good for you?",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "1. The question is answered by providing meal options that fit the query for quick and healthy meals. \n2. The tool `filter_by_max_cook_time` was called to ensure meal options were within the specified time of 20 minutes. \n3. There are no factual inventions; all the recipes provided could exist in a database. However, without checking actual outputs from the database, I can't confirm the accuracy of the individual recipe details, especially cooking times and key ingredients. \n4. The meals suggested generally fit the user's request for healthier, quicker options. However, the inclusion of multiple beef and lamb dishes could be seen as potentially less healthy depending on the cuts used and preparation methods. \n5. The cooking times provided seem reasonable for the types of dishes mentioned but still need verification against the database. \nOverall, while the suggestions delivered well on the prompt, the high frequency of beef and lamb options diminishes the overall health appeal. \nThus, I will rate this response as BAD due to potential issues with the healthiness of the recommended meals given the user\u2019s theme of quick and healthy options.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v2"
+      },
+      {
+        "question": "what should i eat if im trying to get lean",
+        "human_label": "bad",
+        "judge_label": "bad",
+        "reasoning": "1. The question is answered with various recipe suggestions related to getting lean, which aligns with the user's goal of a low-calorie diet. \n2. The tool search_recipes was called, which indicates an attempt to find recipe options based on a specific low-calorie criterion. \n3. However, several recipe suggestions do not conform to a lean or low-calorie diet. For example, 'Aussie Burgers' and 'Fettuccine Alfredo' are generally considered indulgent or high-calorie dishes. This directly contradicts the user's request for lean options. \n4. Recommendations should not include recipes that could be perceived as high-calorie when the user's goal is stated as getting lean. \n5. The response also includes suggested portion control without specifying exact calorie counts, but it fails to provide a purely lean and low-calorie-focused list. Therefore, the conditional nature of the portion control does not redeem the inclusion of unsuitable recipes.",
+        "failure_category": "incomplete",
+        "match": true,
+        "version": "v2"
+      },
+      {
+        "question": "I don't have much time tonight maybe like 25 mins",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "The question was about preparing meals in 25 minutes or less, which was a specific request regarding cooking time. The agent correctly used the tool `filter_by_max_cook_time` to find relevant recipes. However, the inclusion of the **Aussie Burgers**, despite being labeled as 'lean', raises concern because burgers are often viewed as indulgent due to their association with fast food, especially comparing this recommendation against possibly healthier options. While other recipes are reasonable, the inclusion of a burger may not align well with a desire for a quick and healthy meal, especially as the request does not specify a preference for heavy or indulgent food. This presents an issue according to the guidelines on recommendations fitting the user's goal. Furthermore, all provided recipes were grounded and presented with details that were likely taken directly from the database. Therefore, the response has elements of both good execution and a notable misalignment regarding recommended meal types.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v2"
+      },
+      {
+        "question": "something with fish maybe?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "1. The question is answered with multiple recipe options featuring fish, aligning with the user's request for something with fish.  \n2. The agent utilized the search_recipes tool to find recipes, which fulfills the requirement that at least one tool was called to access the recipe database.  \n3. There are no factual inventions; all recipes and cooking times are sourced directly from the tool's output.  \n4. The recommended recipes are low-calorie and appropriately fit the user's potential goal of seeking healthier meal options.  \n5. The cooking times and recipe names are accurate and grounded in the tool's search results, as each recipe includes specific details provided by the agent.  \n6. The user is encouraged to ask for full recipes, indicating a willingness to assist further and tailoring to the user's needs.  \nOverall, the response meets all criteria for a good performance.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v2"
+      },
+      {
+        "question": "low cal options please",
+        "human_label": "bad",
+        "judge_label": "bad",
+        "reasoning": "The response is categorized as BAD for several reasons. First, it incorrectly includes Fettuccine Alfredo as a low-calorie option. This dish is known to be high in calories due to its rich ingredients like clotted cream and butter, which contradicts the user's request for low-calorie options. Additionally, while the agent made a tool call to search for low-calorie recipes, the response fails to adhere to the criteria of not recommending high-calorie dishes. The other recipes (Jamaican Cornmeal Porridge, Honey Teriyaki Salmon, and Chicken Congee) appear more fitting; however, the inclusion of the Fettuccine Alfredo makes the overall response unsuitable for the user's request. Furthermore, while the mention of substitutes shows some awareness of dietary adjustments, the overall picture remains skewed due to the incorrect listing.",
+        "failure_category": "hallucination",
+        "match": true,
+        "version": "v2"
+      },
+      {
+        "question": "tell me how to cook that beef thing",
+        "human_label": "bad",
+        "judge_label": "bad",
+        "reasoning": "1. The user's question was about a vague term \"that beef thing,\" which does not specify a particular recipe. \n2. The tool call \"get_recipe_details({\"name\": \"beef\"})\" is inappropriate for such a vague request because it does not directly relate to a specific recipe but rather a broad ingredient category. Hence, the agent had no context to create a valid recipe response based on this tool call alone.\n3. While the agent provides a complete recipe for \"Beef and Broccoli Stir-Fry,\" it does so without confirming that this was the dish intended by the user, which violates the guideline against guessing a recipe name when context is unclear. \n4. The response includes a detailed recipe without ensuring it was grounded, and it presents cooking instructions and ingredients that were not guaranteed to be the user's intent.\n5. As such, although the recipe given fits a category related to beef, it is not warranted based on the explicit user request, and no proper search was made to identify a suitable recipe. \nOverall, the response shows a lack of alignment with the user's unclear inquiry and does not make appropriate use of the available tools to clarify or refine the request. Therefore, the overall response is BAD.",
+        "failure_category": "wrong_scope",
+        "match": true,
+        "version": "v2"
+      },
+      {
+        "question": "what's a good recipe - doesn't have to be anything specific",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "1. The question is answered, and a specific recipe is provided, fulfilling the user's request for a \"good recipe.\"\n2. The tool `search_recipes` was called to find a recipe related to a healthy meal, which is appropriate. \n3. There are no factual inventions; the recipe details given are not fabricated but presented as if drawn from the database output (assuming it exists in the DB). \n4. The recipe could be considered as somewhat healthy; while it does contain sugar, the agent suggests healthy adjustments confirming it still aligns with general healthy eating principles. \n5. The recipe name and cooking time are specific to what was found in the search tool and are not made up. \n\nHowever, the recipe's ingredients and context do suggest a level of sweetness that could be deemed higher than ideal for someone seeking a strictly healthy recipe, although modifications are suggested. This nuance could slightly detract from its classification in a stricter healthy context but overall justifies a positive rating as it is presented as adaptable. Therefore, this should rate as GOOD.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v2"
+      }
+    ],
+    "metrics": {
+      "accuracy": 0.633,
+      "precision": 0.421,
+      "recall": 1.0,
+      "f1": 0.593,
+      "tp": 8,
+      "tn": 11,
+      "fp": 11,
+      "fn": 0,
+      "total": 30
+    }
+  },
+  "v3": {
+    "results": [
+      {
+        "question": "I want a high-protein dinner. What do you recommend?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The user requested recommendations for high-protein dinner options, which falls under the diet-focused intent (type A). The agent successfully called the appropriate tool, `search_recipes`, and provided a well-rounded list of recipes containing protein sources such as beef, salmon, chicken, and tofu. All the recipes provided are relevant to the user\u2019s request and do not include high-calorie items presented as healthy options. Additionally, the descriptions highlight protein content, which aligns with the user's dietary goals. As such, the response meets the criteria for a good response. ",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "What are some good meals for weight loss?",
+        "human_label": "bad",
+        "judge_label": "bad",
+        "reasoning": "The user asked for meals specifically aimed at weight loss, which is a diet-focused question (Type A). The agent attempted to use the appropriate tool to search for recipes related to weight loss. However, the response did not provide any recipes from the database, instead, it offered general tips. This falls under the category of providing vague unhelpful answers without any specific recipe to back up the claims about meals suitable for weight loss. As a result, the agent did not meet the criteria for a good response.",
+        "failure_category": "incomplete",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "Can you suggest a healthy chicken dish?",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "The user's request is diet-focused, asking explicitly for a \"healthy chicken dish\". The agent invoked the `filter_by_category` tool to narrow down the chicken recipes. However, the first suggestion \"15-Minute Chicken & Halloumi Burgers\" is problematic since halloumi cheese is relatively high in calories and fats, which contradicts the notion of a \"healthy\" dish for someone looking for a diet-focused recipe. Likewise, the \"Chicken Alfredo Primavera\", which features Alfredo sauce and pasta, is typically high in calories, especially since it includes Parmesan, which could also be deemed less diet-friendly. Therefore, the selection of suggested recipes includes items that do not strictly meet the user's request for health-conscious options. Hence, the overall response is fundamentally inadequate in providing acceptable suggestions for a healthy dish as requested. Therefore, this response is rated as bad.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v3"
+      },
+      {
+        "question": "I'm trying to lose weight. What should I eat for dinner?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The user asked for healthy dinner options aligned with weight loss goals, indicating a diet-focused intent (type A). The agent used the search_recipes tool to find relevant recipes, which is appropriate. All presented recipes, including notable options such as 'Purple Sprouting Broccoli Tempura' and 'Salt & Pepper Squid', appear to be low in calories and offer healthy ingredients, supporting the intent for weight loss. There is no promotion of high-calorie items; therefore, the response meets the requirements for a good reply under the diet-focused category. The agent also invites the user for more details on specific recipes, which reflects helpfulness. Overall, this response is appropriate and aligns well with the user's intent.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "What seafood dishes do you have?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The user asked for seafood dishes, which corresponds to a recipe lookup intent. The agent correctly used the tool `filter_by_category` to find seafood recipes, and it provided a comprehensive list of five seafood dishes, including their cooking times, key ingredients, and reasons highlighting their health benefits. This adheres to the guidelines for type C since it gives complete and specific recipes extracted from the database. Therefore, the response aligns perfectly with the requirements.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "Show me some vegetarian options",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The user's question is about vegetarian options, which falls under a recipe lookup intent that can be satisfied by calling the `filter_by_category` tool. The agent successfully executed the tool call to filter and presented a variety of vegetarian recipes with cooking times and key ingredients. Each recipe's description aligns with the intent, providing appropriate details without explicitly promoting high-calorie items. Therefore, the response is classified as \"good\" because it effectively addresses the user's request for vegetarian options and follows the correct processes.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "I want to eat healthy tonight. What do you suggest?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The user's question clearly indicates intent to eat healthy (type A: Diet-focused). The agent correctly uses the tool 'search_recipes' to find healthy dinner options. The two recipes presented (Salmon Noodle Wraps and Home-made Mandazi) do not include any obviously high-calorie items and are framed as healthy options. Although the second recipe is traditionally a breakfast item, the agent provides context on how it can be adjusted to be healthier, which shows attention to the user's dietary intent. Overall, the response meets the criteria set for type A, making it a good response.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "What are some low-calorie dinner options?",
+        "human_label": "bad",
+        "judge_label": "bad",
+        "reasoning": "The user asked for low-calorie dinner options, indicating diet-focused intent (Type A). The agent correctly called the tool `search_recipes` with the right query. However, it presented one recipe, Fettuccine Alfredo, which is commonly high in calories due to its ingredients like clotted cream and butter, contradicting the user's request for low-calorie meals. Despite the descriptions of the other recipes suggesting lower-calorie options, the inclusion of a known high-calorie dish as a suitable option for a low-calorie diet makes this response inappropriate.",
+        "failure_category": "hallucination",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "Can you recommend a beef dish for muscle building?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The user asked for beef dishes that are good for muscle building, which falls under the diet-focused category (Type A). The agent correctly called the filter_by_category tool to retrieve beef recipes. The dishes recommended, Beef and Broccoli Stir-Fry and Algerian Kefta, are both high in protein, which aligns with the user's goal of muscle building. The agent provides relevant descriptions and key ingredients for the dishes, and no high-calorie items are promoted incorrectly as diet food. Therefore, the response can be classified as good.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "I want something filling but not too heavy",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "The user asked for something filling but not too heavy, indicating a focus on diet-related considerations. The agent's response includes a variety of recipes, however, it lists Fettuccine Alfredo, which is considered a high-calorie item due to its heavy cream and butter content. This contradicts the user's request for a filling but light meal. Additionally, no other tools were utilized besides search_recipes despite the recipe not fully fitting the user's request as one item is a poor choice. Thus, this response does not qualify as good under diet-focused criteria due to the inclusion of an inappropriate recipe. Therefore, I rate the response as bad.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v3"
+      },
+      {
+        "question": "I only have 15 minutes to cook. What can I make?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The user is asking for quick meal options that can be prepared within 15 minutes. The tool `filter_by_max_cook_time` was appropriately called with a sensible limit. The agent provided a list of recipes, all within the specified cooking time, and included categories and key ingredients for each recipe. However, one of the recipes listed is Fettucine Alfredo, which is high in calories and generally considered less healthy due to its creamy and rich nature. Although time constraints were the focus of the user's query, and a calorie-dense dish doesn't automatically result in a bad assessment under this category, it still raises a concern given its potential for being deemed unhealthy. Despite this, since the user did not specify a diet focus, I will not penalize the response severely for this dish. Overall, the response meets the expectations set out for time-focused queries. Hence, it can be classified as good.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "Quick meal ideas for busy weeknights?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The user requested quick meal ideas, which falls under the time-focused category (Type B). The agent correctly used the `filter_by_max_cook_time` tool with a sensible time limit of 20 minutes and provided a list of recipes, all with cooking times fitting within that limit. The recipes listed are also from the recipe database, fulfilling the criteria for a good response. Therefore, the response meets the requirements for a good classification.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "I need a recipe I can make in under 20 minutes",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The user asked for recipes that can be made under 20 minutes, which is a time-focused question. The agent called the correct tool, `filter_by_max_cook_time`, with a sensible limit of 20 minutes. The response includes actual recipe names from the database that fit within the time constraints provided by the user. Each recipe name, cooking time, and key ingredients are listed, which adds value to the response. Therefore, the overall execution aligns with the criteria for a good response.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "What can I cook in half an hour or less?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The user asked for meals that can be cooked in half an hour or less, which is a time-focused request. The agent properly used the 'filter_by_max_cook_time' tool to generate a list of recipes that fit within this time constraint. All the listed recipes also include relevant details such as cooking time, category, and key ingredients, which enhance their helpfulness. The total response is coherent and appears to come from the recipe database. Thus, this response is in line with the expectations for a time-focused request, and no mistakes were noted, making it a 'good' response.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "Something fast for lunch - 10 minutes max",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The agent correctly identified the time-focused query and utilized the appropriate tool, filter_by_max_cook_time. The recipe options are all listed with cooking times within the specified limit of 10 minutes. However, the inclusion of Fettuccine Alfredo, which is a high-calorie dish, in a response to a request for quick lunch options without any mention of diet focus could raise concerns, but since the user did not specifically ask for low-calorie recipes, it does not undermine the response. All recipes come from the database, and there are no hallucinated items or irrelevant content. Overall, the response fits the criteria for a good output for a time-focused query. Therefore, the assessment is positive.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "How do I make a beef stir-fry? Give me the full recipe.",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The user specifically asked for a full recipe for a beef stir-fry, which aligns with the intent type C (recipe lookup). The agent correctly utilized the tool 'get_recipe_details' and provided a complete recipe with all necessary details, including ingredients and cooking steps. There are no indications of any hallucinated content, and the instructions are thorough and clear. Therefore, this response meets the criteria for a good evaluation.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "What are the ingredients for chicken tikka masala?",
+        "human_label": "bad",
+        "judge_label": "bad",
+        "reasoning": "The user's question asks for the ingredients of chicken tikka masala, which falls under the recipe lookup category (C). However, the agent fails to find a recipe in the database and instead provides a general response by listing typical ingredients without any tool confirming a recipe. This can be considered a failure to retrieve the requested recipe correctly, with the agent attempting to fill in the gap with external knowledge. It also does not provide the actual steps for cooking or acknowledge that it couldn't locate the recipe in its database. Therefore, this response is classified as bad.",
+        "failure_category": "hallucination",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "Give me the full cooking steps for salmon with garlic",
+        "human_label": "bad",
+        "judge_label": "good",
+        "reasoning": "The user asked for the full cooking steps for a specific dish, 'salmon with garlic.' The agent correctly identified the request type as a recipe lookup and made a call to 'get_recipe_details' to obtain the recipe. However, the response indicates that no recipe was found, and instead of inventing a recipe from training or providing vague information, the agent honestly communicated the lack of availability. It also offered alternative options to the user. Therefore, the response aligns with the proper handling of recipe lookups and is considered 'good.'",
+        "failure_category": "hallucination",
+        "match": false,
+        "version": "v3"
+      },
+      {
+        "question": "How do I cook a vegetarian pasta? Step-by-step please.",
+        "human_label": "bad",
+        "judge_label": "bad",
+        "reasoning": "The user requested a recipe for vegetarian pasta but the agent provided a completely different recipe (Aubergine couscous salad) because it couldn't find the specific vegetarian pasta recipe. While the instructions for the salad are complete and clear, the initial request for vegetarian pasta was not met, and instead, the agent provided an unrelated dish. This falls into the category of the agent not being honest about the gap in its search for the specific recipe the user demanded, leading to it providing a different recipe instead. Therefore, the response is rated as BAD.",
+        "failure_category": "incomplete",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "What's the recipe for making lamb chops?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The user specifically requested a recipe for lamb chops, which clearly falls into the category of recipe lookup (Type C). The agent responded appropriately by using the correct tool, `get_recipe_details`, to provide a complete recipe including ingredients and cooking instructions. The recipe appears detailed and meets the intent of the user's query, providing both ingredients and clear steps for preparation. Therefore, this response is a good match for the user's request.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "gimme something with chicken that won't make me fat",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The user is inquiring about chicken recipes that won't make them fat, which categorizes it as a diet-focused question (type A). The agent called the correct tool for filtering the recipe category (filter_by_category) and provided a selection of recipes that adhere to the implied health requirement. Each recipe is presented with details that lean towards being lower in calories; in particular, the agent gives context for how each recipe can be modified or is already lower in calories. Importantly, no high-calorie items are recommended, aligning with the user's intent. Additionally, the inclusion of a call to action for the user to request full recipe details is a positive engagement. Therefore, the overall response is good as it meets all expectations for the type A category.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "healthy stuff for dinner?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The user asked for healthy dinner options, indicating a diet-focused intent. The agent used the search_recipes tool correctly to provide two recipes that align with the user's request for healthy options. The first recipe, Salmon Noodle Wraps, contains healthy ingredients and is presented as a nutritious option. The second recipe, Home-made Mandazi, albeit categorized under breakfast, is framed appropriately as a lighter dinner option with an emphasis on modifying the recipe for less sugar, thus keeping the healthy angle. No high-calorie items were presented as healthy options, and the information is specific and relevant. Therefore, the response aligns well with the criteria for a good answer in a diet-focused inquiry.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "need food ideas - trying to slim down",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "The user clearly expressed a desire to slim down, which classifies the query as diet-focused (type A). The agent properly called the search_recipes tool to find low-calorie meal ideas. However, several recipes included in the response are questionable or contradict the intent of promoting a low-calorie diet. Specifically, the 'Katsu Chicken Curry' is noted as being a bit higher in calories but does not provide adequate justification for being included in a low-calorie suggestion since the user is focused on slimming down. Moreover, the inclusion of 'Fettucine Alfredo,' a known high-calorie dish, is problematic, as it is promoting a high-calorie item as a diet-friendly option, which violates the guideline for type A responses. Therefore, the response fails to meet the strict criteria for a 'good' rating.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v3"
+      },
+      {
+        "question": "any quick eats that are good for you?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The user requested quick eats that are healthy, which falls into the diet-focused category (A). The agent correctly called the tool 'filter_by_max_cook_time' with a sensible limit of 20 minutes. The recipes provided include ingredients that suggest they are healthier options, with lean proteins and fresh vegetables, fitting the user's request for healthy meals. There are no obviously high-calorie items presented as healthy options. Therefore, this response meets the required criteria for a good answer.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "what should i eat if im trying to get lean",
+        "human_label": "bad",
+        "judge_label": "bad",
+        "reasoning": "The user inquired about options suitable for getting lean, which falls under the diet-focused intent. The agent correctly called the search_recipes tool and provided a selection of recipes. However, it included 'Fettuccine Alfredo', which is generally considered a high-calorie dish, especially as it is made with ingredients like clotted cream and butter. This contradicts the user's intent to find leaner options, violating the guideline for promoting high-calorie items. Therefore, despite some good suggestions, the inclusion of Fettuccine Alfredo as a diet option negatively impacts the overall assessment.",
+        "failure_category": "incomplete",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "I don't have much time tonight maybe like 25 mins",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The user asked for quick meal options fitting a 25-minute cooking time, which directly relates to the time-focused intent. The agent appropriately called the filter_by_max_cook_time tool to narrow down to recipes that fit the user's time constraints. The selected recipes list includes cooking times that are all under the specified limit and provide a variety of options. Additionally, the recipe names and descriptions all come from the database, satisfying the requirement for relevant responses. Therefore, the agent's response is well-aligned with the user request.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "something with fish maybe?",
+        "human_label": "good",
+        "judge_label": "good",
+        "reasoning": "The user has asked about recipes involving fish, which implies a desire for recipes (type C). The agent called the search_recipes tool, retrieved recipes, and went on to provide a list of specific fish recipes along with key details (ingredients and cooking time). Additionally, the agent appropriately framed the dishes as low-calorie and healthy, aligning with a diet-focused intention (type A). There are no hallucinated recipes or high-calorie options misrepresented as suitable for a diet. Each recipe includes how it qualifies as a healthy choice, which enhances the appropriateness of the response. Thus, the tools were used correctly, and relevant and accurate recipes were provided, making the response good overall.",
+        "failure_category": "(none - good response)",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "low cal options please",
+        "human_label": "bad",
+        "judge_label": "bad",
+        "reasoning": "The user requested low-calorie options, which falls into the diet-focused category. However, the response includes a recipe for **Fettucine Alfredo**, which is a well-known high-calorie dish primarily due to ingredients like clotted cream and butter. This item contradicts the user's request for low-calorie options. Although other recipes listed may fit the low-calorie theme, the inclusion of one obviously high-calorie item invalidates the overall quality of the response. Therefore, it does not meet the criteria for a good response with respect to the user's dietary intent.",
+        "failure_category": "hallucination",
+        "match": true,
+        "version": "v3"
+      },
+      {
+        "question": "tell me how to cook that beef thing",
+        "human_label": "bad",
+        "judge_label": "good",
+        "reasoning": "The user asked how to cook a \"beef thing,\" which is ambiguous but can be interpreted as a request for a beef recipe. The chatbot correctly used the `get_recipe_details` tool to provide a full recipe for **Beef and Broccoli Stir-Fry**, including ingredients and detailed cooking instructions. The response included all necessary steps and seems well-structured with no fabricated content. The recipe itself, while not explicitly diet-focused, does emphasize a healthy balance between protein and vegetables, which can generally be seen as a good dietary choice. Since the response fits the recipe lookup criteria well, I rate it as good.",
+        "failure_category": "wrong_scope",
+        "match": false,
+        "version": "v3"
+      },
+      {
+        "question": "what's a good recipe - doesn't have to be anything specific",
+        "human_label": "good",
+        "judge_label": "bad",
+        "reasoning": "The user query is a recipe lookup with no specific dietary restrictions mentioned, classified as type C. The agent used the search_recipes tool to find a recipe. However, the recipe for 'Mandazi' contains significant sugar (6 tablespoons), which may be considered high-calorie and is generally not typically associated with health-focused recipes without a specific context. While it provides suggestions for making it healthier, the recipe itself is not inherently low-calorie or traditionally seen as diet-friendly. Additionally, there is some vagueness in focusing on the \"healthy twist\" instead of directly providing a recipe that aligns with diet-friendly expectations. Thus, despite using the appropriate tool, the presented recipe and the justification do not convincingly fit the diet-focused criteria. Therefore, it is rated as BAD.",
+        "failure_category": "(none - good response)",
+        "match": false,
+        "version": "v3"
+      }
+    ],
+    "metrics": {
+      "accuracy": 0.8,
+      "precision": 0.6,
+      "recall": 0.75,
+      "f1": 0.667,
+      "tp": 6,
+      "tn": 18,
+      "fp": 4,
+      "fn": 2,
+      "total": 30
+    }
+  }
+}

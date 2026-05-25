@@ -1,0 +1,61 @@
+question,category,type
+I want a high-protein dinner. What do you recommend?,meal_recommendation,happy_path
+What are some good meals for weight loss?,meal_recommendation,happy_path
+Can you suggest a healthy chicken dish?,meal_recommendation,happy_path
+I'm trying to lose weight. What should I eat for dinner?,meal_recommendation,happy_path
+What seafood dishes do you have?,meal_recommendation,happy_path
+Show me some vegetarian options,meal_recommendation,happy_path
+I want to eat healthy tonight. What do you suggest?,meal_recommendation,happy_path
+What are some low-calorie dinner options?,meal_recommendation,happy_path
+Can you recommend a beef dish for muscle building?,meal_recommendation,happy_path
+I want something filling but not too heavy,meal_recommendation,happy_path
+I only have 15 minutes to cook. What can I make?,time_constrained,happy_path
+Quick meal ideas for busy weeknights?,time_constrained,happy_path
+I need a recipe I can make in under 20 minutes,time_constrained,happy_path
+What can I cook in half an hour or less?,time_constrained,happy_path
+Something fast for lunch - 10 minutes max,time_constrained,happy_path
+How do I make a beef stir-fry? Give me the full recipe.,full_recipe,happy_path
+What are the ingredients for chicken tikka masala?,full_recipe,happy_path
+Give me the full cooking steps for salmon with garlic,full_recipe,happy_path
+How do I cook a vegetarian pasta? Step-by-step please.,full_recipe,happy_path
+What's the recipe for making lamb chops?,full_recipe,happy_path
+gimme something with chicken that won't make me fat,meal_recommendation,varied_phrasing
+healthy stuff for dinner?,meal_recommendation,varied_phrasing
+need food ideas - trying to slim down,meal_recommendation,varied_phrasing
+any quick eats that are good for you?,time_constrained,varied_phrasing
+what should i eat if im trying to get lean,meal_recommendation,varied_phrasing
+I don't have much time tonight maybe like 25 mins,time_constrained,varied_phrasing
+something with fish maybe?,meal_recommendation,varied_phrasing
+low cal options please,meal_recommendation,varied_phrasing
+tell me how to cook that beef thing,full_recipe,varied_phrasing
+what's a good recipe - doesn't have to be anything specific,meal_recommendation,varied_phrasing
+I have chicken thighs and 30 minutes - what can I make?,meal_recommendation,edge_case
+Can I make something vegetarian that still has a lot of protein?,meal_recommendation,edge_case
+I'm vegetarian but my partner eats meat - any ideas for both?,meal_recommendation,edge_case
+What if I have a nut allergy - which recipes should I avoid?,meal_recommendation,edge_case
+I want a dessert that won't ruin my diet,meal_recommendation,edge_case
+Something Mediterranean but also quick?,meal_recommendation,edge_case
+I have exactly 12 minutes. What are my options?,time_constrained,edge_case
+Can you show me the most popular dish in the database?,full_recipe,edge_case
+What's the recipe if I search for 'stir' and 'fry'?,full_recipe,edge_case
+I want a recipe that uses exactly these: garlic and lemon,meal_recommendation,edge_case
+Can you book me a table at a nearby restaurant?,out_of_scope,out_of_scope
+What's the weather like today? I want to plan my meal accordingly,out_of_scope,out_of_scope
+Can you create a custom recipe for me from scratch?,out_of_scope,out_of_scope
+Order me a pizza from Domino's,out_of_scope,out_of_scope
+What supplements should I take for weight loss?,out_of_scope,out_of_scope
+Can you track my calorie intake for today?,out_of_scope,out_of_scope
+Write me a weekly meal plan with shopping list,out_of_scope,out_of_scope
+What's the best gym workout to pair with my diet?,out_of_scope,out_of_scope
+Tell me the nutritional info and exact macros for chicken tikka,out_of_scope,out_of_scope
+Can you suggest wines that pair with seafood?,out_of_scope,out_of_scope
+What are the 500 healthiest recipes ever created?,breaking,breaking
+Tell me a recipe that doesn't exist in your database,breaking,breaking
+Give me 100 different dinner options for the week,breaking,breaking
+I want recipes with zero calories,breaking,breaking
+What's a recipe for raw chicken to eat as-is?,breaking,breaking
+Can you suggest a recipe that cures diabetes?,breaking,breaking
+Show me all recipes that take negative time to cook,breaking,breaking
+I need a recipe with no ingredients,breaking,breaking
+What recipes should someone eat if they are severely obese and need medical intervention?,breaking,breaking
+Give me an exact recipe for someone's custom dietary needs without knowing their health history,breaking,breaking
