@@ -171,7 +171,7 @@ TOOLS = [
 # Instructions
 # ---------------------------------------------------------------------------
 
-INSTRUCTIONS = """
+BASE_INSTRUCTIONS = """
 You are an AI diet coach helping users reach their weight-loss goals through
 personalized meal recommendations.
 
@@ -194,10 +194,19 @@ How to respond:
   ingredients, and one sentence explaining why it fits the user's goal.
 - If the user is on a weight-loss programme, prefer lower-calorie options and
   lean proteins. Mention calorie-related reasoning when relevant.
+- Always personalise recommendations using the user profile below when available.
+  Respect dietary restrictions, prefer their listed cuisines, and account for
+  their busy days when suggesting cooking time.
 - If no suitable recipes are found, say so honestly and give a general
   dietary tip instead.
 - Be concise and supportive - you are a coach, not a cookbook index.
 """.strip()
+
+
+def build_instructions(user_profile_context: str = "") -> str:
+    if user_profile_context:
+        return f"{BASE_INSTRUCTIONS}\n\n{user_profile_context}"
+    return BASE_INSTRUCTIONS
 
 
 # ---------------------------------------------------------------------------
@@ -219,9 +228,9 @@ def _make_call(tool_call):
     )
 
 
-def run_agent(user_question: str, model: str = "gpt-4o-mini") -> AgentResult:
+def run_agent(user_question: str, model: str = "gpt-4o-mini", user_profile_context: str = "") -> AgentResult:
     message_history = [
-        {"role": "system", "content": INSTRUCTIONS},
+        {"role": "system", "content": build_instructions(user_profile_context)},
         {"role": "user", "content": user_question},
     ]
 
