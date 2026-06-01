@@ -5,11 +5,13 @@ import streamlit as st
 from dotenv import load_dotenv
 
 from diet_agent import run_agent
+from meal_planner import generate_weekly_plan, load_meal_plan
 from monitoring import load_all_traces, save_trace, update_feedback
 from user_profile import (
     ACTIVITY_LEVELS,
     CUISINE_OPTIONS,
     DAYS_OF_WEEK,
+    PROFILE_PATH,
     create_profile,
     is_onboarding_complete,
     load_profile,
@@ -70,13 +72,16 @@ def show_login():
     st.title("AI Diet Coach")
     st.subheader("Welcome back!")
 
+    profile = load_profile()
+    if profile:
+        st.caption(f"Account: **{profile.get('username')}**")
+
     with st.form("login_form"):
         username = st.text_input("Username")
         password = st.text_input("Password", type="password")
         submitted = st.form_submit_button("Log in", use_container_width=True, type="primary")
 
     if submitted:
-        profile = load_profile()
         if (
             profile
             and profile.get("username") == username
@@ -85,7 +90,17 @@ def show_login():
             st.session_state.logged_in = True
             st.rerun()
         else:
-            st.error("Incorrect username or password.")
+            st.error("Incorrect username or password. Check the account name shown above.")
+
+    st.divider()
+    st.caption("Forgot your password or want to start fresh?")
+    if st.button("Reset account", use_container_width=True):
+        import os
+        try:
+            os.remove(PROFILE_PATH)
+        except FileNotFoundError:
+            pass
+        st.rerun()
 
 
 # ---------------------------------------------------------------------------
@@ -171,39 +186,29 @@ def show_profile_editor():
     st.sidebar.subheader("Edit Profile")
 
     with st.sidebar.form("profile_editor"):
-        col1, col2 = st.columns(2)
-        current_weight = col1.number_input(
-            "Current (kg)", min_value=30.0, max_value=300.0,
+        current_weight = st.sidebar.number_input(
+            "Current weight (kg)", min_value=30.0, max_value=300.0,
             value=float(profile.get("current_weight_kg") or 70.0), step=0.5,
         )
-        target_weight = col2.number_input(
-            "Target (kg)", min_value=30.0, max_value=300.0,
+        target_weight = st.sidebar.number_input(
+            "Target weight (kg)", min_value=30.0, max_value=300.0,
             value=float(profile.get("target_weight_kg") or 65.0), step=0.5,
         )
-        deadline = st.date_input("Deadline", value=None)
-
-        restrictions_input = st.text_input(
+        restrictions_input = st.sidebar.text_input(
             "Restrictions / allergies",
             value=", ".join(profile.get("dietary_restrictions", [])),
         )
-        cuisines = st.multiselect(
+        cuisines = st.sidebar.multiselect(
             "Preferred cuisines",
             options=CUISINE_OPTIONS,
             default=profile.get("preferred_cuisines", []),
         )
-        busy_days = st.multiselect(
+        busy_days = st.sidebar.multiselect(
             "Busy days",
             options=DAYS_OF_WEEK,
             default=profile.get("busy_days", []),
         )
-        location = st.text_input("City / area", value=profile.get("location", ""))
-        activity = st.selectbox(
-            "Activity level",
-            options=[""] + ACTIVITY_LEVELS,
-            index=(ACTIVITY_LEVELS.index(profile["activity_level"]) + 1)
-            if profile.get("activity_level") in ACTIVITY_LEVELS else 0,
-        )
-
+        location = st.sidebar.text_input("City / area", value=profile.get("location", ""))
         save = st.form_submit_button("Save changes", use_container_width=True, type="primary")
         cancel = st.form_submit_button("Cancel", use_container_width=True)
 
@@ -212,16 +217,14 @@ def show_profile_editor():
         update_profile({
             "current_weight_kg": current_weight,
             "target_weight_kg": target_weight,
-            "deadline": str(deadline) if deadline else profile.get("deadline"),
+            "deadline": profile.get("deadline"),
             "dietary_restrictions": restrictions,
             "preferred_cuisines": cuisines,
             "busy_days": busy_days,
             "location": location,
-            "activity_level": activity,
             "onboarding_complete": True,
         })
         st.session_state.show_profile_editor = False
-        st.sidebar.success("Profile updated!")
         st.rerun()
 
     if cancel:
@@ -230,7 +233,7 @@ def show_profile_editor():
 
 
 # ---------------------------------------------------------------------------
-# Route: not logged in
+# Routing  (if/else avoids stale sidebar from st.stop)
 # ---------------------------------------------------------------------------
 
 if not st.session_state.logged_in:
@@ -238,152 +241,191 @@ if not st.session_state.logged_in:
         show_registration()
     else:
         show_login()
-    st.stop()
 
-# ---------------------------------------------------------------------------
-# Route: logged in but onboarding not done
-# ---------------------------------------------------------------------------
-
-if not is_onboarding_complete():
+elif not is_onboarding_complete():
     show_onboarding()
-    st.stop()
 
-# ---------------------------------------------------------------------------
-# Main app
-# ---------------------------------------------------------------------------
+else:
+    profile = load_profile() or {}
+    profile_context = profile_to_context(profile)
 
-profile = load_profile() or {}
-profile_context = profile_to_context(profile)
+    # -----------------------------------------------------------------------
+    # Sidebar
+    # -----------------------------------------------------------------------
+    with st.sidebar:
+        st.title("AI Diet Coach")
+        st.caption(f"Logged in as **{profile.get('username', '')}**")
+        st.divider()
 
-# Sidebar
-with st.sidebar:
+        cw = profile.get("current_weight_kg")
+        tw = profile.get("target_weight_kg")
+        dl = profile.get("deadline")
+        if cw and tw:
+            st.metric("Current weight", f"{cw} kg")
+            st.metric("Target weight", f"{tw} kg")
+            if dl:
+                st.caption(f"Deadline: {dl}")
+
+        cuisines = profile.get("preferred_cuisines", [])
+        if cuisines:
+            st.caption(f"Cuisines: {', '.join(cuisines)}")
+
+        restrictions = profile.get("dietary_restrictions", [])
+        if restrictions:
+            st.caption(f"Restrictions: {', '.join(restrictions)}")
+
+        st.divider()
+
+        col_edit, col_new = st.columns(2)
+        if col_edit.button("Edit profile", use_container_width=True):
+            st.session_state.show_profile_editor = not st.session_state.show_profile_editor
+            st.rerun()
+        if col_new.button("New chat", use_container_width=True):
+            st.session_state.session_id = str(uuid.uuid4())
+            st.session_state.messages = []
+            st.session_state.pending_feedback = {}
+            st.rerun()
+
+        if st.button("Log out", use_container_width=True):
+            st.session_state.logged_in = False
+            st.session_state.messages = []
+            st.rerun()
+
+        st.divider()
+
+        if st.session_state.show_profile_editor:
+            show_profile_editor()
+        else:
+            st.subheader("Session stats")
+            traces = load_all_traces()
+            session_traces = [t for t in traces if t["session_id"] == st.session_state.session_id]
+            st.metric("Turns this session", len(session_traces))
+            if session_traces:
+                total_tokens = sum(t["input_tokens"] + t["output_tokens"] for t in session_traces)
+                st.metric("Tokens used", f"{total_tokens:,}")
+                avg_s = sum(t["duration_seconds"] for t in session_traces) / len(session_traces)
+                st.metric("Avg response time", f"{avg_s:.1f}s")
+
+    # -----------------------------------------------------------------------
+    # Main tabs
+    # -----------------------------------------------------------------------
     st.title("AI Diet Coach")
-    st.caption(f"Logged in as **{profile.get('username', '')}**")
-    st.divider()
+    tab_chat, tab_plan = st.tabs(["Chat", "Weekly Meal Plan"])
 
-    # Profile summary
-    cw = profile.get("current_weight_kg")
-    tw = profile.get("target_weight_kg")
-    dl = profile.get("deadline")
-    if cw and tw:
-        st.metric("Current weight", f"{cw} kg")
-        st.metric("Target weight", f"{tw} kg")
-        if dl:
-            st.caption(f"Deadline: {dl}")
+    with tab_chat:
+        for msg in st.session_state.messages:
+            with st.chat_message(msg["role"]):
+                if msg["role"] == "assistant" and msg.get("tool_calls"):
+                    with st.expander("Tools called", expanded=False):
+                        for tc in msg["tool_calls"]:
+                            st.code(f"{tc['name']}({tc['arguments']})", language="python")
+                st.markdown(msg["content"])
 
-    cuisines = profile.get("preferred_cuisines", [])
-    if cuisines:
-        st.caption(f"Cuisines: {', '.join(cuisines)}")
+                if msg["role"] == "assistant" and msg.get("trace_id"):
+                    trace_id = msg["trace_id"]
+                    if not st.session_state.pending_feedback.get(trace_id):
+                        col1, col2, col3 = st.columns([1, 1, 8])
+                        if col1.button("👍", key=f"up_{trace_id}"):
+                            update_feedback(trace_id, 1)
+                            st.session_state.pending_feedback[trace_id] = True
+                            st.rerun()
+                        if col2.button("👎", key=f"down_{trace_id}"):
+                            update_feedback(trace_id, -1)
+                            st.session_state.pending_feedback[trace_id] = True
+                            st.rerun()
+                    else:
+                        st.caption("Feedback recorded. Thanks!")
 
-    restrictions = profile.get("dietary_restrictions", [])
-    if restrictions:
-        st.caption(f"Restrictions: {', '.join(restrictions)}")
+        user_input = st.chat_input("Ask your diet coach...")
 
-    st.divider()
+        if user_input:
+            st.session_state.messages.append({"role": "user", "content": user_input})
+            with st.chat_message("user"):
+                st.markdown(user_input)
 
-    col_edit, col_new = st.columns(2)
-    if col_edit.button("Edit profile", use_container_width=True):
-        st.session_state.show_profile_editor = not st.session_state.show_profile_editor
-        st.rerun()
-    if col_new.button("New chat", use_container_width=True):
-        st.session_state.session_id = str(uuid.uuid4())
-        st.session_state.messages = []
-        st.session_state.pending_feedback = {}
-        st.rerun()
+            with st.chat_message("assistant"):
+                tool_log = st.empty()
+                answer_ph = st.empty()
 
-    if st.button("Log out", use_container_width=True):
-        st.session_state.logged_in = False
-        st.session_state.messages = []
-        st.rerun()
+                with st.spinner("Thinking..."):
+                    t0 = time.time()
+                    result = run_agent(user_input, user_profile_context=profile_context)
+                    duration = time.time() - t0
 
-    st.divider()
+                if result.tool_calls:
+                    with tool_log.expander("Tools called", expanded=False):
+                        for tc in result.tool_calls:
+                            st.code(f"{tc.name}({tc.arguments})", language="python")
 
-    # Profile editor
-    if st.session_state.show_profile_editor:
-        show_profile_editor()
-    else:
-        st.subheader("Session stats")
-        traces = load_all_traces()
-        session_traces = [t for t in traces if t["session_id"] == st.session_state.session_id]
-        st.metric("Turns this session", len(session_traces))
-        if session_traces:
-            total_tokens = sum(t["input_tokens"] + t["output_tokens"] for t in session_traces)
-            st.metric("Tokens used", f"{total_tokens:,}")
-            avg_s = sum(t["duration_seconds"] for t in session_traces) / len(session_traces)
-            st.metric("Avg response time", f"{avg_s:.1f}s")
+                answer_ph.markdown(result.answer)
 
-# ---------------------------------------------------------------------------
-# Chat
-# ---------------------------------------------------------------------------
+                trace_id = save_trace(
+                    question=user_input,
+                    result=result,
+                    duration_seconds=duration,
+                    session_id=st.session_state.session_id,
+                )
 
-st.title("AI Diet Coach")
-
-for msg in st.session_state.messages:
-    with st.chat_message(msg["role"]):
-        if msg["role"] == "assistant" and msg.get("tool_calls"):
-            with st.expander("Tools called", expanded=False):
-                for tc in msg["tool_calls"]:
-                    st.code(f"{tc['name']}({tc['arguments']})", language="python")
-        st.markdown(msg["content"])
-
-        if msg["role"] == "assistant" and msg.get("trace_id"):
-            trace_id = msg["trace_id"]
-            if not st.session_state.pending_feedback.get(trace_id):
                 col1, col2, col3 = st.columns([1, 1, 8])
                 if col1.button("👍", key=f"up_{trace_id}"):
                     update_feedback(trace_id, 1)
                     st.session_state.pending_feedback[trace_id] = True
-                    st.rerun()
                 if col2.button("👎", key=f"down_{trace_id}"):
                     update_feedback(trace_id, -1)
                     st.session_state.pending_feedback[trace_id] = True
-                    st.rerun()
-            else:
-                st.caption("Feedback recorded. Thanks!")
 
-user_input = st.chat_input("Ask your diet coach...")
+            st.session_state.messages.append({
+                "role": "assistant",
+                "content": result.answer,
+                "trace_id": trace_id,
+                "tool_calls": [{"name": tc.name, "arguments": tc.arguments} for tc in result.tool_calls],
+            })
+            st.rerun()
 
-if user_input:
-    st.session_state.messages.append({"role": "user", "content": user_input})
-    with st.chat_message("user"):
-        st.markdown(user_input)
+    with tab_plan:
+        st.subheader("Your Weekly Meal Plan")
 
-    with st.chat_message("assistant"):
-        tool_log = st.empty()
-        answer_ph = st.empty()
+        if st.button("Generate new plan", type="primary"):
+            with st.spinner("Building your personalised meal plan..."):
+                try:
+                    generate_weekly_plan(profile)
+                    st.success("Meal plan ready!")
+                except Exception as e:
+                    st.error(f"Failed to generate plan: {e}")
 
-        with st.spinner("Thinking..."):
-            t0 = time.time()
-            result = run_agent(user_input, user_profile_context=profile_context)
-            duration = time.time() - t0
+        plan = load_meal_plan()
 
-        if result.tool_calls:
-            with tool_log.expander("Tools called", expanded=False):
-                for tc in result.tool_calls:
-                    st.code(f"{tc.name}({tc.arguments})", language="python")
+        if not plan:
+            st.info("No meal plan yet. Click **Generate new plan** to create your personalised 7-day plan.")
+        else:
+            st.caption(f"Week of {plan.get('week_start', '?')}  |  Generated {plan.get('generated_at', '?')}")
+            st.divider()
 
-        answer_ph.markdown(result.answer)
+            busy_days_set = set(profile.get("busy_days", []))
 
-        trace_id = save_trace(
-            question=user_input,
-            result=result,
-            duration_seconds=duration,
-            session_id=st.session_state.session_id,
-        )
+            for day_plan in plan.get("days", []):
+                day = day_plan["day"]
+                is_busy = day_plan.get("is_busy", day in busy_days_set)
+                busy_badge = "  `Busy day`" if is_busy else ""
 
-        col1, col2, col3 = st.columns([1, 1, 8])
-        if col1.button("👍", key=f"up_{trace_id}"):
-            update_feedback(trace_id, 1)
-            st.session_state.pending_feedback[trace_id] = True
-        if col2.button("👎", key=f"down_{trace_id}"):
-            update_feedback(trace_id, -1)
-            st.session_state.pending_feedback[trace_id] = True
+                with st.expander(f"**{day}**{busy_badge}", expanded=True):
+                    b = day_plan["breakfast"]
+                    l = day_plan["lunch"]
+                    d = day_plan["dinner"]
 
-    st.session_state.messages.append({
-        "role": "assistant",
-        "content": result.answer,
-        "trace_id": trace_id,
-        "tool_calls": [{"name": tc.name, "arguments": tc.arguments} for tc in result.tool_calls],
-    })
-
-    st.rerun()
+                    col1, col2, col3 = st.columns(3)
+                    with col1:
+                        st.markdown("**Breakfast**")
+                        st.markdown(f"**{b['name']}**")
+                        st.caption(f"{b['category']} | {b['cooking_time_minutes']} min")
+                        st.caption(b["why"])
+                    with col2:
+                        st.markdown("**Lunch**")
+                        st.markdown(f"**{l['name']}**")
+                        st.caption(f"{l['category']} | {l['cooking_time_minutes']} min")
+                        st.caption(l["why"])
+                    with col3:
+                        st.markdown("**Dinner**")
+                        st.markdown(f"**{d['name']}**")
+                        st.caption(f"{d['category']} | {d['cooking_time_minutes']} min")
+                        st.caption(d["why"])

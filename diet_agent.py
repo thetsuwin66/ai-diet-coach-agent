@@ -76,11 +76,29 @@ def get_recipe_details(name: str) -> dict:
     return {"error": f"No recipe found matching '{name}'"}
 
 
+def generate_meal_plan() -> dict:
+    from meal_planner import generate_weekly_plan
+    from user_profile import load_profile
+    profile = load_profile() or {}
+    plan = generate_weekly_plan(profile)
+    # Return a summary so the agent can describe it in chat
+    summary = {"week_start": plan.get("week_start"), "days": []}
+    for day in plan.get("days", []):
+        summary["days"].append({
+            "day": day["day"],
+            "breakfast": day["breakfast"]["name"],
+            "lunch": day["lunch"]["name"],
+            "dinner": day["dinner"]["name"],
+        })
+    return summary
+
+
 TOOL_REGISTRY = {
     "search_recipes": search_recipes,
     "filter_by_max_cook_time": filter_by_max_cook_time,
     "filter_by_category": filter_by_category,
     "get_recipe_details": get_recipe_details,
+    "generate_meal_plan": generate_meal_plan,
 }
 
 
@@ -164,6 +182,21 @@ TOOLS = [
             "required": ["name"],
         },
     },
+    {
+        "type": "function",
+        "name": "generate_meal_plan",
+        "description": (
+            "Generate a personalized 7-day weekly meal plan (breakfast, lunch, dinner) "
+            "based on the user's profile, dietary restrictions, preferred cuisines, and "
+            "busy days. Use this when the user asks to create, generate, or see their "
+            "weekly meal plan."
+        ),
+        "parameters": {
+            "type": "object",
+            "properties": {},
+            "required": [],
+        },
+    },
 ]
 
 
@@ -188,6 +221,8 @@ When to call each tool:
   (e.g. 'only chicken', 'vegetarian options', 'seafood dishes').
 - get_recipe_details: when the user wants the full recipe for a specific dish
   (e.g. 'how do I make the stir-fry?', 'give me the full recipe').
+- generate_meal_plan: when the user asks to create or see their weekly meal plan
+  (e.g. 'make me a meal plan', 'plan my week', 'what should I eat this week').
 
 How to respond:
 - For each recommended recipe include: name, category, cooking time, key
