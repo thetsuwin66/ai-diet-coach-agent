@@ -9,6 +9,7 @@ from minsearch import Index
 load_dotenv()
 
 DATA_PATH = Path(__file__).parent / "data" / "recipes.json"
+ASIAN_DATA_PATH = Path(__file__).parent / "data" / "asian_recipes.json"
 
 
 @dataclass
@@ -27,7 +28,14 @@ class AgentResult:
 
 def _load_documents():
     with open(DATA_PATH) as f:
-        return json.load(f)
+        western = json.load(f)
+    with open(ASIAN_DATA_PATH) as f:
+        asian = json.load(f)
+    # minsearch requires text fields to be strings -- join list ingredients
+    for doc in asian:
+        if isinstance(doc.get("ingredients"), list):
+            doc["ingredients"] = ", ".join(doc["ingredients"])
+    return western + asian
 
 
 def _build_index(documents):
@@ -81,7 +89,6 @@ def generate_meal_plan() -> dict:
     from user_profile import load_profile
     profile = load_profile() or {}
     plan = generate_weekly_plan(profile)
-    # Return a summary so the agent can describe it in chat
     summary = {"week_start": plan.get("week_start"), "days": []}
     for day in plan.get("days", []):
         summary["days"].append({
@@ -93,12 +100,41 @@ def generate_meal_plan() -> dict:
     return summary
 
 
+def get_nutrition_info(food_name: str) -> dict:
+    from nutrition import get_nutrition_info as _get
+    return _get(food_name)
+
+
+def find_nearby_restaurants(dietary_preference: str = "") -> list:
+    from restaurants import find_nearby_restaurants as _find
+    from user_profile import load_profile
+    profile = load_profile() or {}
+    location = profile.get("location", "")
+    return _find(location=location, dietary_preference=dietary_preference)
+
+
+def replan(day: str, reason: str) -> dict:
+    from meal_planner import replan_day
+    from user_profile import load_profile
+    profile = load_profile() or {}
+    return replan_day(day=day, reason=reason, profile=profile)
+
+
+def swap_meal(day: str, meal_type: str, meal_name: str) -> dict:
+    from meal_planner import swap_meal as _swap
+    return _swap(day=day, meal_type=meal_type, meal_name=meal_name)
+
+
 TOOL_REGISTRY = {
     "search_recipes": search_recipes,
     "filter_by_max_cook_time": filter_by_max_cook_time,
     "filter_by_category": filter_by_category,
     "get_recipe_details": get_recipe_details,
     "generate_meal_plan": generate_meal_plan,
+    "get_nutrition_info": get_nutrition_info,
+    "find_nearby_restaurants": find_nearby_restaurants,
+    "replan": replan,
+    "swap_meal": swap_meal,
 }
 
 
@@ -197,6 +233,99 @@ TOOLS = [
             "required": [],
         },
     },
+    {
+        "type": "function",
+        "name": "get_nutrition_info",
+        "description": (
+            "Look up nutrition information (calories, protein, fat, carbs, fiber) for a "
+            "food item or dish. Use this when the user asks about macros, calories, or "
+            "nutritional content of a specific food."
+        ),
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "food_name": {
+                    "type": "string",
+                    "description": "The food or dish name to look up, e.g. 'chicken breast', 'brown rice'",
+                }
+            },
+            "required": ["food_name"],
+        },
+    },
+    {
+        "type": "function",
+        "name": "find_nearby_restaurants",
+        "description": (
+            "Find healthy or diet-friendly restaurants near the user's location. "
+            "Use this when the user asks for restaurant recommendations, eating out options, "
+            "or says they don't have time to cook."
+        ),
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "dietary_preference": {
+                    "type": "string",
+                    "description": (
+                        "Type of restaurant to find, e.g. 'healthy', 'vegetarian', "
+                        "'low calorie', 'salad'. Defaults to 'healthy' if not specified."
+                    ),
+                }
+            },
+            "required": [],
+        },
+    },
+    {
+        "type": "function",
+        "name": "swap_meal",
+        "description": (
+            "Instantly swap one specific meal (breakfast, lunch, or dinner) on a given day "
+            "with a named dish. Use this when the user requests a specific food for a specific "
+            "meal slot, e.g. 'I want omelette for Tuesday breakfast' or 'change my Monday lunch "
+            "to pad thai'. This is faster than replan -- use it for single-meal dish requests."
+        ),
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "day": {
+                    "type": "string",
+                    "description": "Day of the week, e.g. 'Monday', 'Tuesday'",
+                },
+                "meal_type": {
+                    "type": "string",
+                    "enum": ["breakfast", "lunch", "dinner"],
+                    "description": "Which meal to replace",
+                },
+                "meal_name": {
+                    "type": "string",
+                    "description": "The dish the user wants, e.g. 'omelette', 'pad thai', 'chicken salad'",
+                },
+            },
+            "required": ["day", "meal_type", "meal_name"],
+        },
+    },
+    {
+        "type": "function",
+        "name": "replan",
+        "description": (
+            "Re-generate all three meals for a specific day when the user's schedule changes. "
+            "Use this for schedule-based changes like a dinner event, a very busy day, or a full "
+            "day swap. For single specific dish requests, use swap_meal instead (it's faster)."
+        ),
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "day": {
+                    "type": "string",
+                    "description": "Day of the week to replan, e.g. 'Monday', 'Friday'",
+                },
+                "reason": {
+                    "type": "string",
+                    "description": "Reason for replanning, e.g. 'dinner event', 'very busy day', 'eating out for lunch'",
+                },
+            },
+            "required": ["day", "reason"],
+        },
+    },
 ]
 
 
@@ -223,6 +352,16 @@ When to call each tool:
   (e.g. 'how do I make the stir-fry?', 'give me the full recipe').
 - generate_meal_plan: when the user asks to create or see their weekly meal plan
   (e.g. 'make me a meal plan', 'plan my week', 'what should I eat this week').
+- get_nutrition_info: when the user asks about calories, macros, or nutritional
+  content of a food (e.g. 'how many calories in chicken breast?', 'protein in salmon').
+- find_nearby_restaurants: when the user wants to eat out or asks for restaurant
+  suggestions near their location (e.g. 'where can I eat healthy near me?',
+  'I don't have time to cook tonight').
+- swap_meal: when the user wants a specific dish for a specific meal slot
+  (e.g. 'I want omelette for Tuesday breakfast', 'change Monday lunch to pad thai').
+  ALWAYS prefer this over replan for single-meal dish requests -- it is instant.
+- replan: ONLY for schedule-based full-day changes like a dinner event, very busy day,
+  or complete day overhaul. Not for specific dish requests.
 
 How to respond:
 - For each recommended recipe include: name, category, cooking time, key
@@ -252,7 +391,10 @@ def _make_call(tool_call):
     arguments = json.loads(tool_call.arguments)
     name = tool_call.name
     fn = TOOL_REGISTRY.get(name)
-    result = fn(**arguments) if fn else {"error": f"Unknown tool '{name}'"}
+    try:
+        result = fn(**arguments) if fn else {"error": f"Unknown tool '{name}'"}
+    except Exception as exc:
+        result = {"error": f"Tool '{name}' failed: {exc}"}
     return (
         {
             "type": "function_call_output",

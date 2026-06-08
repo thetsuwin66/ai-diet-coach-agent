@@ -78,6 +78,15 @@ def create_profile(username: str, password: str) -> dict:
         "current_weight_kg": None,
         "target_weight_kg": None,
         "deadline": None,
+        # Body stats (for calorie calculation)
+        "height_cm": None,
+        "age": None,
+        "gender": "",
+        # Calorie targets (computed from body stats)
+        "daily_calorie_target": None,
+        "daily_protein_g": None,
+        "daily_carbs_g": None,
+        "daily_fat_g": None,
         # Diet
         "dietary_restrictions": [],
         "preferred_cuisines": [],
@@ -119,11 +128,25 @@ def profile_to_context(profile: dict) -> str:
 
     lines = ["User profile:"]
 
-    cw = profile.get("current_weight_kg")
-    tw = profile.get("target_weight_kg")
-    dl = profile.get("deadline")
+    cw  = profile.get("current_weight_kg")
+    tw  = profile.get("target_weight_kg")
+    dl  = profile.get("deadline")
+    age = profile.get("age")
+    ht  = profile.get("height_cm")
+    gen = profile.get("gender")
+    cal = profile.get("daily_calorie_target")
+
     if cw and tw:
         lines.append(f"- Weight goal: {cw}kg -> {tw}kg by {dl or 'no deadline set'}")
+    if age and ht and gen:
+        lines.append(f"- Body: {gen}, {age} years old, {ht} cm")
+    if cal:
+        lines.append(
+            f"- Daily calorie target: {cal} kcal "
+            f"(protein {profile.get('daily_protein_g')}g / "
+            f"carbs {profile.get('daily_carbs_g')}g / "
+            f"fat {profile.get('daily_fat_g')}g)"
+        )
 
     restrictions = profile.get("dietary_restrictions", [])
     if restrictions:
