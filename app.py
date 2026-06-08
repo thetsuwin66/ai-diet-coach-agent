@@ -14,7 +14,7 @@ import streamlit as st
 
 # On Streamlit Cloud, push st.secrets into os.environ so agent modules
 # that call OpenAI() at import time find the key already set.
-for _key in ("OPENAI_API_KEY", "USDA_API_KEY", "GOOGLE_MAPS_API_KEY"):
+for _key in ("OPENAI_API_KEY", "USDA_API_KEY", "GOOGLE_MAPS_API_KEY", "LOGFIRE_TOKEN"):
     if _key not in os.environ:
         try:
             os.environ[_key] = st.secrets[_key]
@@ -901,7 +901,16 @@ else:
         import pandas as pd
 
         st.subheader("Monitoring Dashboard")
-        st.caption("Every agent interaction is logged as a JSON trace in `data/traces/`.")
+        st.caption("Every agent interaction is logged as a JSON trace in `data/traces/` and sent to Logfire.")
+
+        if os.getenv("LOGFIRE_TOKEN"):
+            st.link_button(
+                "Open Logfire Dashboard",
+                "https://logfire.pydantic.dev",
+                type="primary",
+                use_container_width=False,
+            )
+            st.caption("View full traces, token usage, and tool call timelines in the Logfire dashboard.")
 
         all_traces = load_all_traces()
 

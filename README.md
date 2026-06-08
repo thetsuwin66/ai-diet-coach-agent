@@ -371,12 +371,18 @@ Every agent interaction is saved as a JSON trace in `data/traces/`. Each trace c
 
 ### Accessing the monitoring dashboard
 
-Run the app and click the **Monitoring** tab:
+Two dashboards are available:
 
+**1. Built-in Streamlit dashboard** -- run the app and click the **Monitoring** tab:
 ```bash
 make run
-# then open http://localhost:8501 and click the "Monitoring" tab
+# open http://localhost:8501 → Monitoring tab
 ```
+
+**2. Logfire dashboard** -- full trace timeline with nested spans, token costs, and tool call details:
+- Set `LOGFIRE_TOKEN` in your `.env` (see `.env.example`)
+- Sign up free at [logfire.pydantic.dev](https://logfire.pydantic.dev)
+- Once configured, a **"Open Logfire Dashboard"** button appears in the Monitoring tab
 
 The dashboard shows:
 

@@ -1,7 +1,9 @@
 import json
+import os
 from dataclasses import dataclass, field
 from pathlib import Path
 
+import logfire
 from dotenv import load_dotenv
 from openai import OpenAI
 from minsearch import Index
@@ -10,6 +12,11 @@ load_dotenv()
 
 DATA_PATH = Path(__file__).parent.parent / "data" / "recipes.json"
 ASIAN_DATA_PATH = Path(__file__).parent.parent / "data" / "asian_recipes.json"
+
+# Configure Logfire -- only activates if LOGFIRE_TOKEN is set
+if os.getenv("LOGFIRE_TOKEN"):
+    logfire.configure(token=os.getenv("LOGFIRE_TOKEN"), service_name="ai-diet-coach")
+    logfire.instrument_openai()
 
 
 @dataclass
@@ -391,10 +398,12 @@ def _make_call(tool_call):
     arguments = json.loads(tool_call.arguments)
     name = tool_call.name
     fn = TOOL_REGISTRY.get(name)
-    try:
-        result = fn(**arguments) if fn else {"error": f"Unknown tool '{name}'"}
-    except Exception as exc:
-        result = {"error": f"Tool '{name}' failed: {exc}"}
+    with logfire.span("tool_call {tool_name}", tool_name=name, arguments=arguments):
+        try:
+            result = fn(**arguments) if fn else {"error": f"Unknown tool '{name}'"}
+        except Exception as exc:
+            result = {"error": f"Tool '{name}' failed: {exc}"}
+            logfire.error("Tool failed: {error}", error=str(exc))
     return (
         {
             "type": "function_call_output",
@@ -406,41 +415,49 @@ def _make_call(tool_call):
 
 
 def run_agent(user_question: str, model: str = "gpt-4o-mini", user_profile_context: str = "") -> AgentResult:
-    message_history = [
-        {"role": "system", "content": build_instructions(user_profile_context)},
-        {"role": "user", "content": user_question},
-    ]
+    with logfire.span("agent_run", question=user_question[:120], model=model):
+        message_history = [
+            {"role": "system", "content": build_instructions(user_profile_context)},
+            {"role": "user", "content": user_question},
+        ]
 
-    all_tool_calls: list[ToolCall] = []
-    final_answer = None
-    total_input_tokens = 0
-    total_output_tokens = 0
+        all_tool_calls: list[ToolCall] = []
+        final_answer = None
+        total_input_tokens = 0
+        total_output_tokens = 0
 
-    while True:
-        response = openai_client.responses.create(
-            model=model,
-            input=message_history,
-            tools=TOOLS,
+        while True:
+            response = openai_client.responses.create(
+                model=model,
+                input=message_history,
+                tools=TOOLS,
+            )
+
+            if response.usage:
+                total_input_tokens += response.usage.input_tokens
+                total_output_tokens += response.usage.output_tokens
+
+            message_history.extend(response.output)
+            has_tool_calls = False
+
+            for item in response.output:
+                if item.type == "function_call":
+                    output_item, tc = _make_call(item)
+                    message_history.append(output_item)
+                    all_tool_calls.append(tc)
+                    has_tool_calls = True
+                elif item.type == "message":
+                    final_answer = item.content[0].text
+
+            if not has_tool_calls:
+                break
+
+        logfire.info(
+            "agent_run complete",
+            input_tokens=total_input_tokens,
+            output_tokens=total_output_tokens,
+            tool_calls_count=len(all_tool_calls),
         )
-
-        if response.usage:
-            total_input_tokens += response.usage.input_tokens
-            total_output_tokens += response.usage.output_tokens
-
-        message_history.extend(response.output)
-        has_tool_calls = False
-
-        for item in response.output:
-            if item.type == "function_call":
-                output_item, tc = _make_call(item)
-                message_history.append(output_item)
-                all_tool_calls.append(tc)
-                has_tool_calls = True
-            elif item.type == "message":
-                final_answer = item.content[0].text
-
-        if not has_tool_calls:
-            break
 
     return AgentResult(
         answer=final_answer or "",

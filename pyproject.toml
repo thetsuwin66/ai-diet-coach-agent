@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "jupyter>=1.0.0",
+    "logfire[openai]>=4.35.0",
     "minsearch>=0.0.5",
     "openai>=1.50.0",
     "pytest>=9.0.3",
