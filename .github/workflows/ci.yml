@@ -68,4 +68,6 @@ jobs:
       - name: Run test suite
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          USDA_API_KEY: ${{ secrets.USDA_API_KEY }}
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
         run: uv run pytest tests/ -v --tb=short
