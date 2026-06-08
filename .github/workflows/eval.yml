@@ -1,0 +1,45 @@
+name: Evaluation
+
+on:
+  # Run manually from the GitHub Actions tab
+  workflow_dispatch:
+  # Or on a weekly schedule (Sunday midnight UTC)
+  schedule:
+    - cron: "0 0 * * 0"
+
+jobs:
+  evaluate:
+    name: Run batch eval + LLM judge
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync --frozen
+
+      - name: Run batch evaluation
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: uv run python evals/run_evals.py
+
+      - name: Run LLM judge (v3)
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: uv run python evals/eval_judge.py --version v3
+
+      - name: Upload evaluation artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-results-${{ github.run_id }}
+          path: |
+            evals/eval_results.json
+            evals/judge_results.json
+          retention-days: 30

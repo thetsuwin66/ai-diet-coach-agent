@@ -1,0 +1,71 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # ── Job 1: syntax check (no API key needed, always runs) ──────────────────
+  lint:
+    name: Syntax check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync --frozen
+
+      - name: Check syntax on all Python files
+        run: |
+          uv run python -m py_compile app.py
+          uv run python -m py_compile agent/diet_agent.py
+          uv run python -m py_compile agent/meal_planner.py
+          uv run python -m py_compile agent/user_profile.py
+          uv run python -m py_compile agent/tracking.py
+          uv run python -m py_compile agent/calorie_calculator.py
+          uv run python -m py_compile agent/shopping_list.py
+          uv run python -m py_compile agent/chat_memory.py
+          uv run python -m py_compile agent/monitoring.py
+          uv run python -m py_compile agent/nutrition.py
+          uv run python -m py_compile agent/restaurants.py
+          uv run python -m py_compile evals/eval_judge.py
+          uv run python -m py_compile evals/run_evals.py
+          uv run python -m py_compile evals/label_evals.py
+          uv run python -m py_compile tests/judge.py
+          uv run python -m py_compile tests/test_agent.py
+          uv run python -m py_compile tests/test_judge.py
+
+  # ── Job 2: tests (needs OPENAI_API_KEY secret) ────────────────────────────
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+    # Skip if the secret is not configured (e.g. fork PRs)
+    if: ${{ vars.RUN_TESTS == 'true' || github.event_name == 'push' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync --frozen
+
+      - name: Run test suite
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: uv run pytest tests/ -v --tb=short

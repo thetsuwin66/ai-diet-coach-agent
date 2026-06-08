@@ -197,6 +197,28 @@ GOOGLE_MAPS_API_KEY = "your-google-maps-key"
 
 ---
 
+## CI/CD
+
+Two GitHub Actions workflows are included in `.github/workflows/`:
+
+### `ci.yml` — runs on every push and pull request
+
+| Job | What it does | Needs API key? |
+|---|---|---|
+| `lint` | Syntax-checks all Python files | No |
+| `test` | Runs the full pytest suite | Yes (OPENAI_API_KEY secret) |
+
+To enable the test job, add your OpenAI key as a GitHub Actions secret:
+1. Go to your repo → **Settings** → **Secrets and variables** → **Actions**
+2. Click **New repository secret**
+3. Name: `OPENAI_API_KEY`, Value: your key
+
+### `eval.yml` — runs manually or weekly
+
+Triggers the full evaluation pipeline (batch run → LLM judge) and uploads results as a downloadable artifact. Run it from the **Actions** tab → **Evaluation** → **Run workflow**.
+
+---
+
 ## Running Tests
 
 ```bash
