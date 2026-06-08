@@ -151,7 +151,61 @@ Edge cases:
 Output your step-by-step reasoning, then your label. Label MUST be exactly "good" or "bad".
 """.strip()
 
-JUDGE_PROMPTS = {"v1": JUDGE_SYSTEM_V1, "v2": JUDGE_SYSTEM_V2, "v3": JUDGE_SYSTEM_V3}
+JUDGE_SYSTEM_V4 = """
+You are an expert judge for an AI diet coach chatbot. The agent has 256 recipes
+(Thai, Korean, Filipino, Japanese, Chinese, Vietnamese, Indonesian, and Western)
+and these tools: search_recipes, filter_by_max_cook_time, filter_by_category,
+get_recipe_details, generate_meal_plan, swap_meal, replan, get_nutrition_info,
+find_nearby_restaurants.
+
+Rate GOOD or BAD using these rules. Label MUST be exactly "good" or "bad".
+
+── ALWAYS GOOD (no further checks needed) ──────────────────────────────────────
+1. Out-of-scope refusal: user asks something outside diet/recipes (weather, wine,
+   gym workouts, supplements, restaurant bookings, ordering food) and agent politely
+   declines and/or redirects. No tool call needed. GOOD.
+2. Impossible request: zero-calorie recipes, negative cook time, curing diseases --
+   agent explains why it can't help. GOOD.
+3. No results honestly reported: agent searched the DB and found nothing for the
+   requested cuisine/dish (e.g. "no Korean recipes", "omelette not in database")
+   and says so clearly. GOOD. The database has limited coverage -- this is expected.
+4. Safety refusal: agent refuses raw chicken, dangerous advice. GOOD.
+
+── CLASSIFY INTENT then apply rules ────────────────────────────────────────────
+A) Diet-focused (mentions weight loss, low-calorie, lean, slimming, healthy):
+   GOOD: tools called, recipes from DB, no high-calorie item promoted as diet food
+   BAD: hallucinated recipes, high-calorie item as diet food, no tool + no refusal
+
+B) Time-focused (mentions minutes, quick, fast -- no diet context):
+   GOOD: filter_by_max_cook_time used OR honest "no results"; time budget respected
+   BAD: time limit ignored, hallucinated recipes
+
+C) Recipe lookup (wants full recipe / how to make X):
+   GOOD: get_recipe_details called, OR "not in DB" honestly stated
+   BAD: recipe not found but agent invents one from memory
+
+D) Meal plan / swap (adjust plan, swap a meal, replan a day):
+   GOOD: replan or swap_meal called, OR plan updated and user informed
+   BAD: agent claims it changed the plan without calling any tool
+
+E) Restaurant / nearby food:
+   GOOD: find_nearby_restaurants called, OR honest explanation if API fails
+   BAD: agent ignores the question entirely with no useful response
+
+── NEVER penalise for ──────────────────────────────────────────────────────────
+- Not calling a tool when a polite decline or "not found" is the right answer
+- Including a calorie-dense dish in a neutral/time-only response
+- Limited DB coverage (no Filipino, Korean, omelette, etc.)
+
+Output reasoning then label ("good" or "bad").
+""".strip()
+
+JUDGE_PROMPTS = {
+    "v1": JUDGE_SYSTEM_V1,
+    "v2": JUDGE_SYSTEM_V2,
+    "v3": JUDGE_SYSTEM_V3,
+    "v4": JUDGE_SYSTEM_V4,
+}
 
 JUDGE_USER_TEMPLATE = """
 User question: {question}
@@ -338,7 +392,7 @@ def compare_versions() -> None:
 
     all_results = {}
     all_metrics = {}
-    for ver in ["v1", "v2", "v3"]:
+    for ver in ["v1", "v2", "v3", "v4"]:
         print(f"\n{'='*60}")
         r = run_judge(ver)
         m = compute_metrics(
@@ -391,7 +445,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--version",
-        choices=["v1", "v2", "v3", "compare"],
+        choices=["v1", "v2", "v3", "v4", "compare"],
         default="compare",
         help="Judge prompt version to run (default: compare both)",
     )
