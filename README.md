@@ -250,45 +250,90 @@ Tests cover:
 
 ## Evaluation
 
-### Step 1 — Run batch scenarios
+The evaluation pipeline covers three stages: scenario generation, **hand-crafted manual labeling**, and LLM judge validation with iterative prompt tuning.
+
+### Ground truth dataset (hand-crafted, manually labeled)
+
+The ground truth was built entirely by hand -- no LLM was used to generate labels.
+
+**Step 1 — Design and run scenarios**
 
 ```bash
-uv run python run_evals.py
+make eval
+# or: uv run python evals/run_evals.py
 ```
 
-Runs 60 evaluation scenarios (happy path, varied phrasing, edge cases, out-of-scope, breaking scenarios) through the agent and saves results to `eval_results.json`.
+60 scenarios were designed manually across five categories:
 
-### Step 2 — Label responses (ground-truth dataset)
+| Category | Count | Examples |
+|---|---|---|
+| Happy path | 20 | "I want a high-protein dinner" |
+| Varied phrasing | 12 | "gimme something with chicken that won't make me fat" |
+| Edge cases | 11 | "I have chicken thighs and 30 minutes" |
+| Out-of-scope | 10 | "Can you book me a restaurant table?" |
+| Breaking | 10 | "Give me a recipe that cures diabetes" |
+
+Results are saved to `evals/eval_results.json`.
+
+**Step 2 — Manual labeling with failure categories**
 
 ```bash
-uv run streamlit run label_evals.py
+make label
+# or: uv run streamlit run evals/label_evals.py
 ```
 
-Opens a Streamlit labeling tool. Label each response as good/bad and assign a failure category (hallucination, wrong_scope, incomplete, etc.). Labels are saved to `labels.csv`.
+Each response was reviewed by a human and labeled **good** or **bad** with a failure category:
 
-The project includes 30 pre-labeled responses covering all scenario types.
+| Failure category | Description |
+|---|---|
+| `hallucination` | Agent invented recipe or nutrition data not in the database |
+| `wrong_scope` | Agent answered the wrong question or guessed without context |
+| `incomplete` | Answer was missing key information the user asked for |
+| `wrong_tool` | Agent used the wrong tool or skipped a needed tool call |
+| `off_topic` | Response was unrelated to the user's actual question |
+| `unsafe_advice` | Agent gave potentially harmful health or safety advice |
 
-### Step 3 — Run the LLM judge
+The project includes **88 labeled responses** in `evals/labels.csv`:
+- 60 from the original scenario batch
+- 28 exported from real user interactions via `make traces-to-eval`
+
+**Failure patterns found during manual labeling:**
+- **Hallucination (most common):** When `get_recipe_details` returned nothing, the agent invented a "typical" recipe from training memory instead of being honest
+- **Wrong recommendation:** Fettuccine Alfredo and burgers appeared in low-calorie / lean-diet responses
+- **Incomplete:** For "vegetarian pasta step-by-step", agent pivoted to a different dish without explanation
+- **Wrong scope:** "Tell me how to cook that beef thing" with no prior context -- agent guessed instead of asking
+
+### LLM judge with iterative prompt tuning
 
 ```bash
-# Compare all three prompt versions
-uv run python eval_judge.py
-
-# Run a specific version
-uv run python eval_judge.py --version v3
+make judge
+# or: uv run python evals/eval_judge.py
+# or: uv run python evals/eval_judge.py --version v4
 ```
 
-Runs three judge prompt versions (v1, v2, v3) against the labeled dataset and prints alignment metrics:
+The judge was iterated **4 times** based on analysis of disagreements with the human labels:
 
-| Version | Accuracy | Precision | Recall | F1 |
-|---|---|---|---|---|
-| v1 | 60.0% | 38.9% | 87.5% | 53.8% |
-| v2 | 63.3% | 42.1% | 100% | 59.3% |
-| v3 | **80.0%** | **60.0%** | 75.0% | **66.7%** |
+| Version | Accuracy | Precision | Recall | F1 | Key change |
+|---|---|---|---|---|---|
+| v1 | 46.6% | 11.8% | 75.0% | 20.3% | Baseline |
+| v2 | 44.3% | 12.7% | 87.5% | 22.2% | Added explicit hallucination and calorie rules |
+| v3 | 69.3% | 22.9% | 100% | 37.2% | Added intent classification (diet/time/recipe/out-of-scope) |
+| **v4** | **73.9%** | **17.4%** | 50.0% | 25.8% | Added "always GOOD" rules for correct refusals and "no results" |
 
-The key improvement in v3 was adding intent classification (diet-focused vs time-focused vs recipe lookup) so the calorie-fitness rule only fires when the user explicitly mentions diet goals. This cut false positives from 11 to 4.
+**Iteration notes:**
 
-Full results are saved to `judge_results.json`.
+- **v1 → v2:** Added callouts for hallucinated recipes and calorie-inappropriate recommendations. Improved recall to 87.5% but over-applied calorie rules to all queries.
+- **v2 → v3:** Added Step 1 intent classification so calorie/diet rules only fire when the user explicitly mentions weight loss. Cut false positives from 48 to 27, accuracy jumped to 69.3%.
+- **v3 → v4:** Added explicit "always GOOD" rules: out-of-scope correctly declined (no tool needed), database gaps honestly reported ("no Korean recipes"), impossible requests gracefully refused. Cut false positives from 27 to 19.
+
+**Example disagreement fixed (v3 → v4):**
+
+> **Question:** "What supplements should I take for weight loss?"
+> **Human label:** good (agent correctly said this is outside its scope)
+> **v3 judge:** bad (penalised for not calling any tool)
+> **v4 judge:** good ("out-of-scope refusal -- agent politely declines, no tool needed. GOOD.")
+
+Full results are saved to `evals/judge_results.json`.
 
 ---
 
@@ -348,9 +393,9 @@ uv sync                          # install exact dependency versions (uv.lock)
 cp .env.example .env             # add your API keys
 uv run streamlit run app.py      # start the app
 uv run pytest tests/ -v          # run tests
-uv run python run_evals.py       # run batch evaluation
-uv run python eval_judge.py      # run LLM judge
-uv run streamlit run label_evals.py  # open labeling tool
+uv run python evals/run_evals.py       # run batch evaluation
+uv run python evals/eval_judge.py     # run LLM judge
+uv run streamlit run evals/label_evals.py  # open labeling tool
 ```
 
 Dependencies are pinned in `uv.lock`. The recipe datasets (`data/recipes.json`, `data/asian_recipes.json`) are included in the repository. No external data downloads are required.
