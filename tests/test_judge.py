@@ -7,7 +7,7 @@ and whether the agent uses the right tools in the right order.
 """
 
 import pytest
-from diet_agent import run_agent
+from agent.diet_agent import run_agent
 from tests.judge import assert_criteria
 
 

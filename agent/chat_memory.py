@@ -17,7 +17,7 @@ from openai import OpenAI
 
 load_dotenv()
 
-MEMORY_PATH = Path(__file__).parent / "data" / "chat_memory.json"
+MEMORY_PATH = Path(__file__).parent.parent / "data" / "chat_memory.json"
 MAX_MEMORIES = 4
 client = OpenAI()
 

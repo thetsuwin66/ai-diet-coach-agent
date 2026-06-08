@@ -1,6 +1,6 @@
 import json
 from openai import OpenAI
-from diet_agent import AgentResult
+from agent.diet_agent import AgentResult
 
 openai_client = OpenAI()
 

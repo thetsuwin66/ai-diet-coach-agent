@@ -6,7 +6,7 @@ properties of the result - no LLM judge involved.
 """
 
 import pytest
-from diet_agent import run_agent
+from agent.diet_agent import run_agent
 
 
 # ---------------------------------------------------------------------------

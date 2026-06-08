@@ -12,7 +12,7 @@ import os
 import secrets
 from pathlib import Path
 
-PROFILE_PATH = Path(__file__).parent / "data" / "profile.json"
+PROFILE_PATH = Path(__file__).parent.parent / "data" / "profile.json"
 
 DAYS_OF_WEEK = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 

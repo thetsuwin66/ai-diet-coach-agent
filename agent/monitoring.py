@@ -12,9 +12,9 @@ from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 
-from diet_agent import AgentResult
+from .diet_agent import AgentResult
 
-TRACES_DIR = Path(__file__).parent / "data" / "traces"
+TRACES_DIR = Path(__file__).parent.parent / "data" / "traces"
 TRACES_DIR.mkdir(parents=True, exist_ok=True)
 
 

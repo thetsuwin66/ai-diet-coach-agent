@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from diet_agent import run_agent  # noqa: E402 - needs load_dotenv first
+from agent.diet_agent import run_agent  # noqa: E402
 
 SCENARIOS_PATH = Path(__file__).parent / "scenarios.csv"
 RESULTS_PATH = Path(__file__).parent / "eval_results.json"

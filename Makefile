@@ -22,13 +22,13 @@ test:
 	uv run pytest tests/ -v
 
 eval:
-	uv run python run_evals.py
+	uv run python evals/run_evals.py
 
 judge:
-	uv run python eval_judge.py
+	uv run python evals/eval_judge.py
 
 label:
-	uv run streamlit run label_evals.py --server.port 8502
+	uv run streamlit run evals/label_evals.py --server.port 8502
 
 docker-build:
 	docker build -t ai-diet-coach .

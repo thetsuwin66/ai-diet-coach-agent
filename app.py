@@ -7,19 +7,19 @@ from dotenv import load_dotenv
 
 from datetime import date
 
-from calorie_calculator import calculate_daily_target
-from chat_memory import load_memory_context, save_session_memory
-from diet_agent import run_agent
-from meal_planner import generate_weekly_plan, load_meal_plan
-from monitoring import load_all_traces, save_trace, update_feedback
-from shopping_list import generate_shopping_list
-from tracking import (
+from agent.calorie_calculator import calculate_daily_target
+from agent.chat_memory import load_memory_context, save_session_memory
+from agent.diet_agent import run_agent
+from agent.meal_planner import generate_weekly_plan, load_meal_plan
+from agent.monitoring import load_all_traces, save_trace, update_feedback
+from agent.shopping_list import generate_shopping_list
+from agent.tracking import (
     STATUS_EATEN, STATUS_SKIPPED,
     get_meal_log_for_date, get_weight_logs, get_weekly_adherence,
     get_latest_weight, is_on_track, log_meal, log_weight,
     get_skip_patterns,
 )
-from user_profile import (
+from agent.user_profile import (
     ACTIVITY_LEVELS,
     CUISINE_OPTIONS,
     DAYS_OF_WEEK,
@@ -401,7 +401,7 @@ def show_profile_editor():
 # ---------------------------------------------------------------------------
 
 def render_recipe_details(name: str):
-    from diet_agent import get_recipe_details
+    from agent.diet_agent import get_recipe_details
     recipe = get_recipe_details(name)
     if "error" in recipe:
         st.caption(f"Recipe details not found for '{name}'.")
@@ -819,7 +819,7 @@ else:
                         patterns = get_skip_patterns()
                         skips = patterns["skips_by_meal_type"]
                         most_skipped = max(skips, key=skips.get)
-                        from meal_planner import replan_day
+                        from agent.meal_planner import replan_day
                         today_day = date.today().strftime("%A")
                         replan_day(today_day, f"user is off track, simplify {most_skipped}", profile)
                         st.session_state["replan_notice"] = f"Plan adjusted based on your tracking data."

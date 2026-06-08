@@ -299,38 +299,55 @@ Dependencies are pinned in `uv.lock`. The recipe datasets (`data/recipes.json`, 
 
 ```
 ai-diet-coach-agent/
-├── app.py                  Main Streamlit application
-├── diet_agent.py           Agent loop and tool registry
-├── meal_planner.py         Meal plan generation and replanning
-├── user_profile.py         User authentication and profile management
-├── tracking.py             Daily meal and weight tracking
-├── calorie_calculator.py   BMR/TDEE calorie budget calculation
-├── shopping_list.py        Shopping list generator
-├── chat_memory.py          Cross-session conversation memory
-├── nutrition.py            USDA nutrition API integration
-├── restaurants.py          Google Maps restaurant search
-├── monitoring.py           Trace logging
-├── eval_judge.py           LLM judge with alignment metrics
-├── run_evals.py            Batch evaluation runner
-├── label_evals.py          Ground-truth labeling tool
-├── scenarios.csv           60 evaluation scenarios
-├── labels.csv              30 hand-labeled ground-truth responses
-├── eval_results.json       Batch evaluation results
-├── judge_results.json      LLM judge results (v1/v2/v3)
-├── data/
-│   ├── recipes.json        201 TheMealDB recipes
-│   ├── asian_recipes.json  55 Asian recipes (custom dataset)
-│   ├── meal_plan.json      Current weekly meal plan
-│   ├── profile.json        User profile (gitignored)
-│   ├── tracking.json       Meal and weight logs (gitignored)
-│   └── traces/             Agent interaction traces (gitignored)
+├── app.py                        Streamlit entry point
+├── Dockerfile
+├── docker-compose.yml
+├── Makefile
+├── requirements.txt
+├── runtime.txt
+├── pyproject.toml
+├── uv.lock
+│
+├── agent/                        Core application package
+│   ├── diet_agent.py             Agent loop and tool registry (10 tools)
+│   ├── meal_planner.py           Weekly plan generation, replan, swap_meal
+│   ├── user_profile.py           Auth (pbkdf2 password hash) and profile CRUD
+│   ├── tracking.py               Daily meal logging and weight tracking
+│   ├── calorie_calculator.py     Mifflin-St Jeor BMR/TDEE/macro calculator
+│   ├── shopping_list.py          Ingredient extractor and category grouper
+│   ├── chat_memory.py            Cross-session GPT-summarised memory
+│   ├── monitoring.py             Trace logger (saves to data/traces/)
+│   ├── nutrition.py              USDA FoodData Central API integration
+│   └── restaurants.py            Google Maps Places API integration
+│
+├── evals/                        Evaluation pipeline
+│   ├── eval_judge.py             LLM judge (v1/v2/v3) with alignment metrics
+│   ├── run_evals.py              Batch runner (60 scenarios)
+│   ├── label_evals.py            Streamlit ground-truth labeling tool
+│   ├── scenarios.csv             60 evaluation scenarios
+│   ├── labels.csv                30 hand-labeled responses
+│   ├── eval_results.json         Batch run results
+│   └── judge_results.json        Judge alignment results
+│
 ├── tests/
-│   ├── test_agent.py       Deterministic agent tests
-│   ├── test_judge.py       LLM-judge tests
-│   └── judge.py            Judge helper used in tests
+│   ├── test_agent.py             Deterministic agent tests
+│   ├── test_judge.py             LLM-judge tests
+│   └── judge.py                  Judge helper
+│
+├── data/
+│   ├── recipes.json              201 TheMealDB recipes
+│   ├── asian_recipes.json        55 custom Asian recipes
+│   ├── meal_plan.json            Current weekly plan (gitignored)
+│   ├── profile.json              User profile (gitignored)
+│   ├── tracking.json             Meal and weight logs (gitignored)
+│   └── traces/                   Agent interaction traces (gitignored)
+│
 ├── notebooks/
-│   ├── 01-setup.ipynb      Environment smoke test
-│   └── 02-rag.ipynb        RAG pipeline exploration
-├── pyproject.toml          Project metadata and dependencies
-└── uv.lock                 Pinned dependency versions
+│   ├── 01-setup.ipynb
+│   ├── 02-rag.ipynb
+│   └── 03-agent.ipynb
+│
+└── .streamlit/
+    ├── config.toml
+    └── secrets.toml.example
 ```

@@ -5,7 +5,7 @@ Extracts ingredients from every recipe in the plan,
 deduplicates, and groups by category.
 """
 
-from diet_agent import get_recipe_details
+from .diet_agent import get_recipe_details
 
 CATEGORY_KEYWORDS = {
     "Proteins": [

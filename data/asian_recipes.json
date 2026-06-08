@@ -1,0 +1,442 @@
+[
+  {
+    "name": "Pad Thai",
+    "category": "Pasta",
+    "area": "Thai",
+    "ingredients": ["rice noodles", "shrimp", "tofu", "bean sprouts", "spring onions", "egg", "fish sauce", "tamarind paste", "palm sugar", "roasted peanuts", "lime", "vegetable oil"],
+    "instructions": "Soak rice noodles in warm water for 20 minutes then drain. Heat oil in wok over high heat. Stir-fry tofu until golden, add shrimp and cook 2 minutes. Push to side, scramble egg. Add noodles and sauce (fish sauce, tamarind, sugar). Toss everything together. Add bean sprouts and spring onions. Serve topped with peanuts and lime wedge.",
+    "cooking_time_minutes": 25
+  },
+  {
+    "name": "Tom Yum Soup",
+    "category": "Seafood",
+    "area": "Thai",
+    "ingredients": ["shrimp", "lemongrass", "galangal", "kaffir lime leaves", "mushrooms", "tomatoes", "fish sauce", "lime juice", "Thai chillies", "coriander", "chicken stock"],
+    "instructions": "Bring stock to boil with lemongrass, galangal, and kaffir lime leaves. Add chillies and mushrooms, simmer 5 minutes. Add shrimp and tomatoes, cook until shrimp is pink. Season with fish sauce and lime juice. Garnish with coriander.",
+    "cooking_time_minutes": 20
+  },
+  {
+    "name": "Thai Green Curry",
+    "category": "Chicken",
+    "area": "Thai",
+    "ingredients": ["chicken breast", "coconut milk", "green curry paste", "Thai eggplant", "bamboo shoots", "kaffir lime leaves", "fish sauce", "palm sugar", "Thai basil", "vegetable oil"],
+    "instructions": "Heat oil in wok, fry curry paste 1 minute. Add half the coconut milk and cook until oil separates. Add chicken and cook through. Pour in remaining coconut milk and add vegetables. Simmer 10 minutes. Season with fish sauce and sugar. Stir in Thai basil.",
+    "cooking_time_minutes": 30
+  },
+  {
+    "name": "Som Tam (Papaya Salad)",
+    "category": "Vegetarian",
+    "area": "Thai",
+    "ingredients": ["green papaya", "cherry tomatoes", "long beans", "garlic", "Thai chillies", "fish sauce", "lime juice", "palm sugar", "roasted peanuts", "dried shrimp"],
+    "instructions": "Shred papaya into thin strips. Pound garlic and chillies in mortar. Add papaya and lightly pound to bruise. Add tomatoes, beans, dried shrimp. Mix in fish sauce, lime juice, sugar. Toss with peanuts and serve immediately.",
+    "cooking_time_minutes": 15
+  },
+  {
+    "name": "Thai Basil Chicken (Pad Krapow)",
+    "category": "Chicken",
+    "area": "Thai",
+    "ingredients": ["minced chicken", "Thai basil", "garlic", "red chillies", "oyster sauce", "fish sauce", "soy sauce", "sugar", "vegetable oil", "fried egg"],
+    "instructions": "Heat oil over high heat. Fry garlic and chillies 30 seconds. Add minced chicken and stir-fry until cooked. Season with oyster sauce, fish sauce, and soy sauce. Add sugar. Stir in Thai basil until wilted. Serve over rice with a fried egg on top.",
+    "cooking_time_minutes": 15
+  },
+  {
+    "name": "Massaman Curry",
+    "category": "Beef",
+    "area": "Thai",
+    "ingredients": ["beef chuck", "potatoes", "onion", "coconut milk", "massaman curry paste", "fish sauce", "tamarind paste", "palm sugar", "roasted peanuts", "cardamom", "cinnamon"],
+    "instructions": "Brown beef in pot. Add curry paste and fry 1 minute. Pour in coconut milk and bring to boil. Add potatoes, onion, cardamom, cinnamon. Simmer 45 minutes until beef is tender. Season with fish sauce, tamarind, sugar. Top with peanuts.",
+    "cooking_time_minutes": 60
+  },
+  {
+    "name": "Bibimbap",
+    "category": "Beef",
+    "area": "Korean",
+    "ingredients": ["cooked rice", "beef mince", "spinach", "bean sprouts", "carrots", "zucchini", "mushrooms", "egg", "gochujang", "sesame oil", "soy sauce", "garlic"],
+    "instructions": "Marinate beef with soy sauce, garlic, sesame oil and cook. Blanch spinach and season with sesame oil and garlic. Sauté carrots, zucchini, mushrooms separately. Arrange rice in bowl topped with all vegetables and beef. Top with fried egg. Serve with gochujang.",
+    "cooking_time_minutes": 35
+  },
+  {
+    "name": "Korean Kimchi Jjigae",
+    "category": "Pork",
+    "area": "Korean",
+    "ingredients": ["kimchi", "pork belly", "tofu", "spring onions", "garlic", "gochugaru", "soy sauce", "sesame oil", "chicken stock", "mushrooms"],
+    "instructions": "Fry pork belly until lightly browned. Add kimchi and stir-fry 3 minutes. Pour in stock and bring to boil. Add tofu, mushrooms, garlic, gochugaru. Simmer 15 minutes. Season with soy sauce. Drizzle sesame oil and top with spring onions.",
+    "cooking_time_minutes": 25
+  },
+  {
+    "name": "Bulgogi",
+    "category": "Beef",
+    "area": "Korean",
+    "ingredients": ["beef sirloin", "soy sauce", "sesame oil", "garlic", "ginger", "sugar", "spring onions", "sesame seeds", "pear", "mushrooms"],
+    "instructions": "Slice beef thinly. Mix soy sauce, sesame oil, garlic, ginger, grated pear, and sugar for marinade. Marinate beef 30 minutes. Grill or pan-fry beef over high heat with mushrooms until caramelised. Serve topped with sesame seeds and spring onions.",
+    "cooking_time_minutes": 45
+  },
+  {
+    "name": "Japchae (Korean Glass Noodles)",
+    "category": "Pasta",
+    "area": "Korean",
+    "ingredients": ["glass noodles", "beef strips", "spinach", "carrots", "mushrooms", "onion", "egg", "soy sauce", "sesame oil", "sugar", "garlic"],
+    "instructions": "Cook glass noodles per packet. Marinate beef with soy sauce, garlic, sesame oil. Stir-fry beef then set aside. Sauté vegetables separately. Combine noodles with all vegetables and beef. Season with soy sauce, sesame oil, sugar. Toss well.",
+    "cooking_time_minutes": 35
+  },
+  {
+    "name": "Korean Sundubu Jjigae (Soft Tofu Stew)",
+    "category": "Seafood",
+    "area": "Korean",
+    "ingredients": ["soft tofu", "clams", "shrimp", "egg", "zucchini", "mushrooms", "gochugaru", "garlic", "sesame oil", "soy sauce", "anchovy stock"],
+    "instructions": "Heat oil, fry garlic and gochugaru 1 minute. Add seafood and cook briefly. Pour in anchovy stock and bring to boil. Add soft tofu in large chunks, zucchini, mushrooms. Simmer 5 minutes. Crack egg in and cook to preference. Season with soy sauce.",
+    "cooking_time_minutes": 20
+  },
+  {
+    "name": "Samgyeopsal (Grilled Pork Belly)",
+    "category": "Pork",
+    "area": "Korean",
+    "ingredients": ["pork belly slices", "garlic", "green chillies", "sesame oil", "salt", "sesame seeds", "lettuce leaves", "kimchi", "ssamjang"],
+    "instructions": "Grill pork belly slices on a grill pan over medium-high heat until cooked through and slightly crispy, about 4-5 minutes per side. Serve with lettuce leaves for wrapping, alongside garlic, kimchi, and ssamjang dipping sauce.",
+    "cooking_time_minutes": 20
+  },
+  {
+    "name": "Chicken Adobo",
+    "category": "Chicken",
+    "area": "Filipino",
+    "ingredients": ["chicken thighs", "soy sauce", "white vinegar", "garlic", "bay leaves", "black peppercorns", "vegetable oil", "water"],
+    "instructions": "Marinate chicken in soy sauce and garlic for 30 minutes. Brown chicken in oil. Add vinegar, remaining marinade, water, bay leaves, peppercorns. Bring to boil then simmer 30 minutes until sauce reduces and chicken is tender.",
+    "cooking_time_minutes": 50
+  },
+  {
+    "name": "Sinigang (Pork Tamarind Soup)",
+    "category": "Pork",
+    "area": "Filipino",
+    "ingredients": ["pork ribs", "tamarind paste", "tomatoes", "onion", "radish", "kangkong", "string beans", "eggplant", "fish sauce", "water"],
+    "instructions": "Boil pork ribs with tomatoes and onion until tender, about 45 minutes. Add tamarind paste and vegetables. Simmer until vegetables are cooked. Season with fish sauce. Serve hot.",
+    "cooking_time_minutes": 60
+  },
+  {
+    "name": "Pancit Canton",
+    "category": "Pasta",
+    "area": "Filipino",
+    "ingredients": ["canton noodles", "chicken strips", "shrimp", "carrots", "cabbage", "celery", "soy sauce", "oyster sauce", "garlic", "onion", "chicken stock"],
+    "instructions": "Stir-fry garlic and onion. Add chicken and shrimp, cook through. Add vegetables and stir-fry 2 minutes. Add stock, soy sauce, oyster sauce. Add noodles and toss until liquid is absorbed. Serve with calamansi.",
+    "cooking_time_minutes": 25
+  },
+  {
+    "name": "Chicken Tinola",
+    "category": "Chicken",
+    "area": "Filipino",
+    "ingredients": ["chicken pieces", "green papaya", "malunggay leaves", "ginger", "garlic", "onion", "fish sauce", "chicken stock", "vegetable oil"],
+    "instructions": "Sauté ginger, garlic, onion until fragrant. Add chicken and cook until lightly browned. Add fish sauce and stock. Bring to boil and simmer 20 minutes. Add green papaya and cook until tender. Stir in malunggay leaves. Serve immediately.",
+    "cooking_time_minutes": 35
+  },
+  {
+    "name": "Lumpia Shanghai (Spring Rolls)",
+    "category": "Pork",
+    "area": "Filipino",
+    "ingredients": ["spring roll wrappers", "minced pork", "carrots", "spring onions", "garlic", "egg", "soy sauce", "sesame oil", "black pepper", "vegetable oil"],
+    "instructions": "Mix pork with vegetables, garlic, soy sauce, sesame oil, egg. Place filling in wrappers and roll tightly. Deep-fry in hot oil at 180°C until golden brown, about 4 minutes. Drain and serve with sweet chilli sauce.",
+    "cooking_time_minutes": 30
+  },
+  {
+    "name": "Nasi Goreng",
+    "category": "Chicken",
+    "area": "Indonesian",
+    "ingredients": ["cooked rice", "chicken", "shrimp", "egg", "garlic", "shallots", "kecap manis", "soy sauce", "shrimp paste", "chillies", "spring onions", "vegetable oil"],
+    "instructions": "Fry garlic, shallots, shrimp paste and chillies until fragrant. Add chicken and shrimp, cook through. Push to side and scramble egg. Add cold rice and stir-fry over high heat. Season with kecap manis and soy sauce. Serve topped with fried egg and spring onions.",
+    "cooking_time_minutes": 20
+  },
+  {
+    "name": "Beef Rendang",
+    "category": "Beef",
+    "area": "Indonesian",
+    "ingredients": ["beef chuck", "coconut milk", "lemongrass", "galangal", "shallots", "garlic", "chillies", "turmeric", "coriander", "kaffir lime leaves", "toasted coconut"],
+    "instructions": "Blend shallots, garlic, chillies, galangal, turmeric, coriander into paste. Fry paste until fragrant. Add beef and coconut milk with lemongrass and kaffir lime leaves. Simmer 2 hours until liquid evaporates and beef is dark and tender. Add toasted coconut.",
+    "cooking_time_minutes": 120
+  },
+  {
+    "name": "Gado-Gado",
+    "category": "Vegetarian",
+    "area": "Indonesian",
+    "ingredients": ["tofu", "tempeh", "bean sprouts", "spinach", "potatoes", "cucumber", "hard-boiled egg", "peanut butter", "coconut milk", "kecap manis", "lime juice", "garlic", "chillies"],
+    "instructions": "Boil potatoes until tender. Blanch spinach and bean sprouts. Fry tofu and tempeh until golden. Make peanut sauce by cooking peanut butter with coconut milk, kecap manis, lime, garlic, chilli. Arrange all ingredients on plate and drizzle with peanut sauce.",
+    "cooking_time_minutes": 30
+  },
+  {
+    "name": "Mie Goreng",
+    "category": "Pasta",
+    "area": "Indonesian",
+    "ingredients": ["egg noodles", "chicken", "shrimp", "egg", "cabbage", "carrots", "garlic", "shallots", "kecap manis", "soy sauce", "oyster sauce", "vegetable oil"],
+    "instructions": "Cook noodles until al dente and drain. Stir-fry garlic and shallots. Add chicken and shrimp. Push aside and scramble egg. Add noodles and vegetables. Season with kecap manis, soy sauce, oyster sauce. Toss over high heat. Serve with fried shallots.",
+    "cooking_time_minutes": 20
+  },
+  {
+    "name": "Chicken Ramen",
+    "category": "Chicken",
+    "area": "Japanese",
+    "ingredients": ["ramen noodles", "chicken stock", "chicken breast", "soy sauce", "mirin", "miso paste", "soft-boiled egg", "bamboo shoots", "nori", "spring onions", "sesame oil", "corn"],
+    "instructions": "Poach chicken breast in stock with soy sauce and mirin, 15 minutes. Slice chicken. Dissolve miso in some hot broth. Cook noodles per packet. Combine broth with miso in bowl. Add noodles, chicken, bamboo shoots, corn. Top with halved egg, nori, spring onions, sesame oil.",
+    "cooking_time_minutes": 30
+  },
+  {
+    "name": "Teriyaki Salmon",
+    "category": "Seafood",
+    "area": "Japanese",
+    "ingredients": ["salmon fillets", "soy sauce", "mirin", "sake", "sugar", "ginger", "sesame seeds", "spring onions", "vegetable oil"],
+    "instructions": "Mix soy sauce, mirin, sake, sugar, ginger for teriyaki glaze. Marinate salmon 15 minutes. Pan-fry salmon 3 minutes each side. Pour glaze into pan and cook 2 minutes, basting salmon. Serve topped with sesame seeds and spring onions.",
+    "cooking_time_minutes": 25
+  },
+  {
+    "name": "Gyudon (Japanese Beef Bowl)",
+    "category": "Beef",
+    "area": "Japanese",
+    "ingredients": ["beef sirloin sliced thin", "onion", "dashi stock", "soy sauce", "mirin", "sugar", "cooked rice", "soft-boiled egg", "pickled ginger", "spring onions"],
+    "instructions": "Simmer onion in dashi, soy sauce, mirin, sugar until soft. Add thinly sliced beef and cook 3 minutes until done. Serve over steamed rice. Top with soft-boiled egg, pickled ginger, and spring onions.",
+    "cooking_time_minutes": 20
+  },
+  {
+    "name": "Miso Soup with Tofu",
+    "category": "Vegetarian",
+    "area": "Japanese",
+    "ingredients": ["dashi stock", "white miso paste", "silken tofu", "wakame seaweed", "spring onions"],
+    "instructions": "Heat dashi stock until just below boiling. Add wakame and tofu cubes. Dissolve miso paste in a ladle of broth then add back to pot. Do not boil after adding miso. Serve immediately topped with spring onions.",
+    "cooking_time_minutes": 10
+  },
+  {
+    "name": "Chicken Gyoza",
+    "category": "Chicken",
+    "area": "Japanese",
+    "ingredients": ["gyoza wrappers", "minced chicken", "cabbage", "spring onions", "garlic", "ginger", "soy sauce", "sesame oil", "vegetable oil", "water"],
+    "instructions": "Mix chicken with finely chopped cabbage, spring onions, garlic, ginger, soy sauce, sesame oil. Place filling on wrappers and fold. Pan-fry in oil until golden on bottom. Add water, cover and steam 3 minutes until cooked through. Serve with soy-vinegar dipping sauce.",
+    "cooking_time_minutes": 30
+  },
+  {
+    "name": "Yakitori",
+    "category": "Chicken",
+    "area": "Japanese",
+    "ingredients": ["chicken thigh", "spring onions", "soy sauce", "mirin", "sake", "sugar", "sesame seeds"],
+    "instructions": "Thread chicken and spring onion pieces onto skewers. Mix soy sauce, mirin, sake, sugar for tare sauce. Grill skewers on high heat 3 minutes per side, brushing with tare sauce repeatedly. Serve with remaining tare and sesame seeds.",
+    "cooking_time_minutes": 20
+  },
+  {
+    "name": "Kung Pao Chicken",
+    "category": "Chicken",
+    "area": "Chinese",
+    "ingredients": ["chicken breast", "peanuts", "dried red chillies", "Sichuan peppercorns", "garlic", "ginger", "spring onions", "soy sauce", "dark vinegar", "sugar", "cornstarch", "vegetable oil"],
+    "instructions": "Marinate chicken with soy sauce and cornstarch. Make sauce with soy sauce, vinegar, sugar. Stir-fry dried chillies and peppercorns in hot oil. Add chicken and cook through. Add garlic, ginger, spring onions. Pour in sauce and toss. Add peanuts.",
+    "cooking_time_minutes": 20
+  },
+  {
+    "name": "Mapo Tofu",
+    "category": "Beef",
+    "area": "Chinese",
+    "ingredients": ["silken tofu", "minced beef", "doubanjiang", "fermented black beans", "garlic", "ginger", "Sichuan peppercorns", "chicken stock", "soy sauce", "cornstarch", "spring onions", "vegetable oil"],
+    "instructions": "Fry doubanjiang and black beans in oil until fragrant. Add minced beef and cook through. Add garlic, ginger, stock, soy sauce, peppercorns. Add tofu and simmer 5 minutes. Thicken with cornstarch slurry. Top with spring onions and more peppercorns.",
+    "cooking_time_minutes": 20
+  },
+  {
+    "name": "Chinese Steamed Fish",
+    "category": "Seafood",
+    "area": "Chinese",
+    "ingredients": ["whole sea bass", "ginger", "spring onions", "soy sauce", "sesame oil", "Shaoxing wine", "vegetable oil", "coriander"],
+    "instructions": "Score fish and place on steaming plate with ginger slices. Drizzle with Shaoxing wine. Steam over high heat 8-10 minutes until cooked through. Heat oil until smoking. Pour soy sauce and sesame oil over fish. Top with spring onions and coriander. Pour hot oil over to sizzle.",
+    "cooking_time_minutes": 20
+  },
+  {
+    "name": "Wonton Soup",
+    "category": "Pork",
+    "area": "Chinese",
+    "ingredients": ["wonton wrappers", "minced pork", "shrimp", "ginger", "spring onions", "soy sauce", "sesame oil", "chicken stock", "bok choy", "white pepper"],
+    "instructions": "Mix pork, chopped shrimp, ginger, spring onions, soy sauce, sesame oil, white pepper. Place filling in wonton wrappers and fold. Bring stock to boil. Cook wontons in boiling water 3-4 minutes. Transfer to soup bowls. Blanch bok choy in stock. Ladle hot stock over wontons.",
+    "cooking_time_minutes": 30
+  },
+  {
+    "name": "Egg Fried Rice",
+    "category": "Vegetarian",
+    "area": "Chinese",
+    "ingredients": ["cooked rice", "eggs", "spring onions", "garlic", "soy sauce", "sesame oil", "peas", "carrots", "vegetable oil", "white pepper"],
+    "instructions": "Heat wok until very hot. Add oil, fry garlic briefly. Add cold cooked rice and press to break clumps. Push rice to side, scramble eggs. Mix eggs into rice. Add peas, carrots, spring onions. Season with soy sauce, sesame oil, white pepper. Toss over high heat.",
+    "cooking_time_minutes": 15
+  },
+  {
+    "name": "Pho Bo (Vietnamese Beef Noodle Soup)",
+    "category": "Beef",
+    "area": "Vietnamese",
+    "ingredients": ["beef bones", "beef sirloin", "rice noodles", "onion", "ginger", "star anise", "cinnamon", "cloves", "fish sauce", "bean sprouts", "Thai basil", "lime", "hoisin sauce", "sriracha"],
+    "instructions": "Char onion and ginger then add to stock pot with beef bones, star anise, cinnamon, cloves. Simmer 3 hours. Strain broth and season with fish sauce. Cook rice noodles. Slice beef thin. Pour boiling broth over noodles and raw beef. Serve with bean sprouts, basil, lime, hoisin, sriracha.",
+    "cooking_time_minutes": 200
+  },
+  {
+    "name": "Vietnamese Fresh Spring Rolls (Goi Cuon)",
+    "category": "Seafood",
+    "area": "Vietnamese",
+    "ingredients": ["rice paper", "cooked shrimp", "pork slices", "rice vermicelli", "lettuce", "mint", "coriander", "bean sprouts", "cucumber", "hoisin sauce", "peanuts", "hoisin", "lime"],
+    "instructions": "Dip rice paper in warm water until soft. Layer lettuce, herbs, vermicelli, shrimp, pork, cucumber, bean sprouts. Roll up tightly. Make dipping sauce with hoisin, water, and crushed peanuts. Serve immediately.",
+    "cooking_time_minutes": 20
+  },
+  {
+    "name": "Bun Bo Hue (Spicy Beef Noodle Soup)",
+    "category": "Beef",
+    "area": "Vietnamese",
+    "ingredients": ["beef shank", "pork hock", "lemongrass", "shrimp paste", "chilli oil", "rice vermicelli", "onion", "fish sauce", "spring onions", "coriander", "bean sprouts", "lime"],
+    "instructions": "Boil beef shank and pork hock with lemongrass until tender, 1.5 hours. Strain broth and slice meat. Season broth with shrimp paste, fish sauce, chilli oil. Cook vermicelli. Serve noodles in broth topped with sliced meat, spring onions, coriander, bean sprouts.",
+    "cooking_time_minutes": 100
+  },
+  {
+    "name": "Vietnamese Lemongrass Chicken",
+    "category": "Chicken",
+    "area": "Vietnamese",
+    "ingredients": ["chicken thighs", "lemongrass", "garlic", "fish sauce", "sugar", "chillies", "shallots", "vegetable oil", "spring onions"],
+    "instructions": "Pound lemongrass, garlic, chillies into paste. Marinate chicken with paste, fish sauce, sugar for 30 minutes. Stir-fry shallots then add chicken. Cook over medium heat until golden and cooked through, about 15 minutes. Top with spring onions.",
+    "cooking_time_minutes": 50
+  },
+  {
+    "name": "Laksa",
+    "category": "Seafood",
+    "area": "Malaysian",
+    "ingredients": ["rice noodles", "shrimp", "tofu puffs", "bean sprouts", "coconut milk", "laksa paste", "chicken stock", "fish cake", "hard-boiled egg", "coriander", "laksa leaves"],
+    "instructions": "Fry laksa paste in oil until fragrant. Add stock and bring to boil. Pour in coconut milk and simmer 5 minutes. Add shrimp, fish cake, tofu puffs. Cook noodles. Place noodles and bean sprouts in bowl. Ladle hot soup over. Top with egg, coriander, laksa leaves.",
+    "cooking_time_minutes": 25
+  },
+  {
+    "name": "Nasi Lemak",
+    "category": "Chicken",
+    "area": "Malaysian",
+    "ingredients": ["jasmine rice", "coconut milk", "pandan leaves", "lemongrass", "chicken wings", "sambal", "anchovies", "peanuts", "cucumber", "hard-boiled egg"],
+    "instructions": "Cook rice with coconut milk, pandan leaves, lemongrass until fluffy. Fry anchovies and peanuts until crispy. Fry chicken wings until cooked. Serve rice with sambal, fried anchovies, peanuts, sliced cucumber, halved egg, and chicken.",
+    "cooking_time_minutes": 40
+  },
+  {
+    "name": "Char Kway Teow",
+    "category": "Seafood",
+    "area": "Malaysian",
+    "ingredients": ["flat rice noodles", "shrimp", "Chinese sausage", "egg", "bean sprouts", "chives", "dark soy sauce", "fish sauce", "chilli paste", "vegetable oil", "garlic"],
+    "instructions": "Heat wok until smoking. Fry garlic and chilli paste. Add shrimp and sausage. Push aside, scramble egg. Add noodles and stir-fry over high heat. Season with dark soy sauce and fish sauce. Add bean sprouts and chives. Toss quickly and serve.",
+    "cooking_time_minutes": 15
+  },
+  {
+    "name": "Hainanese Chicken Rice",
+    "category": "Chicken",
+    "area": "Singaporean",
+    "ingredients": ["whole chicken", "jasmine rice", "chicken fat", "garlic", "ginger", "pandan leaves", "sesame oil", "soy sauce", "chilli sauce", "cucumber", "spring onions"],
+    "instructions": "Poach chicken in stock with ginger and spring onions until just cooked, about 40 minutes. Refresh in ice water. Cook rice in rendered chicken fat with garlic and ginger. Carve chicken and serve over rice with cucumber, spring onions, soy sauce, and chilli sauce.",
+    "cooking_time_minutes": 60
+  },
+  {
+    "name": "Singapore Chilli Crab",
+    "category": "Seafood",
+    "area": "Singaporean",
+    "ingredients": ["mud crab", "tomato sauce", "chilli paste", "garlic", "ginger", "egg", "spring onions", "coriander", "soy sauce", "sugar", "vinegar", "vegetable oil", "mantou buns"],
+    "instructions": "Stir-fry garlic, ginger, chilli paste in oil. Add crab pieces and stir-fry 5 minutes. Add tomato sauce, soy sauce, sugar, vinegar and some water. Cover and cook 10 minutes until crab is done. Swirl in beaten egg. Garnish with spring onions and coriander. Serve with mantou.",
+    "cooking_time_minutes": 30
+  },
+  {
+    "name": "Indian Butter Chicken (Murgh Makhani)",
+    "category": "Chicken",
+    "area": "Indian",
+    "ingredients": ["chicken thighs", "butter", "cream", "tomatoes", "onion", "garlic", "ginger", "garam masala", "cumin", "coriander", "turmeric", "chilli powder", "kasuri methi"],
+    "instructions": "Marinate chicken in yogurt and spices for 2 hours. Grill or pan-fry chicken. Sauté onion, garlic, ginger, blend with tomatoes. Fry spices in butter then add tomato mixture. Simmer 15 minutes. Add chicken and cream. Simmer 10 minutes. Add kasuri methi.",
+    "cooking_time_minutes": 50
+  },
+  {
+    "name": "Dal Tadka",
+    "category": "Vegetarian",
+    "area": "Indian",
+    "ingredients": ["yellow lentils", "onion", "tomatoes", "garlic", "ginger", "cumin seeds", "mustard seeds", "turmeric", "chilli powder", "coriander", "ghee", "lemon juice"],
+    "instructions": "Boil lentils with turmeric until soft. Mash slightly. Heat ghee and splutter cumin and mustard seeds. Add onion and fry until golden. Add garlic, ginger, tomatoes, spices. Cook until oil separates. Pour over lentils and simmer 5 minutes. Add lemon juice and coriander.",
+    "cooking_time_minutes": 35
+  },
+  {
+    "name": "Palak Paneer",
+    "category": "Vegetarian",
+    "area": "Indian",
+    "ingredients": ["paneer", "spinach", "onion", "tomatoes", "garlic", "ginger", "cream", "garam masala", "cumin", "coriander powder", "turmeric", "chilli", "ghee"],
+    "instructions": "Blanch spinach and blend to smooth paste. Fry paneer until golden and set aside. Sauté onion, garlic, ginger in ghee. Add spices and tomatoes and cook until thick. Add spinach puree and simmer 5 minutes. Add paneer and cream. Simmer 3 minutes.",
+    "cooking_time_minutes": 30
+  },
+  {
+    "name": "Tandoori Chicken",
+    "category": "Chicken",
+    "area": "Indian",
+    "ingredients": ["chicken pieces", "yogurt", "lemon juice", "garlic", "ginger", "tandoori masala", "cumin", "coriander", "turmeric", "chilli powder", "salt", "oil", "lemon wedges"],
+    "instructions": "Score chicken and marinate in yogurt, lemon juice, garlic, ginger, and spices for minimum 4 hours. Grill on high heat or cook in very hot oven (220°C) for 25 minutes, turning once. Serve with lemon wedges, onion rings, and mint chutney.",
+    "cooking_time_minutes": 35
+  },
+  {
+    "name": "Biryani (Chicken)",
+    "category": "Chicken",
+    "area": "Indian",
+    "ingredients": ["basmati rice", "chicken", "yogurt", "onion", "tomatoes", "garlic", "ginger", "biryani masala", "saffron", "milk", "mint", "coriander", "ghee", "fried onions"],
+    "instructions": "Marinate chicken in yogurt and spices. Cook onion in ghee until caramelised. Add tomatoes, spices, chicken and cook 15 minutes. Parboil rice. Layer rice and chicken in pot. Top with saffron milk, mint, fried onions. Cook on low heat (dum) for 20 minutes.",
+    "cooking_time_minutes": 60
+  },
+  {
+    "name": "Chinese Congee (Jook)",
+    "category": "Chicken",
+    "area": "Chinese",
+    "ingredients": ["jasmine rice", "chicken stock", "chicken breast", "ginger", "spring onions", "sesame oil", "soy sauce", "white pepper", "century egg", "fried dough sticks"],
+    "instructions": "Rinse rice and simmer in large pot of chicken stock for 45-60 minutes until thick and porridge-like, stirring occasionally. Poach chicken separately and shred. Season congee with salt. Serve topped with chicken, sliced century egg, ginger, spring onions, sesame oil.",
+    "cooking_time_minutes": 70
+  },
+  {
+    "name": "Thai Larb (Minced Meat Salad)",
+    "category": "Chicken",
+    "area": "Thai",
+    "ingredients": ["minced chicken", "shallots", "spring onions", "mint leaves", "coriander", "toasted rice powder", "fish sauce", "lime juice", "chilli flakes", "lemongrass"],
+    "instructions": "Cook minced chicken in a dry pan, breaking into pieces. Remove from heat. Mix with fish sauce, lime juice, chilli flakes, toasted rice powder. Add shallots, spring onions, mint, coriander. Toss well and serve with sticky rice and raw vegetables.",
+    "cooking_time_minutes": 15
+  },
+  {
+    "name": "Korean Doenjang Jjigae (Soybean Paste Stew)",
+    "category": "Vegetarian",
+    "area": "Korean",
+    "ingredients": ["doenjang paste", "tofu", "zucchini", "mushrooms", "potatoes", "onion", "garlic", "anchovy stock", "spring onions", "sesame oil"],
+    "instructions": "Bring anchovy stock to boil. Add doenjang paste and stir to dissolve. Add potatoes and onion, cook 5 minutes. Add zucchini, mushrooms, tofu, garlic. Simmer 10 minutes until vegetables are tender. Drizzle with sesame oil. Top with spring onions.",
+    "cooking_time_minutes": 25
+  },
+  {
+    "name": "Vietnamese Caramelised Ginger Fish (Ca Kho To)",
+    "category": "Seafood",
+    "area": "Vietnamese",
+    "ingredients": ["catfish fillets", "caramel sauce", "fish sauce", "ginger", "garlic", "chillies", "spring onions", "sugar", "black pepper", "coconut water"],
+    "instructions": "Make caramel with sugar until amber. Add fish sauce and coconut water. Add fish, ginger, garlic, chillies. Simmer over low heat 20-25 minutes, turning occasionally until sauce reduces and coats fish. Top with spring onions and black pepper.",
+    "cooking_time_minutes": 35
+  },
+  {
+    "name": "Thai Mango Sticky Rice",
+    "category": "Dessert",
+    "area": "Thai",
+    "ingredients": ["glutinous rice", "coconut milk", "sugar", "salt", "ripe mango", "sesame seeds", "pandan leaf"],
+    "instructions": "Soak glutinous rice overnight and steam 25 minutes. Heat coconut milk with sugar and salt. Pour over hot rice and mix, let absorb 20 minutes. Slice fresh mango. Serve rice topped with mango slices and drizzle with remaining coconut milk. Sprinkle sesame seeds.",
+    "cooking_time_minutes": 45
+  },
+  {
+    "name": "Indonesian Sate Ayam (Chicken Satay)",
+    "category": "Chicken",
+    "area": "Indonesian",
+    "ingredients": ["chicken thigh", "lemongrass", "galangal", "turmeric", "coriander", "cumin", "kecap manis", "peanut butter", "coconut milk", "shallots", "garlic", "chillies", "lime"],
+    "instructions": "Blend spices into paste. Marinate chicken with paste and kecap manis for 1 hour. Thread onto skewers. Grill 4-5 minutes per side. Make peanut sauce with peanut butter, coconut milk, chilli, lime, kecap manis. Serve skewers with peanut sauce, cucumber, rice cakes.",
+    "cooking_time_minutes": 30
+  },
+  {
+    "name": "Japanese Oyakodon (Chicken and Egg Bowl)",
+    "category": "Chicken",
+    "area": "Japanese",
+    "ingredients": ["chicken thigh", "onion", "eggs", "dashi stock", "mirin", "soy sauce", "sugar", "cooked rice", "spring onions", "nori"],
+    "instructions": "Simmer onion in dashi, mirin, soy sauce, sugar until soft. Add chicken and cook through. Beat eggs lightly and pour over chicken. Cover and cook until just set. Slide over bowl of steamed rice. Top with spring onions and serve with pickles.",
+    "cooking_time_minutes": 20
+  },
+  {
+    "name": "Tofu Stir-fry with Vegetables",
+    "category": "Vegetarian",
+    "area": "Chinese",
+    "ingredients": ["firm tofu", "broccoli", "bell peppers", "mushrooms", "garlic", "ginger", "soy sauce", "oyster sauce", "sesame oil", "cornstarch", "vegetable oil", "spring onions"],
+    "instructions": "Press and cube tofu, pan-fry until golden. Remove. Stir-fry garlic and ginger, add vegetables and cook until tender-crisp. Return tofu. Mix soy sauce, oyster sauce, sesame oil, cornstarch. Pour over and toss until sauce thickens. Top with spring onions.",
+    "cooking_time_minutes": 20
+  },
+  {
+    "name": "Filipino Arroz Caldo (Rice Congee)",
+    "category": "Chicken",
+    "area": "Filipino",
+    "ingredients": ["glutinous rice", "chicken pieces", "ginger", "garlic", "onion", "fish sauce", "chicken stock", "hard-boiled eggs", "fried garlic", "spring onions", "calamansi", "safflower"],
+    "instructions": "Sauté garlic, onion, ginger. Add chicken and cook 5 minutes. Add rice and stir. Pour in stock and simmer 30 minutes, stirring often until thick. Season with fish sauce and safflower for colour. Serve topped with hard-boiled eggs, fried garlic, spring onions, and calamansi.",
+    "cooking_time_minutes": 45
+  }
+]

@@ -8,8 +8,8 @@ from minsearch import Index
 
 load_dotenv()
 
-DATA_PATH = Path(__file__).parent / "data" / "recipes.json"
-ASIAN_DATA_PATH = Path(__file__).parent / "data" / "asian_recipes.json"
+DATA_PATH = Path(__file__).parent.parent / "data" / "recipes.json"
+ASIAN_DATA_PATH = Path(__file__).parent.parent / "data" / "asian_recipes.json"
 
 
 @dataclass
@@ -85,8 +85,8 @@ def get_recipe_details(name: str) -> dict:
 
 
 def generate_meal_plan() -> dict:
-    from meal_planner import generate_weekly_plan
-    from user_profile import load_profile
+    from .meal_planner import generate_weekly_plan
+    from .user_profile import load_profile
     profile = load_profile() or {}
     plan = generate_weekly_plan(profile)
     summary = {"week_start": plan.get("week_start"), "days": []}
@@ -101,27 +101,27 @@ def generate_meal_plan() -> dict:
 
 
 def get_nutrition_info(food_name: str) -> dict:
-    from nutrition import get_nutrition_info as _get
+    from .nutrition import get_nutrition_info as _get
     return _get(food_name)
 
 
 def find_nearby_restaurants(dietary_preference: str = "") -> list:
-    from restaurants import find_nearby_restaurants as _find
-    from user_profile import load_profile
+    from .restaurants import find_nearby_restaurants as _find
+    from .user_profile import load_profile
     profile = load_profile() or {}
     location = profile.get("location", "")
     return _find(location=location, dietary_preference=dietary_preference)
 
 
 def replan(day: str, reason: str) -> dict:
-    from meal_planner import replan_day
-    from user_profile import load_profile
+    from .meal_planner import replan_day
+    from .user_profile import load_profile
     profile = load_profile() or {}
     return replan_day(day=day, reason=reason, profile=profile)
 
 
 def swap_meal(day: str, meal_type: str, meal_name: str) -> dict:
-    from meal_planner import swap_meal as _swap
+    from .meal_planner import swap_meal as _swap
     return _swap(day=day, meal_type=meal_type, meal_name=meal_name)
 
 

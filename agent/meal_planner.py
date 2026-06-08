@@ -16,16 +16,16 @@ from dotenv import load_dotenv
 from openai import OpenAI
 from pydantic import BaseModel, Field
 
-from diet_agent import (
+from .diet_agent import (
     filter_by_category,
     filter_by_max_cook_time,
     search_recipes,
 )
-from user_profile import load_profile, profile_to_context
+from .user_profile import load_profile, profile_to_context
 
 load_dotenv()
 
-PLAN_PATH = Path(__file__).parent / "data" / "meal_plan.json"
+PLAN_PATH = Path(__file__).parent.parent / "data" / "meal_plan.json"
 client = OpenAI()
 
 DAYS_OF_WEEK = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
@@ -153,7 +153,7 @@ Use realistic nutrition estimates based on typical serving sizes.
 def _build_tracking_context() -> str:
     """Build a plain-text summary of last week's tracking data for the planner."""
     try:
-        from tracking import (
+        from .tracking import (
             get_meal_log_for_week, get_weight_logs, get_weekly_adherence,
             get_skip_patterns, STATUS_EATEN, STATUS_SKIPPED,
         )
@@ -290,7 +290,7 @@ def swap_meal(day: str, meal_type: str, meal_name: str) -> dict:
     Much faster than replan_day -- no LLM call, just a recipe lookup.
     Returns the updated meal dict or an error.
     """
-    from diet_agent import get_recipe_details
+    from .diet_agent import get_recipe_details
 
     plan = load_meal_plan()
     if not plan:
@@ -303,7 +303,7 @@ def swap_meal(day: str, meal_type: str, meal_name: str) -> dict:
     recipe = get_recipe_details(meal_name)
     if "error" in recipe:
         # Try a fuzzy search fallback
-        from diet_agent import search_recipes
+        from .diet_agent import search_recipes
         results = search_recipes(meal_name)
         if not results:
             return {"error": f"No recipe found matching '{meal_name}'. Try a different name."}

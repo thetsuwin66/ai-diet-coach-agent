@@ -8,7 +8,7 @@ import json
 from datetime import date, datetime, timedelta
 from pathlib import Path
 
-TRACKING_PATH = Path(__file__).parent / "data" / "tracking.json"
+TRACKING_PATH = Path(__file__).parent.parent / "data" / "tracking.json"
 
 MEAL_TYPES = ["breakfast", "lunch", "dinner"]
 STATUS_EATEN  = "eaten"

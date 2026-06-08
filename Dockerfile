@@ -12,7 +12,8 @@ COPY pyproject.toml uv.lock ./
 RUN uv sync --frozen --no-dev --no-cache
 
 # Copy source code
-COPY *.py ./
+COPY app.py ./
+COPY agent/ agent/
 COPY data/recipes.json data/recipes.json
 COPY data/asian_recipes.json data/asian_recipes.json
 
