@@ -1,3 +1,4 @@
+import os
 import time
 import uuid
 
@@ -33,6 +34,15 @@ from user_profile import (
 )
 
 load_dotenv()
+
+# On Streamlit Cloud, secrets are exposed via st.secrets -- push them into env
+# so all modules that use os.getenv() pick them up automatically.
+for _key in ("OPENAI_API_KEY", "USDA_API_KEY", "GOOGLE_MAPS_API_KEY"):
+    if _key not in os.environ:
+        try:
+            os.environ[_key] = st.secrets[_key]
+        except (KeyError, FileNotFoundError):
+            pass
 
 st.set_page_config(page_title="AI Diet Coach", page_icon="🥗", layout="wide")
 

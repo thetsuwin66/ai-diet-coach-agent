@@ -157,6 +157,46 @@ On first launch you will be prompted to create an account and complete a short o
 
 ---
 
+## Makefile
+
+A `Makefile` is included for convenience:
+
+```bash
+make install      # Install dependencies with uv
+make run          # Start the Streamlit app locally
+make test         # Run the test suite
+make eval         # Run batch evaluation (60 scenarios)
+make judge        # Run LLM judge and print alignment metrics
+make label        # Open the labeling tool on port 8502
+make docker-build # Build the Docker image
+make docker-up    # Start the app with docker compose
+make docker-down  # Stop docker compose services
+```
+
+---
+
+## Deploying to Streamlit Cloud
+
+1. Push this repo to GitHub.
+
+2. Go to [share.streamlit.io](https://share.streamlit.io) and click **New app**.
+
+3. Select your repo, branch (`main`), and set the main file to `app.py`.
+
+4. Under **Advanced settings**, set Python version to **3.12**.
+
+5. Open **Secrets** and paste:
+
+```toml
+OPENAI_API_KEY = "your-openai-key"
+USDA_API_KEY = "your-usda-key"
+GOOGLE_MAPS_API_KEY = "your-google-maps-key"
+```
+
+6. Click **Deploy**. Streamlit Cloud will install `requirements.txt` and launch the app.
+
+---
+
 ## Running Tests
 
 ```bash
