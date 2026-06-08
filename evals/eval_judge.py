@@ -180,12 +180,22 @@ def judge_response(question: str, tool_calls: list, answer: str, version: str = 
         answer=answer,
     )
 
+    # Truncate very long answers to avoid token limit errors
+    truncated_prompt = user_prompt
+    if len(answer) > 1500:
+        truncated_answer = answer[:1500] + "... [truncated]"
+        truncated_prompt = JUDGE_USER_TEMPLATE.format(
+            question=question,
+            tool_calls=tool_calls_text,
+            answer=truncated_answer,
+        )
+
     response = client.beta.chat.completions.parse(
         model="gpt-4o-mini",
-        max_tokens=1024,
+        max_tokens=2048,
         messages=[
             {"role": "system", "content": JUDGE_PROMPTS[version]},
-            {"role": "user", "content": user_prompt},
+            {"role": "user", "content": truncated_prompt},
         ],
         response_format=JudgeOutput,
     )
@@ -258,12 +268,16 @@ def run_judge(version: str = "v2") -> list[dict]:
             continue
 
         human_label = label_row["label"]
-        judge_out = judge_response(
-            question=question,
-            tool_calls=result.get("tool_calls", []),
-            answer=result.get("answer", ""),
-            version=version,
-        )
+        try:
+            judge_out = judge_response(
+                question=question,
+                tool_calls=result.get("tool_calls", []),
+                answer=result.get("answer", ""),
+                version=version,
+            )
+        except Exception as exc:
+            print(f"  [SKIP] Error judging '{question[:50]}': {exc}")
+            continue
 
         match = judge_out.label == human_label
         symbol = "OK" if match else "!!"
