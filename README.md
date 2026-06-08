@@ -12,6 +12,22 @@ This agent specifically targets users in Southeast Asia who follow Asian diets (
 
 ---
 
+## Live Demo
+
+**Deployed app:** [ai-diet-coach-agent-htbjcoo2pylrfhdyv2cjbm.streamlit.app](https://ai-diet-coach-agent-htbjcoo2pylrfhdyv2cjbm.streamlit.app)
+
+### Screenshots
+
+| Chat | Weekly Meal Plan |
+|---|---|
+| ![Chat](docs/screenshots/chat.png) | ![Meal Plan](docs/screenshots/meal_plan.png) |
+
+| Progress Tracking | Monitoring Dashboard |
+|---|---|
+| ![Progress](docs/screenshots/progress.png) | ![Monitoring](docs/screenshots/monitoring.png) |
+
+---
+
 ## What It Does
 
 1. **Onboarding** — the agent interviews you to collect your weight, target, timeline, dietary restrictions, preferred cuisines, busy days, location, and body stats.
@@ -29,21 +45,47 @@ This agent specifically targets users in Southeast Asia who follow Asian diets (
 
 ## Architecture
 
-```
-app.py                  Streamlit UI (login, onboarding, chat, meal plan, progress)
-diet_agent.py           Agent loop + all tool definitions (10 tools)
-meal_planner.py         Weekly plan generator and single-day replan/swap
-user_profile.py         Profile storage with password hashing
-tracking.py             Meal logging, weight logging, adherence metrics
-calorie_calculator.py   Mifflin-St Jeor BMR/TDEE/macro calculator
-shopping_list.py        Ingredient extractor and category grouper
-chat_memory.py          Session summariser and memory store
-nutrition.py            USDA FoodData Central API integration
-restaurants.py          Google Maps Places API integration
-monitoring.py           Trace logger (saves every agent call to data/traces/)
-eval_judge.py           LLM judge with 3 prompt versions and alignment metrics
-run_evals.py            Batch evaluation runner (60 scenarios)
-label_evals.py          Streamlit labeling tool for ground-truth dataset
+```mermaid
+flowchart TD
+    User["👤 User (Browser)"] --> UI["Streamlit App\napp.py"]
+
+    UI --> Auth["Login / Onboarding\nuser_profile.py"]
+    UI --> Agent["Agent Loop\nagent/diet_agent.py"]
+    UI --> Planner["Meal Planner\nagent/meal_planner.py"]
+    UI --> Tracker["Tracking\nagent/tracking.py"]
+    UI --> Monitor["Monitoring Tab\nagent/monitoring.py"]
+
+    Agent --> LLM["GPT-4o-mini\nOpenAI API"]
+    Agent --> Tools["Tools"]
+
+    Tools --> T1["search_recipes\nTF-IDF / minsearch"]
+    Tools --> T2["filter_by_max_cook_time\nfilter_by_category"]
+    Tools --> T3["get_recipe_details"]
+    Tools --> T4["generate_meal_plan\nswap_meal / replan"]
+    Tools --> T5["get_nutrition_info\nUSDA API"]
+    Tools --> T6["find_nearby_restaurants\nGoogle Maps API"]
+
+    T1 --> KB["Knowledge Base\n256 recipes JSON"]
+    T2 --> KB
+    T3 --> KB
+
+    T4 --> Planner
+    T5 --> USDA["USDA FoodData\nCentral API"]
+    T6 --> GMaps["Google Maps\nPlaces API"]
+
+    Agent --> Memory["Chat Memory\nagent/chat_memory.py"]
+    Memory --> LLM
+
+    Monitor --> Logfire["Logfire Dashboard\nlogfire.pydantic.dev"]
+    Monitor --> Traces["data/traces/\nJSON files"]
+
+    Planner --> LLM
+
+    style LLM fill:#10a37f,color:#fff
+    style KB fill:#1e3a5f,color:#fff
+    style Logfire fill:#7c3aed,color:#fff
+    style USDA fill:#1e40af,color:#fff
+    style GMaps fill:#166534,color:#fff
 ```
 
 ### Agent Tools
