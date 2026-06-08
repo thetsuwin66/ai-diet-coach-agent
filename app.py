@@ -556,7 +556,7 @@ else:
     # Main tabs
     # -----------------------------------------------------------------------
     st.title("AI Diet Coach")
-    tab_chat, tab_plan, tab_progress = st.tabs(["Chat", "Weekly Meal Plan", "Progress"])
+    tab_chat, tab_plan, tab_progress, tab_monitor = st.tabs(["Chat", "Weekly Meal Plan", "Progress", "Monitoring"])
 
     with tab_chat:
         if not st.session_state.messages:
@@ -893,3 +893,102 @@ else:
                         </div>
                     </div>
                     """, unsafe_allow_html=True)
+
+    # -----------------------------------------------------------------------
+    # Tab: Monitoring
+    # -----------------------------------------------------------------------
+    with tab_monitor:
+        import pandas as pd
+
+        st.subheader("Monitoring Dashboard")
+        st.caption("Every agent interaction is logged as a JSON trace in `data/traces/`.")
+
+        all_traces = load_all_traces()
+
+        if not all_traces:
+            st.info("No traces recorded yet. Start chatting to generate monitoring data.")
+        else:
+            # ── Top-level metrics ────────────────────────────────────────────
+            total   = len(all_traces)
+            avg_dur = sum(t["duration_seconds"] for t in all_traces) / total
+            total_in  = sum(t["input_tokens"]  for t in all_traces)
+            total_out = sum(t["output_tokens"] for t in all_traces)
+            rated   = [t for t in all_traces if t.get("feedback") is not None]
+            thumbs_up   = sum(1 for t in rated if t["feedback"] == 1)
+            thumbs_down = sum(1 for t in rated if t["feedback"] == -1)
+
+            c1, c2, c3, c4, c5 = st.columns(5)
+            c1.metric("Total conversations", total)
+            c2.metric("Avg response time",   f"{avg_dur:.1f}s")
+            c3.metric("Total input tokens",  f"{total_in:,}")
+            c4.metric("Total output tokens", f"{total_out:,}")
+            c5.metric("Feedback rated",      f"{len(rated)}/{total}")
+
+            st.divider()
+
+            df = pd.DataFrame([{
+                "timestamp":       t["timestamp"][:19].replace("T", " "),
+                "question":        t["question"][:60],
+                "duration_s":      t["duration_seconds"],
+                "input_tokens":    t["input_tokens"],
+                "output_tokens":   t["output_tokens"],
+                "tools_used":      len(t.get("tool_calls", [])),
+                "feedback":        {1: "👍", -1: "👎"}.get(t.get("feedback"), "—"),
+            } for t in all_traces])
+
+            # ── Response time trend ──────────────────────────────────────────
+            st.markdown("#### Response Time (seconds)")
+            st.line_chart(df.set_index("timestamp")["duration_s"], height=180)
+
+            # ── Token usage ──────────────────────────────────────────────────
+            st.markdown("#### Token Usage per Conversation")
+            st.bar_chart(
+                df.set_index("timestamp")[["input_tokens", "output_tokens"]],
+                height=180,
+            )
+
+            # ── Feedback ─────────────────────────────────────────────────────
+            st.divider()
+            st.markdown("#### User Feedback")
+            fb1, fb2, fb3 = st.columns(3)
+            fb1.metric("👍 Thumbs up",   thumbs_up)
+            fb2.metric("👎 Thumbs down", thumbs_down)
+            satisfaction = round(thumbs_up / len(rated) * 100) if rated else 0
+            fb3.metric("Satisfaction",  f"{satisfaction}%" if rated else "No ratings yet")
+
+            if rated:
+                st.progress(satisfaction / 100, text=f"{satisfaction}% positive feedback")
+
+            # ── Recent traces ─────────────────────────────────────────────────
+            st.divider()
+            st.markdown("#### Recent Conversations")
+            recent = df.tail(20).iloc[::-1]
+            st.dataframe(
+                recent[["timestamp", "question", "duration_s", "input_tokens", "output_tokens", "tools_used", "feedback"]],
+                use_container_width=True,
+                hide_index=True,
+                column_config={
+                    "timestamp":     st.column_config.TextColumn("Time"),
+                    "question":      st.column_config.TextColumn("Question"),
+                    "duration_s":    st.column_config.NumberColumn("Duration (s)", format="%.1f"),
+                    "input_tokens":  st.column_config.NumberColumn("Input tokens"),
+                    "output_tokens": st.column_config.NumberColumn("Output tokens"),
+                    "tools_used":    st.column_config.NumberColumn("Tools called"),
+                    "feedback":      st.column_config.TextColumn("Feedback"),
+                },
+            )
+
+            # ── Tool usage frequency ──────────────────────────────────────────
+            st.divider()
+            st.markdown("#### Tool Usage Frequency")
+            tool_counts: dict[str, int] = {}
+            for t in all_traces:
+                for tc in t.get("tool_calls", []):
+                    name = tc.get("name", "unknown")
+                    tool_counts[name] = tool_counts.get(name, 0) + 1
+            if tool_counts:
+                tool_df = pd.DataFrame(
+                    sorted(tool_counts.items(), key=lambda x: -x[1]),
+                    columns=["tool", "calls"]
+                ).set_index("tool")
+                st.bar_chart(tool_df, height=200)

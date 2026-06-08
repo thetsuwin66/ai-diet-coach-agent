@@ -366,18 +366,38 @@ Every agent interaction is saved as a JSON trace in `data/traces/`. Each trace c
 - Question and full answer
 - Tool calls made (name + arguments)
 - Token counts (input and output)
-- Response latency
+- Response latency in seconds
 - User feedback (thumbs up/down, collected in the chat UI)
 
-### Viewing traces
+### Accessing the monitoring dashboard
 
-Run the main app and check the **Session stats** panel in the sidebar. All-time stats (total sessions, average latency, feedback summary) are displayed there.
+Run the app and click the **Monitoring** tab:
 
-To inspect raw traces programmatically:
+```bash
+make run
+# then open http://localhost:8501 and click the "Monitoring" tab
+```
+
+The dashboard shows:
+
+| Panel | What it shows |
+|---|---|
+| Top metrics | Total conversations, avg response time, total tokens, feedback ratio |
+| Response time chart | Line chart of latency per conversation over time |
+| Token usage chart | Bar chart of input/output tokens per conversation |
+| User feedback | Thumbs up/down counts and satisfaction % with progress bar |
+| Recent conversations | Table of last 20 interactions with question, duration, tools called, feedback |
+| Tool usage frequency | Bar chart showing which tools the agent calls most often |
+
+### How logs are processed
+
+Each call to `run_agent()` in `agent/diet_agent.py` triggers `save_trace()` in `agent/monitoring.py`. The trace is serialised to JSON and written to `data/traces/<uuid>.json`. The monitoring tab reads all trace files on every render using `load_all_traces()`.
+
+To inspect traces programmatically:
 
 ```python
 from agent.monitoring import load_all_traces, print_summary
-print_summary()
+print_summary()   # prints totals: sessions, avg latency, token counts, feedback
 ```
 
 ### Turning traces into evaluation data
