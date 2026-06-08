@@ -75,10 +75,32 @@ Two approaches were considered:
 | **TF-IDF (minsearch)** | Zero cost, fast, no external API, works well for ingredient/name matching | Less semantic -- "lean meat" won't match "chicken breast" |
 | OpenAI embeddings + cosine similarity | Semantic search, handles synonyms | Costs money per query, adds latency, requires embedding store |
 
+**Evaluation results** (see `notebooks/03-retrieval-eval.ipynb`):
+
+15 test queries were run across 5 categories. Hit@3 = a relevant recipe appeared in the top 3 results.
+
+| Query type | TF-IDF Hit@3 | Embeddings Hit@3 |
+|---|---|---|
+| Exact match | 67% | 67% |
+| Category | 75% | 75% |
+| Ingredient | 50% | **100%** |
+| Synonym | 67% | 67% |
+| Vague/goal | 67% | **100%** |
+| **Overall** | **67%** | **80%** |
+
+| Metric | TF-IDF | Embeddings |
+|---|---|---|
+| Avg query latency | 4.8 ms | 200 ms |
+| Index build time | 0.02 s | ~8 s |
+| Cost per query | $0 | ~$0.0000002 |
+| External dependency | None | OpenAI API |
+
 **TF-IDF was chosen** because:
-1. Recipe search is keyword-heavy -- users say "chicken", "pasta", "Thai" -- exact term matching works well
-2. Zero cost and zero latency overhead for every query
-3. Retrieval was evaluated using the 60 evaluation scenarios in `evals/scenarios.csv` and the LLM judge confirmed the agent retrieves relevant recipes for all happy-path and varied-phrasing scenarios
+1. Recipe search is keyword-heavy -- users say "chicken", "pasta", "Thai" -- exact term matching works well for the dominant query types (exact, category)
+2. 42× faster per query (4.8ms vs 200ms) -- matters since every agent turn triggers retrieval
+3. No external API dependency -- search stays reliable even if OpenAI is down
+4. The 13% Hit@3 gap (ingredient and vague queries) is partially mitigated by the agent's multi-turn clarification -- users can rephrase in follow-up messages
+5. Zero cost at any scale
 
 The index is built at startup over five text fields (`name`, `category`, `area`, `ingredients`, `instructions`) using TF-IDF, giving strong recall for cuisine type, protein, and dish name queries.
 
