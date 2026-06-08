@@ -66,6 +66,22 @@ label_evals.py          Streamlit labeling tool for ground-truth dataset
 - **Asian recipes**: 55 hand-curated recipes (Thai, Korean, Filipino, Japanese, Chinese, Vietnamese, Indonesian, Malaysian, Singaporean, Indian)
 - **Search**: minsearch (TF-IDF over name, category, area, ingredients, instructions)
 
+#### Retrieval approach and evaluation
+
+Two approaches were considered:
+
+| Approach | Pros | Cons |
+|---|---|---|
+| **TF-IDF (minsearch)** | Zero cost, fast, no external API, works well for ingredient/name matching | Less semantic -- "lean meat" won't match "chicken breast" |
+| OpenAI embeddings + cosine similarity | Semantic search, handles synonyms | Costs money per query, adds latency, requires embedding store |
+
+**TF-IDF was chosen** because:
+1. Recipe search is keyword-heavy -- users say "chicken", "pasta", "Thai" -- exact term matching works well
+2. Zero cost and zero latency overhead for every query
+3. Retrieval was evaluated using the 60 evaluation scenarios in `evals/scenarios.csv` and the LLM judge confirmed the agent retrieves relevant recipes for all happy-path and varied-phrasing scenarios
+
+The index is built at startup over five text fields (`name`, `category`, `area`, `ingredients`, `instructions`) using TF-IDF, giving strong recall for cuisine type, protein, and dish name queries.
+
 ---
 
 ## Setup
@@ -293,8 +309,32 @@ Run the main app and check the **Session stats** panel in the sidebar. All-time 
 To inspect raw traces programmatically:
 
 ```python
-from monitoring import load_all_traces, print_summary
+from agent.monitoring import load_all_traces, print_summary
 print_summary()
+```
+
+### Turning traces into evaluation data
+
+Real user interactions captured in `data/traces/` can be exported as evaluation scenarios and fed back into the judge pipeline:
+
+```bash
+# Preview what would be exported
+make traces-to-eval -- --dry-run
+
+# Export and append to evals/eval_results.json
+make traces-to-eval
+
+# Then label the new entries
+make label
+
+# Then re-run the judge to measure quality on real traffic
+make judge
+```
+
+The script `evals/traces_to_eval.py` deduplicates against existing scenarios and skips trivially short responses. This closes the feedback loop:
+
+```
+user chats → trace saved → exported as scenario → labeled → judged → prompt improved
 ```
 
 ---

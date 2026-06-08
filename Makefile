@@ -2,15 +2,16 @@
 
 help:
 	@echo "Available commands:"
-	@echo "  make install       Install dependencies with uv"
-	@echo "  make run           Start the Streamlit app"
-	@echo "  make test          Run the test suite"
-	@echo "  make eval          Run batch evaluation (60 scenarios)"
-	@echo "  make judge         Run LLM judge and print alignment metrics"
-	@echo "  make label         Open the Streamlit labeling tool"
-	@echo "  make docker-build  Build the Docker image"
-	@echo "  make docker-up     Start the app with docker compose"
-	@echo "  make docker-down   Stop docker compose services"
+	@echo "  make install         Install dependencies with uv"
+	@echo "  make run             Start the Streamlit app"
+	@echo "  make test            Run the test suite"
+	@echo "  make eval            Run batch evaluation (60 scenarios)"
+	@echo "  make judge           Run LLM judge and print alignment metrics"
+	@echo "  make label           Open the Streamlit labeling tool"
+	@echo "  make traces-to-eval  Export user traces as new eval scenarios"
+	@echo "  make docker-build    Build the Docker image"
+	@echo "  make docker-up       Start the app with docker compose"
+	@echo "  make docker-down     Stop docker compose services"
 
 install:
 	uv sync
@@ -29,6 +30,9 @@ judge:
 
 label:
 	uv run streamlit run evals/label_evals.py --server.port 8502
+
+traces-to-eval:
+	uv run python evals/traces_to_eval.py
 
 docker-build:
 	docker build -t ai-diet-coach .
