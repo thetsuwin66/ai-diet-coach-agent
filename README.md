@@ -18,14 +18,26 @@ This agent specifically targets users in Southeast Asia who follow Asian diets (
 
 ### Screenshots
 
-| Chat | Weekly Meal Plan |
-|---|---|
-| ![Chat](docs/screenshots/chat.png) | ![Meal Plan](docs/screenshots/meal_plan.png) |
+| Chat|
+|---|
+| ![Chat](docs/screenshots/chat1.png) |
+| ![Chat](docs/screenshots/chat2.png) |
+| ![Chat](docs/screenshots/chat3.png) |
+| ![Chat](docs/screenshots/chat5.png) |
 
-| Progress Tracking | Monitoring Dashboard |
-|---|---|
-| ![Progress](docs/screenshots/progress.png) | ![Monitoring](docs/screenshots/monitoring.png) |
 
+| Meal Plan|
+|---|
+![Meal Plan](docs/screenshots/weekly_plan.png) |
+
+| Progress Tracking |
+|---|
+| ![Progress](docs/screenshots/progress.png) | 
+
+|  Monitoring Dashboard |
+|---|
+![Monitoring](docs/screenshots/monitoring_dashboard.png) |
+![Monitoring](docs/screenshots/logfire_monitor.png) |
 ---
 
 ## How to Use the Agent
