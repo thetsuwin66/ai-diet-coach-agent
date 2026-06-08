@@ -118,6 +118,41 @@ uv run streamlit run app.py
 
 Open [http://localhost:8501](http://localhost:8501) in your browser.
 
+---
+
+## Running with Docker
+
+### Option A — Docker Compose (recommended)
+
+```bash
+# Copy and fill in your API keys
+cp .env.example .env
+
+# Build and start the app
+docker compose up --build
+```
+
+Open [http://localhost:8501](http://localhost:8501).
+
+User data (profile, meal plan, tracking logs, traces) is persisted in the local `./data` folder via a volume mount.
+
+### Option B — Labeling tool alongside the app
+
+```bash
+docker compose --profile eval up --build
+```
+
+This starts two services:
+- `http://localhost:8501` — main diet coach app
+- `http://localhost:8502` — evaluation labeling tool
+
+### Option C — Docker only (no compose)
+
+```bash
+docker build -t ai-diet-coach .
+docker run -p 8501:8501 --env-file .env -v $(pwd)/data:/app/data ai-diet-coach
+```
+
 On first launch you will be prompted to create an account and complete a short onboarding questionnaire.
 
 ---

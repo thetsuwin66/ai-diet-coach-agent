@@ -6,3 +6,7 @@ __pycache__/
 .ipynb_checkpoints/
 .DS_Store
 *.pdf
+data/*
+!data/recipes.json
+!data/asian_recipes.json
+!data/.gitkeep

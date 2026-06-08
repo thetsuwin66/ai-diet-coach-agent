@@ -1,0 +1,16 @@
+.git
+.venv
+.env
+__pycache__
+*.pyc
+*.pyo
+.DS_Store
+.ipynb_checkpoints
+notebooks/
+.pytest_cache
+data/profile.json
+data/meal_plan.json
+data/tracking.json
+data/chat_memory.json
+data/traces/
+judge_results.json

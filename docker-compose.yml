@@ -1,0 +1,30 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    volumes:
+      # Persist user data (profile, meal plan, tracking, chat memory, traces)
+      - ./data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  labeler:
+    build: .
+    ports:
+      - "8502:8501"
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+    command: ["uv", "run", "streamlit", "run", "label_evals.py"]
+    profiles:
+      - eval
+    restart: unless-stopped
