@@ -28,6 +28,70 @@ This agent specifically targets users in Southeast Asia who follow Asian diets (
 
 ---
 
+## How to Use the Agent
+
+After logging in and completing onboarding, just type naturally in the chat. Here are example prompts for each capability:
+
+### 🍽️ Recipe recommendations
+```
+What Thai dishes do you have?
+Give me a high-protein dinner idea
+Show me vegetarian options
+I want something with chicken that's under 500 calories
+```
+
+### ⏱️ Time-constrained cooking
+```
+I only have 15 minutes to cook tonight
+Quick meal ideas for a busy weeknight
+Something I can make in under 30 minutes
+```
+
+### 📖 Full recipe with steps
+```
+How do I make Pad Thai? Give me the full recipe
+What are the ingredients for chicken tikka masala?
+Show me step-by-step how to cook beef stir-fry
+```
+
+### 📅 Weekly meal plan
+```
+Create my weekly meal plan
+Plan my meals for this week
+Generate a 7-day plan for me
+```
+
+### 🔄 Adjust the plan
+```
+I want omelette for Tuesday breakfast
+I have a dinner event on Friday, can you adjust my plan?
+I'm very busy on Wednesday, swap my meals for quick ones
+Change my Monday lunch to pad thai
+```
+
+### 🗺️ Restaurant suggestions
+```
+I don't have time to cook tonight, any restaurants near me?
+Find me healthy restaurants nearby
+Any vegetarian restaurants near my area?
+```
+
+### 🔢 Nutrition lookup
+```
+How many calories are in chicken breast?
+What are the macros for brown rice?
+How much protein is in salmon?
+```
+
+### 📊 Progress check
+```
+Am I on track with my weight loss?
+How have I been doing this week?
+Show me my meal adherence
+```
+
+---
+
 ## What It Does
 
 1. **Onboarding** — the agent interviews you to collect your weight, target, timeline, dietary restrictions, preferred cuisines, busy days, location, and body stats.
