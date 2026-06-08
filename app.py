@@ -1,12 +1,27 @@
 import os
 import time
 import uuid
-
-import streamlit as st
-from dotenv import load_dotenv
-
 from datetime import date
 
+# ── Load environment variables BEFORE importing agent modules ────────────────
+# Agent modules create OpenAI() at module level. The API key must be in
+# os.environ before those imports run, whether it comes from .env (local)
+# or st.secrets (Streamlit Cloud).
+from dotenv import load_dotenv
+load_dotenv()
+
+import streamlit as st
+
+# On Streamlit Cloud, push st.secrets into os.environ so agent modules
+# that call OpenAI() at import time find the key already set.
+for _key in ("OPENAI_API_KEY", "USDA_API_KEY", "GOOGLE_MAPS_API_KEY"):
+    if _key not in os.environ:
+        try:
+            os.environ[_key] = st.secrets[_key]
+        except (KeyError, FileNotFoundError):
+            pass
+
+# ── Now safe to import agent modules ─────────────────────────────────────────
 from agent.calorie_calculator import calculate_daily_target
 from agent.chat_memory import load_memory_context, save_session_memory
 from agent.diet_agent import run_agent
@@ -32,17 +47,6 @@ from agent.user_profile import (
     update_profile,
     verify_password,
 )
-
-load_dotenv()
-
-# On Streamlit Cloud, secrets are exposed via st.secrets -- push them into env
-# so all modules that use os.getenv() pick them up automatically.
-for _key in ("OPENAI_API_KEY", "USDA_API_KEY", "GOOGLE_MAPS_API_KEY"):
-    if _key not in os.environ:
-        try:
-            os.environ[_key] = st.secrets[_key]
-        except (KeyError, FileNotFoundError):
-            pass
 
 st.set_page_config(page_title="AI Diet Coach", page_icon="🥗", layout="wide")
 
